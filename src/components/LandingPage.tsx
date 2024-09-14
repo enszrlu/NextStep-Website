@@ -1,14 +1,19 @@
-'use client'
+'use client';
 
-import Link from 'next/link'
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { Coffee, BookOpen } from 'lucide-react'
-import CopyCode from './CopyCode'
-import { RiNextjsFill } from "react-icons/ri";
-import { SiFramer, SiTailwindcss, SiRadixui, SiGithub } from "react-icons/si";
+import Link from 'next/link';
+import { Button } from '@/components/ui/button';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+import { Coffee, BookOpen } from 'lucide-react';
+import CopyCode from './CopyCode';
+import { RiNextjsFill } from 'react-icons/ri';
+import { SiFramer, SiTailwindcss, SiRadixui, SiGithub } from 'react-icons/si';
 import { useNextStep } from 'nextstep';
-
 
 export function LandingPage() {
   const { startNextStep, closeNextStep } = useNextStep();
@@ -26,7 +31,10 @@ export function LandingPage() {
             <BookOpen className="w-5 h-5" />
             <span>Docs</span>
           </Link>
-          <Link href="https://github.com/enszrlu/NextStep" className="flex items-center space-x-2">
+          <Link
+            href="https://github.com/enszrlu/NextStep"
+            className="flex items-center space-x-2"
+          >
             <SiGithub className="w-5 h-5" />
             <span>GitHub</span>
           </Link>
@@ -40,23 +48,30 @@ export function LandingPage() {
       </header>
 
       <main className="container mx-auto py-12 space-y-24">
-      <section className="text-center space-y-6">
-            <h1 className="text-5xl font-bold">NextStep</h1>
-            <p className="text-xl max-w-2xl mx-auto">
-              A lightweight onboarding library for Next.js applications. Create engaging, interactive product tours with ease.
-            </p>
-            <div className="space-y-4">
-              <Button size="lg" onClick={() => onClickHandler("firsttour")}>Start NextStep Demo</Button>
-              <div>
-                <Link href="https://buymeacoffee.com/enszrlu">
-                  <Button variant="outline" size="lg" className="bg-yellow-400 text-gray-800 hover:bg-yellow-300 transition-colors">
-                    <Coffee className="w-5 h-5 mr-2" />
-                    Buy Me a Coffee
-                  </Button>
-                </Link>
-              </div>
+        <section className="text-center space-y-6">
+          <h1 className="text-5xl font-bold">NextStep</h1>
+          <p className="text-xl max-w-2xl mx-auto">
+            A lightweight onboarding library for Next.js applications. Create engaging,
+            interactive product tours with ease.
+          </p>
+          <div className="space-y-4">
+            <Button size="lg" onClick={() => onClickHandler('firsttour')}>
+              Start NextStep Demo
+            </Button>
+            <div>
+              <Link href="https://buymeacoffee.com/enszrlu">
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="bg-yellow-400 text-gray-800 hover:bg-yellow-300 transition-colors"
+                >
+                  <Coffee className="w-5 h-5 mr-2" />
+                  Buy Me a Coffee
+                </Button>
+              </Link>
             </div>
-          </section>
+          </div>
+        </section>
 
         <section className="text-center" id="tour1-step1">
           <h2 className="text-3xl font-semibold mb-6">Get Started</h2>
@@ -107,8 +122,8 @@ export function LandingPage() {
           <h2 className="text-3xl font-semibold mb-6 text-center">Quick Start Guide</h2>
           <ol className="list-decimal pl-6 space-y-4">
             <div id="tour1-step3">
-            <li>Install NextStep in your project using npm, yarn, or pnpm.</li>
-            <CopyCode />
+              <li>Install NextStep in your project using npm, yarn, or pnpm.</li>
+              <CopyCode />
             </div>
             <li id="tour1-step4">
               Wrap your app with the NextStepProvider in your global layout:
@@ -143,10 +158,13 @@ const steps = [
                 `}</code>
               </pre>
             </li>
-            <li id="tour1-step6">Add id attributes to your HTML elements to target them in your steps.</li>
-            <li id="tour1-step7">Use NextStep hook to control the tour from your components.
+            <li id="tour1-step6">
+              Add id attributes to your HTML elements to target them in your steps.
+            </li>
+            <li id="tour1-step7">
+              Use NextStep hook to control the tour from your components.
               <pre className="bg-muted px-4 py-0 rounded-md mt-2 overflow-x-auto">
-                  <code>{`
+                <code>{`
 import { useNextStep } from 'nextstep';
 ....
 
@@ -158,7 +176,10 @@ const onClickHandler = (tourName: string) => {
                   `}</code>
               </pre>
             </li>
-            <li id="tour1-step8">Optional: Create a custom Card to customize the appearance and behavior of NextStep to fit your app&apos;s needs.</li>
+            <li id="tour1-step8">
+              Optional: Create a custom Card to customize the appearance and behavior of
+              NextStep to fit your app&apos;s needs.
+            </li>
           </ol>
         </section>
       </main>
@@ -169,5 +190,5 @@ const onClickHandler = (tourName: string) => {
         </div>
       </footer>
     </div>
-  )
+  );
 }
