@@ -78,7 +78,9 @@ export function LandingPage() {
           <Card className="max-w-lg mx-auto">
             <CardHeader>
               <CardTitle>Install NextStep</CardTitle>
-              <CardDescription>Add NextStep to your project with npm</CardDescription>
+              <CardDescription>
+                Add NextStep to your project with your preferred package manager
+              </CardDescription>
             </CardHeader>
             <CardContent>
               <CopyCode />

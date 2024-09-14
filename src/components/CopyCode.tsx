@@ -20,43 +20,58 @@ import {
 } from '@/components/ui/menubar';
 
 function CopyCode() {
-  const inputRef = useRef<HTMLInputElement>(null);
   const { toast } = useToast();
 
-  const copyToClipboard = () => {
-    if (inputRef.current) {
-      navigator.clipboard
-        .writeText('npm install nextstep')
-        .then(() => {
-          toast({
-            title: 'Copied to clipboard',
-            variant: 'default',
-          });
-        })
-        .catch((err) => {
-          toast({
-            title: 'Failed to copy',
-            variant: 'destructive',
-          });
-          console.error('Failed to copy text: ', err);
+  const copyToClipboard = (text: string) => {
+    navigator.clipboard
+      .writeText(text)
+      .then(() => {
+        toast({
+          title: 'Copied to clipboard',
+          variant: 'default',
         });
-    }
+      })
+      .catch((err) => {
+        toast({
+          title: 'Failed to copy',
+          variant: 'destructive',
+        });
+        console.error('Failed to copy text: ', err);
+      });
   };
 
   return (
     <TooltipProvider>
       <Tooltip delayDuration={110}>
-        <TooltipTrigger asChild>
-          <div
-            className="flex w-full items-center justify-center gap-4 bg-muted p-2 rounded-md cursor-pointer"
-            onClick={copyToClipboard}
-          >
-            <code ref={inputRef} className="text-center font-mono  w-fit">
-              npm install nextstep
-            </code>
-            <Copy className="w-5 h-5" />
-          </div>
-        </TooltipTrigger>
+        <Menubar className="flex w-fit mx-auto bg-muted rounded-md cursor-pointer border-none">
+          <MenubarMenu>
+            <MenubarTrigger className="flex w-fit bg-muted rounded-md cursor-pointer border-none">
+              <TooltipTrigger asChild>
+                <div className="flex w-full items-center justify-center gap-4 bg-muted h-full rounded-md cursor-pointer">
+                  <code className="text-center font-mono  w-fit">
+                    npm install nextstep
+                  </code>
+                  <Copy className="w-5 h-5" />
+                </div>
+              </TooltipTrigger>
+            </MenubarTrigger>
+            <MenubarContent align="end" className="w-24">
+              <MenubarItem onClick={() => copyToClipboard('npm install nextstep')}>
+                npm
+              </MenubarItem>
+              <MenubarItem onClick={() => copyToClipboard('yarn add nextstep')}>
+                yarn
+              </MenubarItem>
+              <MenubarItem onClick={() => copyToClipboard('pnpm add nextstep')}>
+                pnpm
+              </MenubarItem>
+              <MenubarItem onClick={() => copyToClipboard('bun add nextstep')}>
+                bun
+              </MenubarItem>
+            </MenubarContent>
+          </MenubarMenu>
+        </Menubar>
+
         <TooltipContent>
           <p>Copy to clipboard</p>
         </TooltipContent>
