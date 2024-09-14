@@ -157,7 +157,9 @@ export function LandingPage() {
               Define your steps:
               <pre className="bg-muted px-4 py-0 rounded-md mt-2 overflow-x-auto">
                 <code>{`
-const steps = [
+import { Tour } from 'nextstepjs';
+
+const steps : Tour[] = [
   {
     tour: "mainTour",
     steps: [
@@ -181,7 +183,7 @@ const steps = [
               Use NextStep hook to control the tour from your components.
               <pre className="bg-muted px-4 py-0 rounded-md mt-2 overflow-x-auto">
                 <code>{`
-import { useNextStep } from 'nextstep';
+import { useNextStep } from 'nextstepjs';
 ....
 
 const { startNextStep, closeNextStep } = useNextStep();
