@@ -1,0 +1,149 @@
+'use client'
+
+import Link from 'next/link'
+import { Button } from "@/components/ui/button"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { Coffee, BookOpen } from 'lucide-react'
+import CopyCode from './CopyCode'
+import { RiNextjsFill } from "react-icons/ri";
+import { SiFramer, SiTailwindcss, SiRadixui, SiGithub } from "react-icons/si";
+
+
+export function LandingPage() {
+  return (
+    <div className="min-h-screen bg-background text-foreground">
+      <header className="container mx-auto py-6 flex justify-between items-center">
+        <div className="text-2xl font-bold">NextStep</div>
+        <nav className="flex items-center space-x-4">
+          <Link href="/docs" className="flex items-center space-x-2">
+            <BookOpen className="w-5 h-5" />
+            <span>Docs</span>
+          </Link>
+          <Link href="https://github.com/enszrlu/NextStep" className="flex items-center space-x-2">
+            <SiGithub className="w-5 h-5" />
+            <span>GitHub</span>
+          </Link>
+          <Link href="https://buymeacoffee.com/enszrlu">
+            <Button variant="outline" className="flex items-center space-x-2">
+              <Coffee className="w-5 h-5" />
+              <span>Support</span>
+            </Button>
+          </Link>
+        </nav>
+      </header>
+
+      <main className="container mx-auto py-12 space-y-24">
+      <section className="text-center space-y-6">
+            <h1 className="text-5xl font-bold">NextStep</h1>
+            <p className="text-xl max-w-2xl mx-auto">
+              A lightweight onboarding library for Next.js applications. Create engaging, interactive product tours with ease.
+            </p>
+            <div className="space-y-4">
+              <Button size="lg">Start NextStep Demo</Button>
+              <div>
+                <Link href="https://buymeacoffee.com/enszrlu">
+                  <Button variant="outline" size="lg" className="bg-yellow-400 text-gray-800 hover:bg-yellow-300 transition-colors">
+                    <Coffee className="w-5 h-5 mr-2" />
+                    Buy Me a Coffee
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </section>
+
+        <section className="text-center">
+          <h2 className="text-3xl font-semibold mb-6">Get Started</h2>
+          <Card className="max-w-lg mx-auto">
+            <CardHeader>
+              <CardTitle>Install NextStep</CardTitle>
+              <CardDescription>Add NextStep to your project with npm</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <CopyCode />
+            </CardContent>
+          </Card>
+        </section>
+
+        <section className="text-center">
+          <h2 className="text-3xl font-semibold mb-6">Built with</h2>
+          <div className="flex justify-center space-x-8">
+            <div className="flex flex-col items-center">
+              <RiNextjsFill className="w-16 h-16 mb-2" />
+              <span>Next.js</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <SiFramer className="w-16 h-16 mb-2" />
+              <span>Framer Motion</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <SiRadixui className="w-16 h-16 mb-2" />
+              <span>Radix UI</span>
+            </div>
+            <div className="flex flex-col items-center">
+              <SiTailwindcss className="w-16 h-16 mb-2" />
+              <span>Tailwind CSS</span>
+            </div>
+          </div>
+        </section>
+
+        <section className="text-center">
+          <h2 className="text-3xl font-semibold mb-6">Inspired by Onborda</h2>
+          <p className="text-xl mb-4">
+            NextStep inspired by the great work of the Onborda project.
+          </p>
+          <Link href="https://onborda.vercel.app/">
+            <Button variant="link">Visit Onborda</Button>
+          </Link>
+        </section>
+
+        <section className="max-w-3xl mx-auto">
+          <h2 className="text-3xl font-semibold mb-6 text-center">Quick Start Guide</h2>
+          <ol className="list-decimal pl-6 space-y-4">
+            <li>Install NextStep in your project using npm, yarn, or pnpm.</li>
+            <li>
+              Wrap your app with the NextStepProvider in your global layout:
+              <pre className="bg-muted p-2 rounded-md mt-2 overflow-x-auto">
+                <code>{`
+<NextStepProvider>
+  <NextStep steps={steps}>
+    {children}
+  </NextStep>
+</NextStepProvider>
+                `}</code>
+              </pre>
+            </li>
+            <li>
+              Define your steps:
+              <pre className="bg-muted p-2 rounded-md mt-2 overflow-x-auto">
+                <code>{`
+const steps = [
+  {
+    tour: "mainTour",
+    steps: [
+      {
+        title: "Welcome",
+        content: "Let's get started with NextStep!",
+        selector: "#step1",
+        // ... other step properties
+      },
+      // ... more steps
+    ]
+  }
+];
+                `}</code>
+              </pre>
+            </li>
+            <li>Add id attributes to your HTML elements to target them in your steps.</li>
+            <li>Customize the appearance and behavior of NextStep to fit your app&apos;s needs.</li>
+          </ol>
+        </section>
+      </main>
+
+      <footer className=" py-6 mt-24">
+        <div className="container mx-auto text-center">
+          <p>© 2024 NextStep. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+  )
+}
