@@ -9,11 +9,12 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Coffee, BookOpen } from 'lucide-react';
+import { Coffee, BookOpen, X } from 'lucide-react';
 import CopyCode from './CopyCode';
 import { RiNextjsFill } from 'react-icons/ri';
 import { SiFramer, SiTailwindcss, SiRadixui, SiGithub } from 'react-icons/si';
 import { useNextStep } from 'nextstep';
+import { PiXLogo } from 'react-icons/pi';
 
 export function LandingPage() {
   const { startNextStep } = useNextStep();
@@ -31,19 +32,26 @@ export function LandingPage() {
         <nav className="flex items-center space-x-4">
           <Link href="/docs" className="flex items-center space-x-2">
             <BookOpen className="w-5 h-5" />
-            <span>Docs</span>
+            <span className="hidden md:block">Docs</span>
           </Link>
           <Link
             href="https://github.com/enszrlu/NextStep"
             className="flex items-center space-x-2"
           >
             <SiGithub className="w-5 h-5" />
-            <span>GitHub</span>
+            <span className="hidden md:block">GitHub</span>
+          </Link>
+          {/* Twitter */}
+          <Link href="https://x.com/AlexZDevs" target="_blank">
+            <Button variant="outline" className="flex items-center space-x-2">
+              <PiXLogo className="w-5 h-5" />
+              <span className="hidden md:block">Twitter</span>
+            </Button>
           </Link>
           <Link href="https://buymeacoffee.com/enszrlu" id="tour1-step9">
             <Button variant="outline" className="flex items-center space-x-2">
               <Coffee className="w-5 h-5" />
-              <span>Support</span>
+              <span className="hidden md:block">Buy Me a Coffee</span>
             </Button>
           </Link>
         </nav>
