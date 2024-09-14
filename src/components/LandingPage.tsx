@@ -13,7 +13,7 @@ import { Coffee, BookOpen, X } from 'lucide-react';
 import CopyCode from './CopyCode';
 import { RiNextjsFill } from 'react-icons/ri';
 import { SiFramer, SiTailwindcss, SiRadixui, SiGithub } from 'react-icons/si';
-import { useNextStep } from 'nextstep';
+import { useNextStep } from 'nextstepjs';
 import { PiXLogo } from 'react-icons/pi';
 
 export function LandingPage() {

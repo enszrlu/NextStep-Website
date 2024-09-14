@@ -1,4 +1,4 @@
-import { Tour } from 'nextstep';
+import { Tour } from 'nextstepjs';
 import { MdInstallDesktop } from 'react-icons/md';
 import { BiBlanket } from 'react-icons/bi';
 import { PiStepsDuotone } from 'react-icons/pi';

@@ -2280,6 +2280,11 @@ next@14.2.11:
     "@next/swc-win32-ia32-msvc" "14.2.11"
     "@next/swc-win32-x64-msvc" "14.2.11"
 
+nextstepjs@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/nextstepjs/-/nextstepjs-1.0.1.tgz#023d5acf3ada8f88e3b110909d6601c6b52c1c39"
+  integrity sha512-pW3TvQpXIsFE/0/9dpaW42gDCLXgEuQ89MNMKMj2zrP/UL46PZ8dXJN3vPmkT541izhBSe8Jog3FYhoLNHsALw==
+
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
   resolved "https://registry.yarnpkg.com/normalize-path/-/normalize-path-3.0.0.tgz#0dcd69ff23a1c9b11fd0978316644a0388216a65"
