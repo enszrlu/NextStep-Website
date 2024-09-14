@@ -25,7 +25,9 @@ export function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground px-4">
       <header className="container mx-auto py-6 flex justify-between items-center">
-        <div className="text-2xl font-bold">NextStep</div>
+        <Link href="/" className="text-2xl font-bold">
+          NextStep
+        </Link>
         <nav className="flex items-center space-x-4">
           <Link href="/docs" className="flex items-center space-x-2">
             <BookOpen className="w-5 h-5" />
