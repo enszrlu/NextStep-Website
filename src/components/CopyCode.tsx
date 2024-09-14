@@ -56,16 +56,28 @@ function CopyCode() {
               </TooltipTrigger>
             </MenubarTrigger>
             <MenubarContent align="end" className="w-24">
-              <MenubarItem onClick={() => copyToClipboard('npm install nextstep')}>
+              <MenubarItem
+                onClick={() => copyToClipboard('npm install nextstep')}
+                className="cursor-pointer py-0.5"
+              >
                 npm
               </MenubarItem>
-              <MenubarItem onClick={() => copyToClipboard('yarn add nextstep')}>
+              <MenubarItem
+                onClick={() => copyToClipboard('yarn add nextstep')}
+                className="cursor-pointer py-0.5"
+              >
                 yarn
               </MenubarItem>
-              <MenubarItem onClick={() => copyToClipboard('pnpm add nextstep')}>
+              <MenubarItem
+                onClick={() => copyToClipboard('pnpm add nextstep')}
+                className="cursor-pointer py-0.5"
+              >
                 pnpm
               </MenubarItem>
-              <MenubarItem onClick={() => copyToClipboard('bun add nextstep')}>
+              <MenubarItem
+                onClick={() => copyToClipboard('bun add nextstep')}
+                className="cursor-pointer py-0.5"
+              >
                 bun
               </MenubarItem>
             </MenubarContent>

@@ -16,7 +16,7 @@ import { SiFramer, SiTailwindcss, SiRadixui, SiGithub } from 'react-icons/si';
 import { useNextStep } from 'nextstep';
 
 export function LandingPage() {
-  const { startNextStep, closeNextStep } = useNextStep();
+  const { startNextStep } = useNextStep();
 
   const onClickHandler = (tourName: string) => {
     startNextStep(tourName);
@@ -81,6 +81,8 @@ export function LandingPage() {
               <CardDescription>
                 Add NextStep to your project with your preferred package manager
               </CardDescription>
+
+              <div id="tour1-step3" />
             </CardHeader>
             <CardContent>
               <CopyCode />
@@ -123,9 +125,11 @@ export function LandingPage() {
         <section className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-semibold mb-6 text-center">Quick Start Guide</h2>
           <ol className="list-decimal pl-6 space-y-4">
-            <div id="tour1-step3">
+            <div>
               <li>Install NextStep in your project using npm, yarn, or pnpm.</li>
-              <CopyCode />
+              <div className="w-fit">
+                <CopyCode />
+              </div>
             </div>
             <li id="tour1-step4">
               Wrap your app with the NextStepProvider in your global layout:
@@ -186,7 +190,7 @@ const onClickHandler = (tourName: string) => {
         </section>
       </main>
 
-      <footer className="py-6 mt-24">
+      <footer className="py-6 mt-8">
         <div className="container mx-auto text-center">
           <p>© 2024 NextStep. All rights reserved.</p>
         </div>
