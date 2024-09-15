@@ -116,10 +116,7 @@ const DocsPage = () => {
                   </Link>{' '}
                   for more information.
                 </p>
-                <p className="mb-2">
-                  <strong>Note</strong>: This is only required if you're{' '}
-                  <strong>not using</strong> a custom component.
-                </p>
+
                 <p>Add the following to your Tailwind config:</p>
                 <CodeBlock
                   language={CodeBlocks.tailwindConfig.language}
