@@ -126,6 +126,7 @@ const steps : Tour[] = [
 | `side`           | `"top"`, `"bottom"`, `"left"`, `"right"` | Optional. Determines where the tooltip should appear relative to the selector.          |
 | `showControls`   | `boolean`                       | Optional. Determines whether control buttons (next, prev) should be shown if using the default card.           |
 | `showSkip`       | `boolean`                       | Optional. Determines whether skip button should be shown if using the default card.           |
+| `blockKeyboardControl` | `boolean`                       | Optional. Determines whether keyboard control should be blocked|
 | `pointerPadding` | `number`                        | Optional. The padding around the pointer (keyhole) highlighting the target element.             |
 | `pointerRadius`  | `number`                        | Optional. The border-radius of the pointer (keyhole) highlighting the target element.           |
 | `nextRoute`      | `string`                        | Optional. The route to navigate to using `next/navigation` when moving to the next step.                      |
@@ -209,7 +210,7 @@ Target anything in your app using the element's `id` attribute.
 | `onStepChange` | `(step: number) => void` | Callback function triggered when the step changes
 | `onComplete` | `() => void` | Callback function triggered when the tour completes
 | `onSkip` | `() => void` | Callback function triggered when the user skips the tour
-| `clickThroughOverlay` | `boolean` | Optional. If true, overlay background is not clickable, default is false
+| `clickThroughOverlay` | `boolean` | Optional. If true, overlay background is clickable, default is false
 
 
 ```tsx

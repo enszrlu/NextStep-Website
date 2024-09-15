@@ -1,7 +1,9 @@
 'use client';
 
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
+import React, { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
+
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import {
   Card,
   CardContent,
@@ -9,68 +11,454 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Coffee, BookOpen, X } from 'lucide-react';
-import CopyCode from './CopyCode';
-import { RiNextjsFill } from 'react-icons/ri';
-import { SiFramer, SiTailwindcss, SiRadixui, SiGithub } from 'react-icons/si';
-import { useNextStep } from 'nextstepjs';
-import { PiXLogo } from 'react-icons/pi';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import CodeBlock from './CodeBlock';
+import CodeBlocks from '@/lib/codeBlocks';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
+import CustomCard from './example-cards/CustomCard';
+import ShadcnCustomCard from './example-cards/ShadCnCard';
 
-export function DocsPage() {
-  const { startNextStep } = useNextStep();
-
-  const onClickHandler = (tourName: string) => {
-    startNextStep(tourName);
+const DocsPage = () => {
+  const fadeIn = {
+    initial: { opacity: 0, y: 20 },
+    animate: { opacity: 1, y: 0 },
+    transition: { duration: 0.5 },
   };
 
+  const router = useRouter();
+
+  const [tab, setTab] = useState('getting-started');
+
+  const handleTabChange = (value: string) => {
+    setTab(value);
+    router.push(`/docs?tab=${value}`);
+  };
+
+  // Read search params
+  const searchParams = useSearchParams();
+  const tabSearchParam = searchParams.get('tab');
+  useEffect(() => {
+    if (tabSearchParam) {
+      setTab(tabSearchParam);
+    }
+  }, [tabSearchParam]);
+
   return (
-    <div className="min-h-screen bg-background text-foreground px-4">
-      <header className="container mx-auto py-6 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold">
-          NextStep
-        </Link>
-        <nav className="flex items-center space-x-4">
-          <Link href="/docs" className="flex items-center space-x-2">
-            <BookOpen className="w-5 h-5" />
-            <span className="hidden md:block">Docs</span>
-          </Link>
-          <Link
-            href="https://github.com/enszrlu/NextStep"
-            className="flex items-center space-x-2"
-          >
-            <SiGithub className="w-5 h-5" />
-            <span className="hidden md:block">GitHub</span>
-          </Link>
-          {/* Twitter */}
-          <Link href="https://x.com/AlexZDevs" target="_blank">
-            <Button variant="outline" className="flex items-center space-x-2">
-              <PiXLogo className="w-5 h-5" />
-              <span className="hidden md:block">Twitter</span>
-            </Button>
-          </Link>
-          <Link href="https://buymeacoffee.com/enszrlu" id="tour1-step9">
-            <Button variant="outline" className="flex items-center space-x-2">
-              <Coffee className="w-5 h-5" />
-              <span className="hidden md:block">Buy Me a Coffee</span>
-            </Button>
-          </Link>
-        </nav>
-      </header>
+    <div className="container mx-auto py-12 max-w-screen-2xl">
+      <Tabs
+        defaultValue="getting-started"
+        className="w-full"
+        value={tab}
+        onValueChange={handleTabChange}
+      >
+        <TabsList className="grid w-full grid-cols-3">
+          <TabsTrigger value="getting-started">Getting Started</TabsTrigger>
+          <TabsTrigger value="api">API Reference</TabsTrigger>
+          <TabsTrigger value="examples">Examples</TabsTrigger>
+        </TabsList>
 
-      <main className="container mx-auto py-12 space-y-24">
-        <h1>Docs</h1>
-        <p>
-          Welcome to the NextStep documentation! Here, you'll find everything you need to
-          know about using NextStep in your Next.js projects. I am working on it and docs
-          will be released on 15th of September 2024.
-        </p>
-      </main>
+        <TabsContent value="getting-started">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-4xl font-semibold mb-2">
+                Getting Started with NextStep
+              </CardTitle>
+              <CardDescription className="text-xl">
+                Learn how to install and set up NextStep in your project.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+              <motion.div {...fadeIn} id="installation">
+                <h2 className="text-2xl font-semibold mb-2">Installation</h2>
+                <CodeBlock
+                  language={CodeBlocks.installPackage.language}
+                  code={CodeBlocks.installPackage.code}
+                />
+              </motion.div>
 
-      <footer className="py-6 mt-8">
-        <div className="container mx-auto text-center">
-          <p>© 2024 NextStep. All rights reserved.</p>
-        </div>
-      </footer>
+              <motion.div {...fadeIn} id="basic-setup">
+                <h2 className="text-2xl font-semibold mb-2">Basic Setup</h2>
+                <p className="mb-2">
+                  Wrap your application in <code>NextStepProvider</code> and{' '}
+                  <code>NextStep</code>, then supply the <code>steps</code> array to
+                  NextStep. See the{' '}
+                  <Link href="/docs?tab=examples#steps-example" className="text-primary">
+                    example
+                  </Link>{' '}
+                  for more information.
+                </p>
+                <CodeBlock
+                  language={CodeBlocks.basicSetup.language}
+                  code={CodeBlocks.basicSetup.code}
+                />
+              </motion.div>
+
+              <motion.div {...fadeIn} id="tailwind-configuration">
+                <h2 className="text-2xl font-semibold mb-2">Tailwind Configuration</h2>
+                <p className="mb-2">
+                  Tailwind CSS needs to scan the node module to include the used classes.
+                  See{' '}
+                  <Link
+                    href="https://tailwindcss.com/docs/content-configuration#configuring-source-paths"
+                    className="text-primary"
+                    target="_blank"
+                  >
+                    configuring source paths
+                  </Link>{' '}
+                  for more information.
+                </p>
+                <p className="mb-2">
+                  <strong>Note</strong>: This is only required if you're{' '}
+                  <strong>not using</strong> a custom component.
+                </p>
+                <p>Add the following to your Tailwind config:</p>
+                <CodeBlock
+                  language={CodeBlocks.tailwindConfig.language}
+                  code={CodeBlocks.tailwindConfig.code}
+                />
+              </motion.div>
+
+              <motion.div {...fadeIn} id="nextstep-hook">
+                <h2 className="text-2xl font-semibold mb-2">
+                  Using the useNextStep Hook
+                </h2>
+                <p className="mb-2">
+                  Control your tour programmatically from anywhere in your app. You can
+                  also trigger tour changes with events or other buttons within the UI.
+                </p>
+                <CodeBlock
+                  language={CodeBlocks.useNextStep.language}
+                  code={CodeBlocks.useNextStep.code}
+                />
+              </motion.div>
+
+              <motion.div {...fadeIn} id="keyboard-navigation">
+                <h2 className="text-2xl font-semibold mb-2">Keyboard Navigation</h2>
+                <p>NextStep supports the following keyboard shortcuts:</p>
+                <ul className="list-disc list-inside mt-2">
+                  <li>Right Arrow: Next step</li>
+                  <li>Left Arrow: Previous step</li>
+                  <li>Escape: Skip tour</li>
+                </ul>
+              </motion.div>
+
+              <motion.div {...fadeIn} id="localization">
+                <h2 className="text-2xl font-semibold mb-2">Localization</h2>
+                <p>
+                  While NextStep doesn't have built-in localization, you can easily switch
+                  between languages by supplying the `steps` array based on the current
+                  locale:
+                </p>
+                <CodeBlock
+                  language={CodeBlocks.localization.language}
+                  code={CodeBlocks.localization.code}
+                />
+              </motion.div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="api">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-4xl font-semibold mb-2">API Reference</CardTitle>
+              <CardDescription className="text-xl">
+                Detailed information about NextStep components and props.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <motion.div {...fadeIn} id="nextstep-props">
+                <h2 className="text-2xl font-semibold mb-2">NextStep Props</h2>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[180px]">Prop</TableHead>
+                      <TableHead className="w-[200px] lg:w-[400px] 2xl:w-[600px]">
+                        Type
+                      </TableHead>
+                      <TableHead>Description</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>children</TableCell>
+                      <TableCell>React.ReactNode</TableCell>
+                      <TableCell>Your website or application content</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>steps</TableCell>
+                      <TableCell>Tour[]</TableCell>
+                      <TableCell>
+                        Array of Tour objects defining each step of the onboarding
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>showNextStep</TableCell>
+                      <TableCell>boolean</TableCell>
+                      <TableCell>Controls visibility of the onboarding overlay</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>shadowRgb</TableCell>
+                      <TableCell>string</TableCell>
+                      <TableCell>
+                        RGB values for the shadow color surrounding the target area
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>shadowOpacity</TableCell>
+                      <TableCell>string</TableCell>
+                      <TableCell>
+                        Opacity value for the shadow surrounding the target area
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>cardComponent</TableCell>
+                      <TableCell>React.ComponentType</TableCell>
+                      <TableCell>
+                        Custom card component to replace the default one
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>cardTransition</TableCell>
+                      <TableCell>Transition</TableCell>
+                      <TableCell>
+                        Framer Motion transition object for step transitions
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>onStepChange</TableCell>
+                      <TableCell>(step: number) ={'>'} void</TableCell>
+                      <TableCell>
+                        Callback function triggered when the step changes
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>onComplete</TableCell>
+                      <TableCell>() ={'>'} void</TableCell>
+                      <TableCell>
+                        Callback function triggered when the tour completes
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>onSkip</TableCell>
+                      <TableCell>() ={'>'} void</TableCell>
+                      <TableCell>
+                        Callback function triggered when the user skips the tour
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>clickThroughOverlay</TableCell>
+                      <TableCell>boolean</TableCell>
+                      <TableCell>
+                        If true, overlay background is clickable, default is false
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </motion.div>
+
+              <motion.div {...fadeIn} id="step-object">
+                <h2 className="text-2xl font-semibold mb-2">Step Object</h2>
+                <Table>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead className="w-[180px]">Prop</TableHead>
+                      <TableHead className="w-[200px] lg:w-[400px] 2xl:w-[600px]">
+                        Type
+                      </TableHead>
+                      <TableHead>Description</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>icon</TableCell>
+                      <TableCell>React.ReactNode | string | null</TableCell>
+                      <TableCell>
+                        An icon or element to display alongside the step title
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>title</TableCell>
+                      <TableCell>string</TableCell>
+                      <TableCell>The title of your step</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>content</TableCell>
+                      <TableCell>React.ReactNode</TableCell>
+                      <TableCell>The main content or body of the step</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>selector</TableCell>
+                      <TableCell>string</TableCell>
+                      <TableCell>
+                        Optional. A string used to target an `id` that this step refers to
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>side</TableCell>
+                      <TableCell>
+                        "top" | "bottom" | "left" | "right" | "top-left" | "top-right" |
+                        "bottom-left" | "bottom-right" | "left-top" | "left-bottom" |
+                        "right-top" | "right-bottom"
+                      </TableCell>
+                      <TableCell>
+                        Optional. Determines where the tooltip should appear relative to
+                        the selector
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>showControls</TableCell>
+                      <TableCell>boolean</TableCell>
+                      <TableCell>
+                        Optional. Determines whether control buttons should be shown if
+                        using the default card
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>showSkip</TableCell>
+                      <TableCell>boolean</TableCell>
+                      <TableCell>
+                        Optional. Determines whether skip button should be shown if using
+                        the default card
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>blockKeyboardControl</TableCell>
+                      <TableCell>boolean</TableCell>
+                      <TableCell>
+                        Optional. Determines whether keyboard control should be blocked
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>pointerPadding</TableCell>
+                      <TableCell>number</TableCell>
+                      <TableCell>
+                        Optional. The padding around the pointer highlighting the target
+                        element
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>pointerRadius</TableCell>
+                      <TableCell>number</TableCell>
+                      <TableCell>
+                        Optional. The border-radius of the pointer highlighting the target
+                        element
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>nextRoute</TableCell>
+                      <TableCell>string</TableCell>
+                      <TableCell>
+                        Optional. The route to navigate to when moving to the next step
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>prevRoute</TableCell>
+                      <TableCell>string</TableCell>
+                      <TableCell>
+                        Optional. The route to navigate to when moving to the previous
+                        step
+                      </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </motion.div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+
+        <TabsContent value="examples">
+          <Card>
+            <CardHeader>
+              <CardTitle className="text-4xl font-semibold mb-2">Examples</CardTitle>
+              <CardDescription className="text-xl">
+                Code examples to help you get started with NextStep.
+              </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-6">
+              <motion.div {...fadeIn} id="custom-card-component">
+                <h2 className="text-2xl font-semibold mb-2">Custom Card Component</h2>
+                <CodeBlock
+                  language={CodeBlocks.customCard.language}
+                  code={CodeBlocks.customCard.code}
+                />
+                <CustomCard
+                  step={{
+                    icon: <>🚀</>,
+                    title: 'Custom Card Component',
+                    content: (
+                      <p>
+                        This is how example custom card component looks like.
+                        <br />
+                        <br />
+                        You can copy & modify it to create your own card component.
+                      </p>
+                    ),
+                    showControls: true,
+                    showSkip: true,
+                  }}
+                  currentStep={0}
+                  totalSteps={2}
+                  nextStep={() => {}}
+                  prevStep={() => {}}
+                  skipTour={() => {}}
+                  arrow={<></>}
+                />
+              </motion.div>
+
+              <motion.div {...fadeIn} id="steps-example">
+                <h2 className="text-2xl font-semibold mb-2">
+                  Custom Card Component with shadcn
+                </h2>
+                <CodeBlock
+                  language={CodeBlocks.shadcnCustomCard.language}
+                  code={CodeBlocks.shadcnCustomCard.code}
+                />
+                <ShadcnCustomCard
+                  step={{
+                    icon: <>🚀</>,
+                    title: 'Custom Card Component',
+                    content: (
+                      <p>
+                        This is how example shadcn card component looks like.
+                        <br />
+                        <br />
+                        You can copy & modify it to create your own card component.
+                      </p>
+                    ),
+                    showControls: true,
+                    showSkip: true,
+                  }}
+                  currentStep={0}
+                  totalSteps={2}
+                  nextStep={() => {}}
+                  prevStep={() => {}}
+                  skipTour={() => {}}
+                  arrow={<></>}
+                />
+              </motion.div>
+              <motion.div {...fadeIn} id="shadcn-custom-card">
+                <h2 className="text-2xl font-semibold mb-2">Example Steps</h2>
+                <CodeBlock
+                  language={CodeBlocks.exampleSteps.language}
+                  code={CodeBlocks.exampleSteps.code}
+                />
+              </motion.div>
+            </CardContent>
+          </Card>
+        </TabsContent>
+      </Tabs>
     </div>
   );
-}
+};
+
+export default DocsPage;
