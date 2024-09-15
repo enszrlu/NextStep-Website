@@ -100,23 +100,23 @@ export function LandingPage() {
           </Card>
         </section>
 
-        <section className="text-center w-fit mx-auto px-12" id="tour1-step2">
+        <section className="text-center w-fit mx-auto px-3 md:px-12" id="tour1-step2">
           <h2 className="text-3xl font-semibold mb-6">Built with</h2>
           <div className="flex justify-center space-x-8">
             <div className="flex flex-col items-center">
-              <RiNextjsFill className="w-16 h-16 mb-2" />
+              <RiNextjsFill className="h-10 w-10 md:w-16 md:h-16 mb-2" />
               <span>Next.js</span>
             </div>
             <div className="flex flex-col items-center">
-              <SiFramer className="w-16 h-16 mb-2" />
+              <SiFramer className="h-10 w-10 md:w-16 md:h-16 mb-2" />
               <span>Framer Motion</span>
             </div>
             <div className="flex flex-col items-center">
-              <SiRadixui className="w-16 h-16 mb-2" />
+              <SiRadixui className="h-10 w-10 md:w-16 md:h-16 mb-2" />
               <span>Radix UI</span>
             </div>
             <div className="flex flex-col items-center">
-              <SiTailwindcss className="w-16 h-16 mb-2" />
+              <SiTailwindcss className="h-10 w-10 md:w-16 md:h-16 mb-2" />
               <span>Tailwind CSS</span>
             </div>
           </div>
