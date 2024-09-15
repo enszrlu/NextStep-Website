@@ -38,14 +38,7 @@ export const metadata: Metadata = {
     locale: 'en_US',
   },
   twitter: {
-    images: [
-      {
-        url: 'https://nextstepjs.vercel.app/xThumbnail.png',
-        width: 1200,
-        height: 600,
-        alt: 'NextStep - Lightweight onboarding library for Next.js',
-      },
-    ],
+    images: 'https://nextstepjs.vercel.app/xThumbnail.png',
     site: '@AlexZDevs',
     creator: '@AlexZDevs',
     title: 'NextStep',
