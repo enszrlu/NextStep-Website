@@ -92,7 +92,7 @@ const steps: Tour[] = [
         showSkip: true,
         pointerPadding: 10,
         pointerRadius: 10,
-        nextRoute: '/docs',
+        // nextRoute: '/docs',
       },
       {
         icon: <GiArcheryTarget />,
@@ -130,7 +130,7 @@ const steps: Tour[] = [
         showSkip: true,
         pointerPadding: 10,
         pointerRadius: 10,
-        nextRoute: '/',
+        // nextRoute: '/',
       },
       {
         icon: <GiCampCookingPot />,
