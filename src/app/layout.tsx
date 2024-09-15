@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   openGraph: {
     images: [
       {
-        url: '/ogThumbnail.png',
+        url: 'https://nextstepjs.vercel.app/ogThumbnail.png',
         width: 1200,
         height: 630,
         alt: 'NextStep - Lightweight onboarding library for Next.js',
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   twitter: {
     images: [
       {
-        url: '/xThumbnail.png',
+        url: 'https://nextstepjs.vercel.app/xThumbnail.png',
         width: 1200,
         height: 600,
         alt: 'NextStep - Lightweight onboarding library for Next.js',
@@ -54,13 +54,13 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     title: 'NextStep',
-    startupImage: '/ogThumbnail.png',
+    startupImage: 'https://nextstepjs.vercel.app/ogThumbnail.png',
   },
   applicationName: 'NextStep',
   icons: {
-    icon: '/icon.png',
-    shortcut: '/icon.png',
-    apple: '/icon.png',
+    icon: 'https://nextstepjs.vercel.app/icon.png',
+    shortcut: 'https://nextstepjs.vercel.app/icon.png',
+    apple: 'https://nextstepjs.vercel.app/icon.png',
   },
 };
 
