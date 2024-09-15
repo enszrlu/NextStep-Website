@@ -9,12 +9,13 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import { Coffee, BookOpen, X } from 'lucide-react';
+import { Coffee } from 'lucide-react';
 import CopyCode from './CopyCode';
 import { RiNextjsFill } from 'react-icons/ri';
-import { SiFramer, SiTailwindcss, SiRadixui, SiGithub } from 'react-icons/si';
+import { SiFramer, SiTailwindcss, SiRadixui } from 'react-icons/si';
 import { useNextStep } from 'nextstepjs';
-import { PiXLogo } from 'react-icons/pi';
+import Navbar from './Navbar';
+import Footer from './Footer';
 
 export function LandingPage() {
   const { startNextStep } = useNextStep();
@@ -25,38 +26,6 @@ export function LandingPage() {
 
   return (
     <div className="min-h-screen bg-background text-foreground px-4">
-      <header className="container mx-auto py-6 flex justify-between items-center">
-        <Link href="/" className="text-2xl font-bold">
-          NextStep
-        </Link>
-        <nav className="flex items-center space-x-4">
-          <Link href="/docs" className="flex items-center space-x-2">
-            <BookOpen className="w-5 h-5" />
-            <span className="hidden md:block">Docs</span>
-          </Link>
-          <Link
-            href="https://github.com/enszrlu/NextStep"
-            className="flex items-center space-x-2"
-          >
-            <SiGithub className="w-5 h-5" />
-            <span className="hidden md:block">GitHub</span>
-          </Link>
-          {/* Twitter */}
-          <Link href="https://x.com/AlexZDevs" target="_blank">
-            <Button variant="outline" className="flex items-center space-x-2">
-              <PiXLogo className="w-5 h-5" />
-              <span className="hidden md:block">Twitter</span>
-            </Button>
-          </Link>
-          <Link href="https://buymeacoffee.com/enszrlu" id="tour1-step9">
-            <Button variant="outline" className="flex items-center space-x-2">
-              <Coffee className="w-5 h-5" />
-              <span className="hidden md:block">Buy Me a Coffee</span>
-            </Button>
-          </Link>
-        </nav>
-      </header>
-
       <main className="container mx-auto py-12 space-y-24">
         <section className="text-center space-y-6">
           <h1 className="text-5xl font-bold">NextStep</h1>
@@ -201,12 +170,6 @@ const onClickHandler = (tourName: string) => {
           </ol>
         </section>
       </main>
-
-      <footer className="py-6 mt-8">
-        <div className="container mx-auto text-center">
-          <p>© 2024 NextStep. All rights reserved.</p>
-        </div>
-      </footer>
     </div>
   );
 }
