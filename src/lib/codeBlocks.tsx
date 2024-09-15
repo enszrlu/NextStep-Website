@@ -49,6 +49,44 @@ export default function Layout({ children }) {
 }
 `,
 };
+const basicSetupShorter = {
+  language: 'tsx',
+  code: `
+import { NextStepProvider, NextStep } from 'nextstepjs';
+
+export default function Layout({ children }) {
+  return (
+    <NextStepProvider>
+      <NextStep steps={steps}>
+        {children}
+      </NextStep>
+    </NextStepProvider>
+  );
+}
+`,
+};
+
+const tourDefinition = {
+  language: 'tsx',
+  code: `
+import { Tour } from 'nextstepjs';
+
+const steps : Tour[] = [
+  {
+    tour: "mainTour",
+    steps: [
+      {
+        title: "Welcome",
+        content: "Let's get started with NextStep!",
+        selector: "#step1",
+        // ... other step properties
+      },
+      // ... more steps
+    ]
+  }
+];
+`,
+};
 
 const tailwindConfig = {
   language: 'javascript',
@@ -450,10 +488,12 @@ export default steps;
 export default {
   installPackage,
   basicSetup,
+  basicSetupShorter,
   tailwindConfig,
   useNextStep,
   localization,
   customCard,
   shadcnCustomCard,
   exampleSteps,
+  tourDefinition,
 };

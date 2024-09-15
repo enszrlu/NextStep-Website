@@ -14,8 +14,8 @@ import CopyCode from './CopyCode';
 import { RiNextjsFill } from 'react-icons/ri';
 import { SiFramer, SiTailwindcss, SiRadixui } from 'react-icons/si';
 import { useNextStep } from 'nextstepjs';
-import Navbar from './Navbar';
-import Footer from './Footer';
+import CodeBlock from './CodeBlock';
+import CodeBlocks from '@/lib/codeBlocks';
 
 export function LandingPage() {
   const { startNextStep } = useNextStep();
@@ -112,60 +112,37 @@ export function LandingPage() {
             </div>
             <li id="tour1-step4">
               Wrap your app with the NextStepProvider in your global layout:
-              <pre className="bg-muted px-4 py-0 rounded-md mt-2 overflow-x-auto">
-                <code>{`
-<NextStepProvider>
-  <NextStep steps={steps}>
-    {children}
-  </NextStep>
-</NextStepProvider>
-                `}</code>
-              </pre>
+              <CodeBlock
+                language={CodeBlocks.basicSetupShorter.language}
+                code={CodeBlocks.basicSetupShorter.code}
+              />
             </li>
             <li id="tour1-step5">
               Define your steps:
-              <pre className="bg-muted px-4 py-0 rounded-md mt-2 overflow-x-auto">
-                <code>{`
-import { Tour } from 'nextstepjs';
-
-const steps : Tour[] = [
-  {
-    tour: "mainTour",
-    steps: [
-      {
-        title: "Welcome",
-        content: "Let's get started with NextStep!",
-        selector: "#step1",
-        // ... other step properties
-      },
-      // ... more steps
-    ]
-  }
-];
-                `}</code>
-              </pre>
+              <CodeBlock
+                language={CodeBlocks.tourDefinition.language}
+                code={CodeBlocks.tourDefinition.code}
+              />
             </li>
             <li id="tour1-step6">
               Add id attributes to your HTML elements to target them in your steps.
             </li>
             <li id="tour1-step7">
               Use NextStep hook to control the tour from your components.
-              <pre className="bg-muted px-4 py-0 rounded-md mt-2 overflow-x-auto">
-                <code>{`
-import { useNextStep } from 'nextstepjs';
-....
-
-const { startNextStep, closeNextStep } = useNextStep();
-
-const onClickHandler = (tourName: string) => {
-  startNextStep(tourName);
-};
-                  `}</code>
-              </pre>
+              <CodeBlock
+                language={CodeBlocks.useNextStep.language}
+                code={CodeBlocks.useNextStep.code}
+              />
             </li>
             <li id="tour1-step8">
+              You need to add below code to your tailwind.config.js. <br />
+              <br />
               Optional: Create a custom Card to customize the appearance and behavior of
               NextStep to fit your app&apos;s needs.
+              <CodeBlock
+                language={CodeBlocks.tailwindConfig.language}
+                code={CodeBlocks.tailwindConfig.code}
+              />
             </li>
           </ol>
         </section>

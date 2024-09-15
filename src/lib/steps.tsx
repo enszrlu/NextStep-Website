@@ -134,17 +134,13 @@ const steps: Tour[] = [
       },
       {
         icon: <GiCampCookingPot />,
-        title: 'For cookers',
+        title: 'Ready to Cook',
         content: (
           <>
-            NextStep lets you use your own Card component.
+            One last step to make your tour ready.
             <br />
             <br />
-            Create it with your favorite framework. We recommend you reviewing{' '}
-            <a className="text-primary" href="/docs" target="_blank">
-              example implementation
-            </a>
-            .
+            Add TailwindCSS configuration to your project.
           </>
         ),
         selector: '#tour1-step8',
