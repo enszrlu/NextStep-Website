@@ -4,6 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { NextStepProvider, NextStep } from 'nextstepjs';
 import steps from '@/components/steps';
+import { Analytics } from '@vercel/analytics/react';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -72,7 +73,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextStepProvider>
-          <NextStep steps={steps}>{children}</NextStep>
+          <NextStep steps={steps}>
+            {children}
+            <Analytics />
+          </NextStep>
         </NextStepProvider>
         <Toaster />
       </body>
