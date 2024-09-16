@@ -175,6 +175,9 @@ const steps: Tour[] = [
               GitHub
             </a>
             !
+            <br />
+            <br />
+            ⭐️⭐️⭐️⭐️⭐️
           </>
         ),
         side: 'top',
