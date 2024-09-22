@@ -2539,10 +2539,10 @@ next@14.2.11:
     "@next/swc-win32-ia32-msvc" "14.2.11"
     "@next/swc-win32-x64-msvc" "14.2.11"
 
-nextstepjs@^1.1.0-beta.0:
-  version "1.1.0-beta.0"
-  resolved "https://registry.yarnpkg.com/nextstepjs/-/nextstepjs-1.1.0-beta.0.tgz#0a83f05cd06bf7d79f5ac49e581eaac357b1b3ba"
-  integrity sha512-NaUBL1ZcSkVNwDvgiEWBCB4xpvYjRr5T18xIpgEvdYaAiBKGL4nnwW1hm0miLyamFY3887K+PepAhhAHwZZoog==
+nextstepjs@^1.1.0-beta.1:
+  version "1.1.0-beta.1"
+  resolved "https://registry.yarnpkg.com/nextstepjs/-/nextstepjs-1.1.0-beta.1.tgz#b5fa890aa7673a7672f8f9dee7ebe05aa83fe4ea"
+  integrity sha512-9IkIGoWmdRKSgJvRHmybfJshQNaljoA3xWG6Z76AAWIPaOmLgf2NcSgSnXs9mgMk9v9SwoehP8wHqRR8XwqxrA==
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"
