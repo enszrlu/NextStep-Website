@@ -49,7 +49,7 @@ function CopyCode() {
               <TooltipTrigger asChild>
                 <div className="flex w-full items-center justify-center gap-4 bg-muted h-full rounded-md cursor-pointer">
                   <code className="text-center font-mono  w-fit">
-                    npm install nextstepjs
+                    npm install nextstepjs framer-motion
                   </code>
                   <Copy className="w-5 h-5" />
                 </div>
@@ -57,25 +57,25 @@ function CopyCode() {
             </MenubarTrigger>
             <MenubarContent align="end" className="w-24">
               <MenubarItem
-                onClick={() => copyToClipboard('npm install nextstepjs')}
+                onClick={() => copyToClipboard('npm install nextstepjs framer-motion')}
                 className="cursor-pointer py-0.5"
               >
                 npm
               </MenubarItem>
               <MenubarItem
-                onClick={() => copyToClipboard('yarn add nextstepjs')}
+                onClick={() => copyToClipboard('yarn add nextstepjs framer-motion')}
                 className="cursor-pointer py-0.5"
               >
                 yarn
               </MenubarItem>
               <MenubarItem
-                onClick={() => copyToClipboard('pnpm add nextstepjs')}
+                onClick={() => copyToClipboard('pnpm add nextstepjs framer-motion')}
                 className="cursor-pointer py-0.5"
               >
                 pnpm
               </MenubarItem>
               <MenubarItem
-                onClick={() => copyToClipboard('bun add nextstepjs')}
+                onClick={() => copyToClipboard('bun add nextstepjs framer-motion')}
                 className="cursor-pointer py-0.5"
               >
                 bun
