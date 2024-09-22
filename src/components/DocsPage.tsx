@@ -82,6 +82,8 @@ const DocsPage = () => {
     }
   }, [searchParams]);
 
+  const isV1_1_and_above = version === VERSIONS[1];
+
   return (
     <div className="container mx-auto py-12 max-w-screen-2xl flex flex-col gap-4">
       <Select value={version} onValueChange={handleVersionChange}>
@@ -122,8 +124,16 @@ const DocsPage = () => {
               <motion.div {...fadeIn} id="installation">
                 <h2 className="text-2xl font-semibold mb-2">Installation</h2>
                 <CodeBlock
-                  language={CodeBlocks.installPackage.language}
-                  code={CodeBlocks.installPackage.code}
+                  language={
+                    isV1_1_and_above
+                      ? CodeBlocks.installPackageV1_1.language
+                      : CodeBlocks.installPackage.language
+                  }
+                  code={
+                    isV1_1_and_above
+                      ? CodeBlocks.installPackageV1_1.code
+                      : CodeBlocks.installPackage.code
+                  }
                 />
               </motion.div>
 
@@ -228,6 +238,31 @@ const DocsPage = () => {
                   NextStep will use Next.js's <code>next/navigation</code> to navigate to
                   the specified route.
                 </p>
+              </motion.div>
+
+              <motion.div
+                {...fadeIn}
+                id="nextstep-viewport"
+                className={isV1_1_and_above ? '' : 'hidden'}
+              >
+                <h2 className="text-2xl font-semibold mb-2">
+                  Using NextStepViewport and viewportID
+                </h2>
+                <p className="mb-2">
+                  When a selector is in a scrollable area, it is best to wrap the content
+                  of the scrollable area with <code>NextStepViewport</code>. This
+                  component takes <code>children</code> and an <code>id</code> as prop. By
+                  providing the <code>viewportID</code> to the step, NextStep will target
+                  this element within the viewport. This ensures that the step is anchored
+                  to the element even if the container is scrollable.
+                </p>
+                <Link href="/demo" className="text-primary">
+                  See demo here
+                </Link>
+                <CodeBlock
+                  language={CodeBlocks.nextStepViewport.language}
+                  code={CodeBlocks.nextStepViewport.code}
+                />
               </motion.div>
 
               <motion.div {...fadeIn} id="keyboard-navigation">
@@ -458,6 +493,14 @@ const DocsPage = () => {
                         step
                       </TableCell>
                     </TableRow>
+                    <TableRow className={isV1_1_and_above ? '' : 'hidden'}>
+                      <TableCell>viewportID</TableCell>
+                      <TableCell>string</TableCell>
+                      <TableCell>
+                        Optional. The id of the viewport to target. If not provided, the
+                        first viewport will be used.
+                      </TableCell>
+                    </TableRow>
                   </TableBody>
                 </Table>
               </motion.div>
@@ -538,8 +581,16 @@ const DocsPage = () => {
               <motion.div {...fadeIn} id="shadcn-custom-card">
                 <h2 className="text-2xl font-semibold mb-2">Example Steps</h2>
                 <CodeBlock
-                  language={CodeBlocks.exampleSteps.language}
-                  code={CodeBlocks.exampleSteps.code}
+                  language={
+                    isV1_1_and_above
+                      ? CodeBlocks.exampleStepsV1_1.language
+                      : CodeBlocks.exampleSteps.language
+                  }
+                  code={
+                    isV1_1_and_above
+                      ? CodeBlocks.exampleStepsV1_1.code
+                      : CodeBlocks.exampleSteps.code
+                  }
                 />
               </motion.div>
             </CardContent>
