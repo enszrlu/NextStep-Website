@@ -19,6 +19,13 @@ import {
   TableHeader,
   TableRow,
 } from '@/components/ui/table';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '@/components/ui/select';
 import CodeBlock from './CodeBlock';
 import CodeBlocks from '@/lib/codeBlocks';
 import Link from 'next/link';
@@ -26,6 +33,8 @@ import { useSearchParams } from 'next/navigation';
 import { useRouter } from 'next/navigation';
 import CustomCard from './example-cards/CustomCard';
 import ShadcnCustomCard from './example-cards/ShadCnCard';
+
+const VERSIONS = ['1.0.x', '1.1.x(beta)'];
 
 const DocsPage = () => {
   const fadeIn = {
@@ -37,23 +46,56 @@ const DocsPage = () => {
   const router = useRouter();
 
   const [tab, setTab] = useState('getting-started');
+  const [version, setVersion] = useState(VERSIONS[0]);
 
   const handleTabChange = (value: string) => {
     setTab(value);
-    router.push(`/docs?tab=${value}`);
+    updateURL(value, version);
+  };
+
+  const handleVersionChange = (value: string) => {
+    setVersion(value);
+    updateURL(tab, value);
+  };
+
+  const updateURL = (tabValue: string, versionValue: string) => {
+    router.push(`/docs?tab=${tabValue}&version=${versionValue}`);
   };
 
   // Read search params
   const searchParams = useSearchParams();
-  const tabSearchParam = searchParams.get('tab');
+
   useEffect(() => {
-    if (tabSearchParam) {
-      setTab(tabSearchParam);
+    const tabParam = searchParams.get('tab');
+    const versionParam = searchParams.get('version');
+
+    if (tabParam) {
+      setTab(tabParam);
     }
-  }, [tabSearchParam]);
+    if (versionParam) {
+      if (VERSIONS.includes(versionParam)) {
+        setVersion(versionParam);
+      } else {
+        setVersion(VERSIONS[0]);
+        updateURL(tab, VERSIONS[0]);
+      }
+    }
+  }, [searchParams]);
 
   return (
-    <div className="container mx-auto py-12 max-w-screen-2xl">
+    <div className="container mx-auto py-12 max-w-screen-2xl flex flex-col gap-4">
+      <Select value={version} onValueChange={handleVersionChange}>
+        <SelectTrigger className="w-[180px] self-end">
+          <SelectValue placeholder="Select version" />
+        </SelectTrigger>
+        <SelectContent>
+          {VERSIONS.map((v) => (
+            <SelectItem key={v} value={v}>
+              Version {v}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
       <Tabs
         defaultValue="getting-started"
         className="w-full"
