@@ -123,26 +123,26 @@ export function LandingPage() {
                   language={CodeBlocks.basicSetupShorterPagesRouter.language}
                   code={CodeBlocks.basicSetupShorterPagesRouter.code}
                 />
-                <h3 className="text-xl font-semibold mt-4">
-                  Troubleshooting for Pages Router
-                </h3>
-                <p className="mb-2">
-                  If you encounter an error related to module exports when using the Pages
-                  Router, it is likely due to a mismatch between ES modules (which use
-                  `export` statements) and CommonJS modules (which use `module.exports`).
-                  The `nextstepjs` package uses ES module syntax, but your Next.js project
-                  might be set up to use CommonJS.
-                </p>
-                <p className="mb-2">
-                  To resolve this issue, ensure that your Next.js project is configured to
-                  support ES modules. You can do this by updating your `next.config.js`
-                  file to include the following configuration:
-                </p>
-                <CodeBlock
-                  language={CodeBlocks.pagesRouterTroubleshooting.language}
-                  code={CodeBlocks.pagesRouterTroubleshooting.code}
-                />
               </div>
+              <h3 className="text-xl font-semibold mt-4">
+                Troubleshooting for Pages Router
+              </h3>
+              <p className="mb-2">
+                If you encounter an error related to module exports when using the Pages
+                Router, it is likely due to a mismatch between ES modules (which use
+                `export` statements) and CommonJS modules (which use `module.exports`).
+                The `nextstepjs` package uses ES module syntax, but your Next.js project
+                might be set up to use CommonJS.
+              </p>
+              <p className="mb-2">
+                To resolve this issue, ensure that your Next.js project is configured to
+                support ES modules. You can do this by updating your `next.config.js` file
+                to include the following configuration:
+              </p>
+              <CodeBlock
+                language={CodeBlocks.pagesRouterTroubleshooting.language}
+                code={CodeBlocks.pagesRouterTroubleshooting.code}
+              />
             </li>
             <li id="tour1-step5">
               Define your steps:
