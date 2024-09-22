@@ -16,16 +16,20 @@ import { SiFramer, SiTailwindcss, SiRadixui } from 'react-icons/si';
 import { useNextStep } from 'nextstepjs';
 import CodeBlock from './CodeBlock';
 import CodeBlocks from '@/lib/codeBlocks';
+import AnnouncementBanner from './AnnouncementBanner';
+import { useState } from 'react';
 
 export function LandingPage() {
   const { startNextStep } = useNextStep();
-
+  const [isBannerVisible, setIsBannerVisible] = useState(true);
   const onClickHandler = (tourName: string) => {
+    setIsBannerVisible(false);
     startNextStep(tourName);
   };
 
   return (
     <div className="min-h-screen bg-background text-foreground px-4">
+      <AnnouncementBanner isVisible={isBannerVisible} setIsVisible={setIsBannerVisible} />
       <main className="container mx-auto py-12 space-y-24">
         <section className="text-center space-y-6" id="hero-section">
           <h1 className="text-5xl font-bold">NextStep</h1>
