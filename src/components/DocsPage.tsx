@@ -69,7 +69,7 @@ const DocsPage = () => {
         <TabsContent value="getting-started">
           <Card>
             <CardHeader>
-              <CardTitle className="text-4xl font-semibold mb-2">
+              <CardTitle className="text-4xl font-semibold mb-2" id="getting-started">
                 Getting Started with NextStep
               </CardTitle>
               <CardDescription className="text-xl">
@@ -96,9 +96,36 @@ const DocsPage = () => {
                   </Link>{' '}
                   for more information.
                 </p>
+                <h3 className="text-xl font-semibold mt-4">
+                  App Router: Global `layout.tsx`
+                </h3>
                 <CodeBlock
                   language={CodeBlocks.basicSetup.language}
                   code={CodeBlocks.basicSetup.code}
+                />
+                <h3 className="text-xl font-semibold mt-4">Pages Router: `_app.tsx`</h3>
+                <CodeBlock
+                  language={CodeBlocks.basicSetupShorterPagesRouter.language}
+                  code={CodeBlocks.basicSetupShorterPagesRouter.code}
+                />
+                <h3 className="text-xl font-semibold mt-4">
+                  Troubleshooting for Pages Router
+                </h3>
+                <p className="mb-2">
+                  If you encounter an error related to module exports when using the Pages
+                  Router, it is likely due to a mismatch between ES modules (which use
+                  `export` statements) and CommonJS modules (which use `module.exports`).
+                  The `nextstepjs` package uses ES module syntax, but your Next.js project
+                  might be set up to use CommonJS.
+                </p>
+                <p className="mb-2">
+                  To resolve this issue, ensure that your Next.js project is configured to
+                  support ES modules. You can do this by updating your `next.config.js`
+                  file to include the following configuration:
+                </p>
+                <CodeBlock
+                  language={CodeBlocks.pagesRouterTroubleshooting.language}
+                  code={CodeBlocks.pagesRouterTroubleshooting.code}
                 />
               </motion.div>
 
@@ -136,6 +163,29 @@ const DocsPage = () => {
                   language={CodeBlocks.useNextStep.language}
                   code={CodeBlocks.useNextStep.code}
                 />
+              </motion.div>
+
+              <motion.div {...fadeIn} id="routing-during-tour">
+                <h2 className="text-2xl font-semibold mb-2">Routing During a Tour</h2>
+                <p className="mb-2">
+                  NextStep allows you to navigate between different routes during a tour
+                  using the <code>nextRoute</code> and <code>prevRoute</code> properties
+                  in the step object. These properties enable seamless transitions between
+                  different pages of your application.
+                </p>
+                <br />
+                <code>nextRoute</code>: Specifies the route to navigate to when the "Next"
+                button is clicked.
+                <br />
+                <code>prevRoute</code>: Specifies the route to navigate to when the
+                "Previous" button is clicked.
+                <br />
+                <br />
+                <p className="mt-2">
+                  When <code>nextRoute</code> or <code>prevRoute</code> is provided,
+                  NextStep will use Next.js's <code>next/navigation</code> to navigate to
+                  the specified route.
+                </p>
               </motion.div>
 
               <motion.div {...fadeIn} id="keyboard-navigation">

@@ -3,11 +3,14 @@ import { MdInstallDesktop } from 'react-icons/md';
 import { BiBlanket } from 'react-icons/bi';
 import { PiStepsDuotone } from 'react-icons/pi';
 import {
+  GiAnchor,
   GiArcheryTarget,
   GiCampCookingPot,
   GiCoffeeBeans,
   GiFishingHook,
 } from 'react-icons/gi';
+import { FaRoute } from 'react-icons/fa';
+import { HiDocument } from 'react-icons/hi2';
 
 const steps: Tour[] = [
   {
@@ -69,6 +72,25 @@ const steps: Tour[] = [
         ),
         selector: '#tour1-step4',
         side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <BiBlanket />,
+        title: 'Cosy Wrapper',
+        content: (
+          <p>
+            If you are using Pages Router, you need to wrap your app with the
+            NextStepProvider and NextStep in your _app.tsx.
+            <br />
+            <br />
+            Don't forget to update your next.config to enable esmExternals.
+          </p>
+        ),
+        selector: '#tour1-step4-pagesrouter',
+        side: 'right',
         showControls: true,
         showSkip: true,
         pointerPadding: 10,

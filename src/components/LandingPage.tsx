@@ -27,11 +27,11 @@ export function LandingPage() {
   return (
     <div className="min-h-screen bg-background text-foreground px-4">
       <main className="container mx-auto py-12 space-y-24">
-        <section className="text-center space-y-6">
+        <section className="text-center space-y-6" id="hero-section">
           <h1 className="text-5xl font-bold">NextStep</h1>
           <p className="text-xl max-w-2xl mx-auto">
-            A lightweight onboarding library for Next.js applications. Create engaging,
-            interactive product tours with ease.
+            A lightweight onboarding library for Next.js applications. <br />
+            Create engaging, interactive product tours with ease.
           </p>
           <div className="space-y-4">
             <Button size="lg" onClick={() => onClickHandler('firsttour')}>
@@ -81,10 +81,6 @@ export function LandingPage() {
               <span>Framer Motion</span>
             </div>
             <div className="flex flex-col items-center">
-              <SiRadixui className="h-10 w-10 md:w-16 md:h-16 mb-2" />
-              <span>Radix UI</span>
-            </div>
-            <div className="flex flex-col items-center">
               <SiTailwindcss className="h-10 w-10 md:w-16 md:h-16 mb-2" />
               <span>Tailwind CSS</span>
             </div>
@@ -110,12 +106,43 @@ export function LandingPage() {
                 <CopyCode />
               </div>
             </div>
-            <li id="tour1-step4">
-              Wrap your app with the NextStepProvider in your global layout:
-              <CodeBlock
-                language={CodeBlocks.basicSetupShorter.language}
-                code={CodeBlocks.basicSetupShorter.code}
-              />
+            <li>
+              <div id="tour1-step4">
+                Wrap your app with the NextStepProvider:
+                <h3 className="text-xl font-semibold mt-4">
+                  App Router: Global `layout.tsx`
+                </h3>
+                <CodeBlock
+                  language={CodeBlocks.basicSetupShorter.language}
+                  code={CodeBlocks.basicSetupShorter.code}
+                />
+              </div>
+              <div id="tour1-step4-pagesrouter">
+                <h3 className="text-xl font-semibold mt-4">Pages Router: `_app.tsx`</h3>
+                <CodeBlock
+                  language={CodeBlocks.basicSetupShorterPagesRouter.language}
+                  code={CodeBlocks.basicSetupShorterPagesRouter.code}
+                />
+                <h3 className="text-xl font-semibold mt-4">
+                  Troubleshooting for Pages Router
+                </h3>
+                <p className="mb-2">
+                  If you encounter an error related to module exports when using the Pages
+                  Router, it is likely due to a mismatch between ES modules (which use
+                  `export` statements) and CommonJS modules (which use `module.exports`).
+                  The `nextstepjs` package uses ES module syntax, but your Next.js project
+                  might be set up to use CommonJS.
+                </p>
+                <p className="mb-2">
+                  To resolve this issue, ensure that your Next.js project is configured to
+                  support ES modules. You can do this by updating your `next.config.js`
+                  file to include the following configuration:
+                </p>
+                <CodeBlock
+                  language={CodeBlocks.pagesRouterTroubleshooting.language}
+                  code={CodeBlocks.pagesRouterTroubleshooting.code}
+                />
+              </div>
             </li>
             <li id="tour1-step5">
               Define your steps:

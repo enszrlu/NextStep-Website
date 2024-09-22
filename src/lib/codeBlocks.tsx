@@ -2,16 +2,16 @@ const installPackage = {
   language: 'bash',
   code: `
 # npm
-npm i nextstepjs
+npm i nextstepjs framer-motion
 
 # pnpm
-pnpm add nextstepjs
+pnpm add nextstepjs framer-motion
 
 # yarn
-yarn add nextstepjs
+yarn add nextstepjs framer-motion
 
 # bun
-bun add nextstepjs
+bun add nextstepjs framer-motion
 `,
 };
 
@@ -66,6 +66,38 @@ export default function Layout({ children }) {
 `,
 };
 
+const basicSetupShorterPagesRouter = {
+  language: 'tsx',
+  code: `
+import { NextStepProvider, NextStep } from 'nextstepjs';
+
+export default function App({ Component, pageProps }: AppProps) {
+  return (
+    <NextStepProvider>
+      <NextStep steps={steps}>
+        <Component {...pageProps} />
+      </NextStep>
+    </NextStepProvider>
+  );
+}
+`,
+};
+
+const pagesRouterTroubleshooting = {
+  language: 'tsx',
+  code: `
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  experimental: {
+    esmExternals: true,
+  },
+  transpilePackages: ['nextstepjs'],
+};
+
+export default nextConfig;
+`,
+};
 const tourDefinition = {
   language: 'tsx',
   code: `
@@ -489,6 +521,8 @@ export default {
   installPackage,
   basicSetup,
   basicSetupShorter,
+  basicSetupShorterPagesRouter,
+  pagesRouterTroubleshooting,
   tailwindConfig,
   useNextStep,
   localization,
