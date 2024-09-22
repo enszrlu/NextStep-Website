@@ -11,6 +11,7 @@ import {
 } from 'react-icons/gi';
 import { FaRoute } from 'react-icons/fa';
 import { HiDocument } from 'react-icons/hi2';
+import Link from 'next/link';
 
 const steps: Tour[] = [
   {
@@ -211,20 +212,182 @@ const steps: Tour[] = [
     ],
   },
   {
-    tour: 'secondtour',
+    tour: 'demo',
     steps: [
       {
-        icon: <>👋👋</>,
-        title: 'Second tour, Step 1',
-        content: <>Second tour, first step!</>,
-        selector: '#nextstep-step1',
+        icon: <>👋</>,
+        title: 'Welcome to NextStep Demo',
+        content: (
+          <p>
+            This demo shows how to use NextStep in a variety of scenarios.
+            <br />
+            <br />
+            You can use buttons or arrow keys to navigate through the tour.
+          </p>
+        ),
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <GiAnchor />,
+        title: 'Anchor to any element',
+        content: (
+          <p>
+            You can anchor to any element in your app. Simply use the same id with step's
+            selector.
+          </p>
+        ),
+        selector: '#chart-1',
         side: 'top',
         showControls: true,
         showSkip: true,
         pointerPadding: 10,
         pointerRadius: 10,
-        nextRoute: '/foo',
-        prevRoute: '/bar',
+      },
+      {
+        icon: <GiAnchor />,
+        title: 'Anchor to any side',
+        content: (
+          <p>
+            You can place the card anywhere to selector. Simply change the side property
+            of your step.
+          </p>
+        ),
+        selector: '#chart-2',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        viewportID: 'dashboard-demo',
+      },
+      {
+        icon: <FaRoute />,
+        title: 'Route during the tour',
+        content: (
+          <p>
+            You can route to different pages during the tour. Simply provide nextRoute and
+            prevRoute in the step.
+            <br />
+            <br />
+            Pressing "Next" will take you to the home page.
+          </p>
+        ),
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        nextRoute: '/',
+      },
+      {
+        icon: <FaRoute />,
+        title: 'Route during the tour',
+        content: (
+          <p>
+            nextRoute brought you here from the demo page.
+            <br />
+            <br />
+            Pressing "Next" will take you back to the demo page.
+          </p>
+        ),
+        selector: '#hero-section',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        prevRoute: '/demo',
+        nextRoute: '/demo',
+      },
+      {
+        icon: <BiBlanket />,
+        title: 'Default Viewport',
+        content: (
+          <p>
+            NextStep uses document body as default viewport.
+            <br />
+            <br />
+            You can change this using NextStepViewport. This will be especially useful
+            when the element is in a scrollable area.
+            <br />
+            <br />
+            See next two steps to see how NextStepViewport works.
+            <br />
+            <br />
+            <Link className="text-primary" href="/docs" target="_blank">
+              Docs{' '}
+            </Link>
+            for more details.
+          </p>
+        ),
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        prevRoute: '/',
+      },
+      {
+        icon: <BiBlanket />,
+        title: 'Default Viewport',
+        content: <p>This is the default viewport. Scroll and see the results.</p>,
+        selector: '#form-username',
+        side: 'bottom',
+        showControls: true,
+        showSkip: false,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <BiBlanket />,
+        title: 'Custom Viewport',
+        content: (
+          <p>
+            This is with NextStepViewport. Scroll and see the results.
+            <br />
+            <br />
+            As you can see selector sticks to the element even though it is in a
+            scrollable area.
+          </p>
+        ),
+        selector: '#form-username',
+        side: 'bottom',
+        showControls: true,
+        showSkip: false,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        viewportID: 'form-demo',
+      },
+      {
+        icon: <BiBlanket />,
+        title: 'Custom Viewport',
+        content: <p>Another example with both horizontal and vertical scroll.</p>,
+        selector: '#product-3',
+        side: 'bottom-right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        viewportID: 'product-list',
+      },
+      {
+        icon: <HiDocument />,
+        title: 'Documentation',
+        content: (
+          <p>
+            Check out the documentation to learn more about NextStep.
+            <br />
+            <br />
+            <a className="text-primary" href="/docs">
+              Check docs
+            </a>{' '}
+          </p>
+        ),
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
       },
     ],
   },
