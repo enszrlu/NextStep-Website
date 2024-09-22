@@ -9,7 +9,7 @@ import { useEffect } from 'react';
 const CodeBlock = ({ language, code }: { language: string; code: string }) => {
   useEffect(() => {
     Prism.highlightAll();
-  }, []);
+  }, [language, code]);
 
   return (
     <pre className="rounded-md">
