@@ -186,6 +186,8 @@ const MyApp = ({ locale }) => (
 const customCard = {
   language: 'tsx',
   code: `
+'use client';
+
 import { CardComponentProps } from 'nextstepjs';
 
 const CustomCard: React.FC<CardComponentProps> = ({
@@ -254,6 +256,8 @@ export default CustomCard;
 const shadcnCustomCard = {
   language: 'tsx',
   code: `
+'use client';
+
 import { CardComponentProps } from 'nextstepjs';
 import {
   Card,

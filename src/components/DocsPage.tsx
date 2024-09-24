@@ -514,6 +514,12 @@ const DocsPage = () => {
               <CardTitle className="text-4xl font-semibold mb-2">Examples</CardTitle>
               <CardDescription className="text-xl">
                 Code examples to help you get started with NextStep.
+                <br />
+                <br />
+                <p className="text-destructive text-lg">
+                  Custom Card Component must be a client component. Make sure to add the
+                  "use client" directive.
+                </p>
               </CardDescription>
             </CardHeader>
             <CardContent className="space-y-6">
