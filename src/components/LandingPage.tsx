@@ -18,10 +18,12 @@ import CodeBlock from './CodeBlock';
 import CodeBlocks from '@/lib/codeBlocks';
 import AnnouncementBanner from './AnnouncementBanner';
 import { useState } from 'react';
+import NewsletterSignUp from './NewsletterSignUp';
 
 export function LandingPage() {
   const { startNextStep } = useNextStep();
   const [isBannerVisible, setIsBannerVisible] = useState(true);
+
   const onClickHandler = (tourName: string) => {
     setIsBannerVisible(false);
     startNextStep(tourName);
@@ -90,6 +92,8 @@ export function LandingPage() {
             </div>
           </div>
         </section>
+
+        <NewsletterSignUp />
 
         <section className="text-center">
           <h2 className="text-3xl font-semibold mb-6">Inspired by Onborda</h2>
