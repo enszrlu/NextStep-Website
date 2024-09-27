@@ -34,7 +34,7 @@ function NewsletterSignUp() {
   };
 
   return (
-    <section className="text-center max-w-md mx-auto">
+    <section className="text-center max-w-md mx-auto" id="newsletter-signup">
       <Card>
         <CardHeader>
           <CardDescription>

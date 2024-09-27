@@ -9,7 +9,7 @@ import {
   GiCoffeeBeans,
   GiFishingHook,
 } from 'react-icons/gi';
-import { FaRoute } from 'react-icons/fa';
+import { FaNewspaper, FaRoute } from 'react-icons/fa';
 import { HiDocument } from 'react-icons/hi2';
 import Link from 'next/link';
 
@@ -179,6 +179,23 @@ const steps: Tour[] = [
         content: <>If you like NextStep, please support the developer.</>,
         selector: '#tour1-step9',
         side: 'bottom-right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <FaNewspaper />,
+        title: 'Newsletter',
+        content: (
+          <p>
+            We are improving NextStep with CSS and React support, so you can use it with
+            any framework soon. <br /> <br />
+            Sign up to hear about our latest updates:
+          </p>
+        ),
+        selector: '#newsletter-signup',
+        side: 'top',
         showControls: true,
         showSkip: true,
         pointerPadding: 10,
