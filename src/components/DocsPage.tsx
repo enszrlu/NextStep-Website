@@ -34,7 +34,7 @@ import { useRouter } from 'next/navigation';
 import CustomCard from './example-cards/CustomCard';
 import ShadcnCustomCard from './example-cards/ShadCnCard';
 
-const VERSIONS = ['1.0.x', '1.1.x(beta)'];
+const VERSIONS = ['1.0.x', '1.1.x', '1.2.x-beta'];
 
 const DocsPage = () => {
   const fadeIn = {
@@ -46,7 +46,7 @@ const DocsPage = () => {
   const router = useRouter();
 
   const [tab, setTab] = useState('getting-started');
-  const [version, setVersion] = useState(VERSIONS[0]);
+  const [version, setVersion] = useState(VERSIONS[1]);
 
   const handleTabChange = (value: string) => {
     setTab(value);
@@ -82,7 +82,8 @@ const DocsPage = () => {
     }
   }, [searchParams]);
 
-  const isV1_1_and_above = version === VERSIONS[1];
+  const isV1_1_and_above = version === VERSIONS[1] || version === VERSIONS[2];
+  const isV1_2_and_above = version === VERSIONS[2];
 
   return (
     <div className="container mx-auto py-12 max-w-screen-2xl flex flex-col gap-4">
@@ -181,27 +182,29 @@ const DocsPage = () => {
                 />
               </motion.div>
 
-              <motion.div {...fadeIn} id="tailwind-configuration">
-                <h2 className="text-2xl font-semibold mb-2">Tailwind Configuration</h2>
-                <p className="mb-2">
-                  Tailwind CSS needs to scan the node module to include the used classes.
-                  See{' '}
-                  <Link
-                    href="https://tailwindcss.com/docs/content-configuration#configuring-source-paths"
-                    className="text-primary"
-                    target="_blank"
-                  >
-                    configuring source paths
-                  </Link>{' '}
-                  for more information.
-                </p>
+              {!isV1_2_and_above && (
+                <motion.div {...fadeIn} id="tailwind-configuration">
+                  <h2 className="text-2xl font-semibold mb-2">Tailwind Configuration</h2>
+                  <p className="mb-2">
+                    Tailwind CSS needs to scan the node module to include the used
+                    classes. See{' '}
+                    <Link
+                      href="https://tailwindcss.com/docs/content-configuration#configuring-source-paths"
+                      className="text-primary"
+                      target="_blank"
+                    >
+                      configuring source paths
+                    </Link>{' '}
+                    for more information.
+                  </p>
 
-                <p>Add the following to your Tailwind config:</p>
-                <CodeBlock
-                  language={CodeBlocks.tailwindConfig.language}
-                  code={CodeBlocks.tailwindConfig.code}
-                />
-              </motion.div>
+                  <p>Add the following to your Tailwind config:</p>
+                  <CodeBlock
+                    language={CodeBlocks.tailwindConfig.language}
+                    code={CodeBlocks.tailwindConfig.code}
+                  />
+                </motion.div>
+              )}
 
               <motion.div {...fadeIn} id="nextstep-hook">
                 <h2 className="text-2xl font-semibold mb-2">

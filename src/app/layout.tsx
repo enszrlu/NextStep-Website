@@ -21,13 +21,13 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nextstepjs.vercel.app/'),
+  metadataBase: new URL('https://nextstepjs.com/'),
   title: 'NextStep',
   description: 'Lightweight onboarding library for Next.js',
   openGraph: {
     images: [
       {
-        url: 'https://nextstepjs.vercel.app/ogThumbnail.png',
+        url: 'https://nextstepjs.com/ogThumbnail.png',
         width: 1200,
         height: 630,
         alt: 'NextStep - Lightweight onboarding library for Next.js',
@@ -37,11 +37,11 @@ export const metadata: Metadata = {
     siteName: 'NextStep',
     title: 'NextStep',
     description: 'Lightweight onboarding library for Next.js',
-    url: 'https://nextstepjs.vercel.app/',
+    url: 'https://nextstepjs.com/',
     locale: 'en_US',
   },
   twitter: {
-    images: 'https://nextstepjs.vercel.app/xThumbnail.png',
+    images: 'https://nextstepjs.com/xThumbnail.png',
     site: '@AlexZDevs',
     creator: '@AlexZDevs',
     title: 'NextStep',
@@ -50,13 +50,19 @@ export const metadata: Metadata = {
   },
   appleWebApp: {
     title: 'NextStep',
-    startupImage: 'https://nextstepjs.vercel.app/ogThumbnail.png',
+    startupImage: 'https://nextstepjs.com/ogThumbnail.png',
   },
   applicationName: 'NextStep',
   icons: {
-    icon: 'https://nextstepjs.vercel.app/icon.png',
-    shortcut: 'https://nextstepjs.vercel.app/icon.png',
-    apple: 'https://nextstepjs.vercel.app/icon.png',
+    icon: 'https://nextstepjs.com/icon.png',
+    shortcut: 'https://nextstepjs.com/icon.png',
+    apple: 'https://nextstepjs.com/icon.png',
+  },
+  alternates: {
+    canonical: 'https://nextstepjs.vercel.app/',
+    types: {
+      'text/html': 'https://www.nextstepjs.com/',
+    },
   },
 };
 

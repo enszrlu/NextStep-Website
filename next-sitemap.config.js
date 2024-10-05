@@ -1,6 +1,6 @@
 /** @type {import("next-sitemap").IConfig} */
 module.exports = {
-  siteUrl: 'https://nextstepjs.vercel.app/',
+  siteUrl: 'https://nextstepjs.com/',
   generateRobotsTxt: true,
   generateIndexSitemap: true,
 };

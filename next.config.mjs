@@ -3,7 +3,7 @@ const nextConfig = {
   images: {
     remotePatterns: [
       {
-        hostname: 'nextstepjs.vercel.app',
+        hostname: 'nextstepjs.com',
         protocol: 'https',
       },
     ],

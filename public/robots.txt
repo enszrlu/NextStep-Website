@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://nextstepjs.vercel.app/
+Host: https://nextstepjs.com/
 
 # Sitemaps
-Sitemap: https://nextstepjs.vercel.app/sitemap.xml
+Sitemap: https://nextstepjs.com/sitemap.xml
