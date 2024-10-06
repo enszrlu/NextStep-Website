@@ -3,7 +3,7 @@ User-agent: *
 Allow: /
 
 # Host
-Host: https://nextstepjs.com/
+Host: https://nextstepjs.com
 
 # Sitemaps
 Sitemap: https://nextstepjs.com/sitemap.xml

@@ -21,7 +21,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nextstepjs.com/'),
+  metadataBase: new URL('https://nextstepjs.com'),
   title: 'NextStep',
   description: 'Lightweight onboarding library for Next.js',
   openGraph: {
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     siteName: 'NextStep',
     title: 'NextStep',
     description: 'Lightweight onboarding library for Next.js',
-    url: 'https://nextstepjs.com/',
+    url: 'https://nextstepjs.com',
     locale: 'en_US',
   },
   twitter: {
@@ -59,10 +59,7 @@ export const metadata: Metadata = {
     apple: 'https://nextstepjs.com/icon.png',
   },
   alternates: {
-    canonical: 'https://nextstepjs.vercel.app/',
-    types: {
-      'text/html': 'https://www.nextstepjs.com/',
-    },
+    canonical: 'https://www.nextstepjs.com',
   },
 };
 
