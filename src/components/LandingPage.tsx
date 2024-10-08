@@ -56,6 +56,17 @@ export function LandingPage() {
               </Link>
             </div>
           </div>
+          {/* DEMO VIDEO */}
+          <video
+            className="w-full rounded-lg shadow-md shadow-gray-500 max-w-3xl mx-auto"
+            controls
+            autoPlay
+            loop
+            muted
+          >
+            <source src="/NextStepDemo.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+          </video>
         </section>
 
         <section className="text-center" id="tour1-step1">
