@@ -59,7 +59,7 @@ export const metadata: Metadata = {
     apple: 'https://nextstepjs.com/icon.png',
   },
   alternates: {
-    canonical: 'https://www.nextstepjs.com',
+    canonical: 'https://nextstepjs.vercel.app',
   },
 };
 
