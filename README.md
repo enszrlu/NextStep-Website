@@ -4,9 +4,9 @@
 
 **NextStep** is a lightweight onboarding library for Next.js applications, inspired by [Onborda](https://github.com/uixmat/onborda).
 
-It utilizes [framer-motion](https://www.framer.com/motion/) for animations and [tailwindcss](https://tailwindcss.com/) for styling.
+It utilizes [framer-motion](https://www.framer.com/motion/) for animations.
 
-> **Note** `NextStep` now supports non-tailwindcss projects with v1.2.0-beta.0. It is available with nextstepjs@beta.
+> **Note** `NextStep` now supports non-tailwindcss projects with v1.2 onwards.
 
 The library allows user to use custom cards (tooltips) for easier integration.
 
@@ -67,20 +67,6 @@ const nextConfig = {
 };
 
 export default nextConfig;
-```
-
-### Tailwind Config
-
-> **Note** `NextStep` now supports non-tailwindcss projects with v1.2.0-beta.0. It is available with nextstepjs@beta. This step is not required for v1.2.0-beta.0 and above.
-
-Tailwind CSS needs to scan the node module to include the used classes. See [configuring source paths](https://tailwindcss.com/docs/content-configuration#configuring-source-paths) for more information.
-
-```typescript
-const config: Config = {
-  content: [
-    './node_modules/nextstepjs/dist/**/*.{js,ts,jsx,tsx}', // Add this
-  ],
-};
 ```
 
 ### Custom Card
@@ -258,19 +244,20 @@ Here's an example of how to use `NextStepViewport`:
 
 ### NextStep Props
 
-| Property              | Type                     | Description                                                          |
-| --------------------- | ------------------------ | -------------------------------------------------------------------- |
-| `children`            | `React.ReactNode`        | Your website or application content                                  |
-| `steps`               | `Array[]`                | Array of Tour objects defining each step of the onboarding           |
-| `showNextStep`        | `boolean`                | Controls visibility of the onboarding overlay                        |
-| `shadowRgb`           | `string`                 | RGB values for the shadow color surrounding the target area          |
-| `shadowOpacity`       | `string`                 | Opacity value for the shadow surrounding the target area             |
-| `cardComponent`       | `React.ComponentType`    | Custom card component to replace the default one                     |
-| `cardTransition`      | `Transition`             | Framer Motion transition object for step transitions                 |
-| `onStepChange`        | `(step: number) => void` | Callback function triggered when the step changes                    |
-| `onComplete`          | `() => void`             | Callback function triggered when the tour completes                  |
-| `onSkip`              | `() => void`             | Callback function triggered when the user skips the tour             |
-| `clickThroughOverlay` | `boolean`                | Optional. If true, overlay background is clickable, default is false |
+| Property              | Type                                               | Description                                                          |
+| --------------------- | -------------------------------------------------- | -------------------------------------------------------------------- |
+| `children`            | `React.ReactNode`                                  | Your website or application content                                  |
+| `steps`               | `Array[]`                                          | Array of Tour objects defining each step of the onboarding           |
+| `showNextStep`        | `boolean`                                          | Controls visibility of the onboarding overlay                        |
+| `shadowRgb`           | `string`                                           | RGB values for the shadow color surrounding the target area          |
+| `shadowOpacity`       | `string`                                           | Opacity value for the shadow surrounding the target area             |
+| `cardComponent`       | `React.ComponentType`                              | Custom card component to replace the default one                     |
+| `cardTransition`      | `Transition`                                       | Framer Motion transition object for step transitions                 |
+| `onStart`             | `(tourName: string \| null) => void`               | Callback function triggered when the tour starts                     |
+| `onStepChange`        | `(step: number, tourName: string \| null) => void` | Callback function triggered when the step changes                    |
+| `onComplete`          | `(tourName: string \| null) => void`               | Callback function triggered when the tour completes                  |
+| `onSkip`              | `(step: number, tourName: string \| null) => void` | Callback function triggered when the user skips the tour             |
+| `clickThroughOverlay` | `boolean`                                          | Optional. If true, overlay background is clickable, default is false |
 
 ```tsx
 <NextStep
@@ -280,9 +267,9 @@ Here's an example of how to use `NextStepViewport`:
   shadowOpacity="0.8"
   cardComponent={CustomCard}
   cardTransition={{ duration: 0.5, type: 'spring' }}
-  onStepChange={(step) => console.log(`Step changed to ${step}`)}
-  onComplete={() => console.log('Tour completed')}
-  onSkip={() => console.log('Tour skipped')}
+  onStepChange={(step, tourName) => console.log(`Step changed to ${step} in ${tourName}`)}
+  onComplete={(tourName) => console.log(`Tour completed: ${tourName}`)}
+  onSkip={(step, tourName) => console.log(`Tour skipped: ${step} in ${tourName}`)}
   clickThroughOverlay={false}
 >
   {children}
