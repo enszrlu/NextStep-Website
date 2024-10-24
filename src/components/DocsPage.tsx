@@ -34,7 +34,7 @@ import { useRouter } from 'next/navigation';
 import CustomCard from './example-cards/CustomCard';
 import ShadcnCustomCard from './example-cards/ShadCnCard';
 
-const VERSIONS = ['1.0.x', '1.1.x', '1.2.x-beta'];
+const VERSIONS = ['1.0.x', '1.1.x', '1.2.x (latest)', '1.3.0-beta'];
 
 const DocsPage = () => {
   const fadeIn = {
@@ -46,7 +46,7 @@ const DocsPage = () => {
   const router = useRouter();
 
   const [tab, setTab] = useState('getting-started');
-  const [version, setVersion] = useState(VERSIONS[1]);
+  const [version, setVersion] = useState(VERSIONS[2]);
 
   const handleTabChange = (value: string) => {
     setTab(value);
@@ -82,8 +82,10 @@ const DocsPage = () => {
     }
   }, [searchParams]);
 
-  const isV1_1_and_above = version === VERSIONS[1] || version === VERSIONS[2];
-  const isV1_2_and_above = version === VERSIONS[2];
+  const isV1_1_and_above =
+    version === VERSIONS[1] || version === VERSIONS[2] || version === VERSIONS[3];
+  const isV1_2_and_above = version === VERSIONS[2] || version === VERSIONS[3];
+  const isV1_3_and_above = version === VERSIONS[3];
 
   return (
     <div className="container mx-auto py-12 max-w-screen-2xl flex flex-col gap-4">
@@ -268,6 +270,47 @@ const DocsPage = () => {
                 />
               </motion.div>
 
+              {isV1_3_and_above && (
+                <motion.div {...fadeIn} id="nextstep-callbacks">
+                  <h2 className="text-2xl font-semibold mb-2">NextStep Callbacks</h2>
+                  <p className="mb-2">
+                    NextStep provides several callback functions that allow you to hook
+                    into different stages of the tour. These callbacks are:
+                  </p>
+                  <ul className="list-disc list-inside mt-2 mb-4">
+                    <li>
+                      <code>onStart</code>: Called when a tour starts
+                    </li>
+                    <li>
+                      <code>onStepChange</code>: Called when the current step changes
+                    </li>
+                    <li>
+                      <code>onComplete</code>: Called when a tour is completed
+                    </li>
+                    <li>
+                      <code>onSkip</code>: Called when a tour is skipped
+                    </li>
+                  </ul>
+                  <p className="mb-4">
+                    You can use these callbacks to perform actions such as logging,
+                    analytics tracking, or triggering other parts of your application.
+                    Here's an example of how to use these callbacks:
+                  </p>
+                  <p className="mb-4 font-semibold bg-red-100 p-4 rounded-md">
+                    ⚠️ Important: Callbacks must be defined in a client component. Ensure
+                    that your component is using <code>'use client'</code> at the top.
+                  </p>
+                  <CodeBlock
+                    language={CodeBlocks.nextStepCallbacks.language}
+                    code={CodeBlocks.nextStepCallbacks.code}
+                  />
+                  <p className="mt-4">
+                    These callbacks provide you with powerful hooks to integrate NextStep
+                    deeply into your application's logic and user experience flow.
+                  </p>
+                </motion.div>
+              )}
+
               <motion.div {...fadeIn} id="keyboard-navigation">
                 <h2 className="text-2xl font-semibold mb-2">Keyboard Navigation</h2>
                 <p>NextStep supports the following keyboard shortcuts:</p>
@@ -362,22 +405,33 @@ const DocsPage = () => {
                       </TableCell>
                     </TableRow>
                     <TableRow>
+                      <TableCell>onStart</TableCell>
+                      <TableCell>(tourName?: string | null) ={'>'} void</TableCell>
+                      <TableCell>
+                        Callback function triggered when the tour starts
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
                       <TableCell>onStepChange</TableCell>
-                      <TableCell>(step: number) ={'>'} void</TableCell>
+                      <TableCell>
+                        (step: number, tourName?: string | null) ={'>'} void
+                      </TableCell>
                       <TableCell>
                         Callback function triggered when the step changes
                       </TableCell>
                     </TableRow>
                     <TableRow>
                       <TableCell>onComplete</TableCell>
-                      <TableCell>() ={'>'} void</TableCell>
+                      <TableCell>(tourName?: string | null) ={'>'} void</TableCell>
                       <TableCell>
                         Callback function triggered when the tour completes
                       </TableCell>
                     </TableRow>
                     <TableRow>
                       <TableCell>onSkip</TableCell>
-                      <TableCell>() ={'>'} void</TableCell>
+                      <TableCell>
+                        (step: number, tourName?: string | null) ={'>'} void
+                      </TableCell>
                       <TableCell>
                         Callback function triggered when the user skips the tour
                       </TableCell>
