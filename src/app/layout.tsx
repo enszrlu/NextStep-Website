@@ -8,6 +8,12 @@ import { Analytics } from '@vercel/analytics/react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
+import {
+  onNextStepStepChange,
+  onNextStepComplete,
+  onNextStepSkip,
+  onNextStepStart,
+} from '@/lib/callbacks';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -79,7 +85,13 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextStepProvider>
-          <NextStep steps={steps}>
+          <NextStep
+            steps={steps}
+            onStart={onNextStepStart}
+            onComplete={onNextStepComplete}
+            onSkip={onNextStepSkip}
+            onStepChange={onNextStepStepChange}
+          >
             <div className="min-h-screen bg-background text-foreground px-4">
               <Navbar />
               {children}
