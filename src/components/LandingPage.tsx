@@ -97,24 +97,10 @@ export function LandingPage() {
               <SiFramer className="h-10 w-10 md:w-16 md:h-16 mb-2" />
               <span>Framer Motion</span>
             </div>
-            <div className="flex flex-col items-center">
-              <SiTailwindcss className="h-10 w-10 md:w-16 md:h-16 mb-2" />
-              <span>Tailwind CSS</span>
-            </div>
           </div>
         </section>
 
         <NewsletterSignUp />
-
-        <section className="text-center">
-          <h2 className="text-3xl font-semibold mb-6">Inspired by Onborda</h2>
-          <p className="text-xl mb-4">
-            NextStep is inspired by the great work of the Onborda project.
-          </p>
-          <Link href="https://onborda.vercel.app/">
-            <Button variant="link">Visit Onborda</Button>
-          </Link>
-        </section>
 
         <section className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-semibold mb-6 text-center">Quick Start Guide</h2>
