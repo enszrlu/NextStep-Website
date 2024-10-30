@@ -67,6 +67,20 @@ export function LandingPage() {
             <source src="/NextStepDemo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
+          <div className="flex justify-center">
+            <a
+              href="https://fazier.com/launches/nextstep"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img
+                src="https://fazier.com/api/v1/public/badges/embed_image.svg?launch_id=1685&badge_type=daily&theme=neutral"
+                width="270"
+                alt="Example Image"
+                className="d-inline-block mt-3 rounded img-fluid"
+              />
+            </a>
+          </div>
         </section>
 
         <section className="text-center" id="tour1-step1">
