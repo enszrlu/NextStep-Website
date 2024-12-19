@@ -34,7 +34,7 @@ import { useRouter } from 'next/navigation';
 import CustomCard from './example-cards/CustomCard';
 import ShadcnCustomCard from './example-cards/ShadCnCard';
 
-const VERSIONS = ['1.0.x', '1.1.x', '1.2.x (latest)', '1.3.0-beta'];
+const VERSIONS = ['1.0.x', '1.1.x', '1.2.x', '1.3.x (latest)'];
 
 const DocsPage = () => {
   const fadeIn = {
@@ -46,7 +46,7 @@ const DocsPage = () => {
   const router = useRouter();
 
   const [tab, setTab] = useState('getting-started');
-  const [version, setVersion] = useState(VERSIONS[2]);
+  const [version, setVersion] = useState(VERSIONS[3]);
 
   const handleTabChange = (value: string) => {
     setTab(value);
