@@ -26,11 +26,8 @@ const AnnouncementBanner: React.FC<{
           <div>
             <p className="text-center sm:text-left">
               <span className="font-bold text-center sm:text-left">New:</span> NextStep
-              v1.2.0 is out now with support for non-tailwindcss projects!
-            </p>
-            <p className="italic text-sm text-center sm:text-left">
-              v.1.3.0-beta is out as well. Extending callback functions to enable actions
-              such as logging or analytics tracking.
+              v.1.3.0 is out! Extending callback functions to enable actions such as
+              logging or analytics tracking.
             </p>
           </div>
         </div>
