@@ -18,7 +18,7 @@ const AnnouncementBanner: React.FC<{
         <div className="flex flex-col sm:flex-row items-center space-y-2 sm:space-y-0 sm:space-x-4">
           <Image
             src="https://nextstepjs.com/icon.png"
-            alt="NextStep Logo"
+            alt="NextStep - Lightweight Next.js Onboarding Library Logo"
             width={32}
             height={32}
             className="rounded-full"
@@ -26,8 +26,7 @@ const AnnouncementBanner: React.FC<{
           <div>
             <p className="text-center sm:text-left">
               <span className="font-bold text-center sm:text-left">New:</span> NextStep
-              v.1.3.0 is out! Extending callback functions to enable actions such as
-              logging or analytics tracking.
+              v.2 beta is out now! You can now use NextStep with any react framework!
             </p>
           </div>
         </div>

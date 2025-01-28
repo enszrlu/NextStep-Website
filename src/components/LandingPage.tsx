@@ -67,17 +67,38 @@ export function LandingPage() {
             <source src="/NextStepDemo.mp4" type="video/mp4" />
             Your browser does not support the video tag.
           </video>
-          <div className="flex justify-center">
+          <div className="flex justify-center items-center gap-5 flex-col md:flex-row">
             <a
               href="https://fazier.com/launches/nextstep"
               target="_blank"
               rel="noopener noreferrer"
             >
               <img
+                src="https://fazier.com/api/v1/public/badges/embed_image.svg?launch_id=1685&badge_type=weekly&theme=neutral"
+                width="270"
+                alt="NextStep - Lightweight Next.js Onboarding Library Fazier Badge 2nd Product of the Week"
+                className="rounded img-fluid"
+              />
+            </a>
+            <a
+              href="https://fazier.com/launches/nextstep"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="h-full"
+            >
+              <img
                 src="https://fazier.com/api/v1/public/badges/embed_image.svg?launch_id=1685&badge_type=daily&theme=neutral"
                 width="270"
-                alt="Example Image"
-                className="d-inline-block mt-3 rounded img-fluid"
+                alt="NextStep - Lightweight Next.js Onboarding Library Fazier Badge Daily Product of the Day"
+                className="rounded img-fluid"
+              />
+            </a>
+            <a href="https://www.uneed.best/tool/nextstep" className="h-full">
+              <img
+                src="https://www.uneed.best/POTD3.png"
+                width={240}
+                alt="NextStep - Lightweight Next.js Onboarding Library Uneed POTD3 Badge"
+                className="h-full"
               />
             </a>
           </div>

@@ -3,6 +3,8 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { NextStepProvider, NextStep } from 'nextstepjs';
+
+import { useNextAdapter } from 'nextstepjs/adapters/next';
 import steps from '@/lib/steps';
 import { Analytics } from '@vercel/analytics/react';
 import Navbar from '@/components/Navbar';
@@ -28,21 +30,36 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nextstepjs.com'),
-  title: 'NextStep',
-  description: 'Lightweight onboarding library for Next.js',
+  title: 'NextStep - Next.js Onboarding Library',
+  description:
+    'Easily create user friendly onboarding experiences with our lightweight onboarding library for Next.js. Step by step guides, product tours, and interactive walkthroughs for seemless user flows.',
+  keywords: [
+    'next.js onboarding library',
+    'react onboarding',
+    'nextstepjs',
+    'onboarding wizard',
+    'product tour',
+    'interactive tutorial',
+    'next.js tutorial',
+    'next.js product demo',
+    'onboarding component',
+    'onboarding flow',
+    'onboarding guide',
+  ],
   openGraph: {
     images: [
       {
         url: 'https://nextstepjs.com/ogThumbnail.png',
         width: 1200,
         height: 630,
-        alt: 'NextStep - Lightweight onboarding library for Next.js',
+        alt: 'NextStep - Lightweight Next.js Onboarding Library',
       },
     ],
     type: 'website',
     siteName: 'NextStep',
-    title: 'NextStep',
-    description: 'Lightweight onboarding library for Next.js',
+    title: 'NextStep - Lightweight Next.js Onboarding Library',
+    description:
+      'Easily create user friendly onboarding experiences with our lightweight onboarding library for Next.js. Step by step guides, product tours, and interactive walkthroughs for seemless user flows.',
     url: 'https://nextstepjs.com',
     locale: 'en_US',
   },
@@ -50,12 +67,13 @@ export const metadata: Metadata = {
     images: 'https://nextstepjs.com/xThumbnail.png',
     site: '@AlexZDevs',
     creator: '@AlexZDevs',
-    title: 'NextStep',
-    description: 'Lightweight onboarding library for Next.js',
+    title: 'NextStep - Next.js Onboarding Library',
+    description:
+      'Easily create user friendly onboarding experiences with our lightweight onboarding library for Next.js. Step by step guides, product tours, and interactive walkthroughs for seemless user flows.',
     card: 'summary_large_image',
   },
   appleWebApp: {
-    title: 'NextStep',
+    title: 'NextStep - Lightweight Next.js Onboarding Library',
     startupImage: 'https://nextstepjs.com/ogThumbnail.png',
   },
   applicationName: 'NextStep',
@@ -82,6 +100,61 @@ export default function RootLayout({
           src="/stats/script.js"
           data-website-id="6c894b98-daec-4f19-bea8-321b5023644d"
         />
+        <Script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'SoftwareApplication',
+              name: 'NextStep.js',
+              description:
+                'NextStep.js is a lightweight and open-source onboarding library for Next.js applications. It helps developers create step-by-step guides, interactive tutorials, and product tours to enhance user experience seamlessly.',
+              url: 'https://nextstepjs.com',
+              applicationCategory: 'Developer Tools',
+              operatingSystem: 'Web',
+              offers: {
+                '@type': 'Offer',
+                price: '0',
+                priceCurrency: 'USD',
+                availability: 'https://schema.org/InStock',
+              },
+              author: {
+                '@type': 'Organization',
+                name: 'NextStep.js Team',
+                url: 'https://github.com/enszrlu/NextStep',
+              },
+              publisher: {
+                '@type': 'Organization',
+                name: 'NextStep.js Team',
+                url: 'https://github.com/enszrlu/NextStep',
+              },
+              softwareVersion: '1.2.0',
+              programmingLanguage: 'JavaScript',
+              datePublished: '2025-01-01',
+              license: 'https://opensource.org/licenses/MIT',
+              isAccessibleForFree: true,
+              keywords: [
+                'NextStep.js',
+                'Next.js onboarding library',
+                'product tours for Next.js',
+                'interactive tutorials',
+                'step-by-step guides',
+                'onboarding wizard',
+                'user onboarding library',
+                'Next.js tools',
+                'web onboarding',
+              ],
+              screenshot: 'https://nextstepjs.com/images/screenshot.png',
+              potentialAction: {
+                '@type': 'InstallAction',
+                target: {
+                  '@type': 'EntryPoint',
+                  urlTemplate: 'https://nextstepjs.com',
+                },
+              },
+            }),
+          }}
+        />
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextStepProvider>
@@ -91,6 +164,7 @@ export default function RootLayout({
             onComplete={onNextStepComplete}
             onSkip={onNextStepSkip}
             onStepChange={onNextStepStepChange}
+            navigationAdapter={useNextAdapter}
           >
             <div className="min-h-screen bg-background text-foreground px-4">
               <Navbar />
