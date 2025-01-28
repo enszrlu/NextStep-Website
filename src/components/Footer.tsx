@@ -13,6 +13,9 @@ const Footer = () => {
           <Link href="/faq" className="mx-2 text-primary hover:underline">
             FAQ
           </Link>
+          <Link href="/demo" className="mx-2 text-primary hover:underline">
+            Demo
+          </Link>
         </div>
       </div>
     </footer>
