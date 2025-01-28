@@ -103,56 +103,71 @@ export default function RootLayout({
         <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'SoftwareApplication',
-              name: 'NextStep.js',
-              description:
-                'NextStep.js is a lightweight and open-source onboarding library for Next.js applications. It helps developers create step-by-step guides, interactive tutorials, and product tours to enhance user experience seamlessly.',
-              url: 'https://nextstepjs.com',
-              applicationCategory: 'Developer Tools',
-              operatingSystem: 'Web',
-              offers: {
-                '@type': 'Offer',
-                price: '0',
-                priceCurrency: 'USD',
-                availability: 'https://schema.org/InStock',
-              },
-              author: {
-                '@type': 'Organization',
-                name: 'NextStep.js Team',
-                url: 'https://github.com/enszrlu/NextStep',
-              },
-              publisher: {
-                '@type': 'Organization',
-                name: 'NextStep.js Team',
-                url: 'https://github.com/enszrlu/NextStep',
-              },
-              softwareVersion: '1.2.0',
-              programmingLanguage: 'JavaScript',
-              datePublished: '2025-01-01',
-              license: 'https://opensource.org/licenses/MIT',
-              isAccessibleForFree: true,
-              keywords: [
-                'NextStep.js',
-                'Next.js onboarding library',
-                'product tours for Next.js',
-                'interactive tutorials',
-                'step-by-step guides',
-                'onboarding wizard',
-                'user onboarding library',
-                'Next.js tools',
-                'web onboarding',
-              ],
-              screenshot: 'https://nextstepjs.com/images/screenshot.png',
-              potentialAction: {
-                '@type': 'InstallAction',
-                target: {
-                  '@type': 'EntryPoint',
-                  urlTemplate: 'https://nextstepjs.com',
+            __html: JSON.stringify([
+              {
+                '@context': 'https://schema.org',
+                '@type': 'SoftwareApplication',
+                name: 'NextStep.js',
+                description:
+                  'NextStep.js is a lightweight and open-source onboarding library for Next.js applications. It helps developers create step-by-step guides, interactive tutorials, and product tours to enhance user experience seamlessly.',
+                url: 'https://nextstepjs.com',
+                applicationCategory: 'Developer Tools',
+                operatingSystem: 'Web',
+                offers: {
+                  '@type': 'Offer',
+                  price: '0',
+                  priceCurrency: 'USD',
+                  availability: 'https://schema.org/InStock',
+                },
+                author: {
+                  '@type': 'Organization',
+                  name: 'NextStep.js Team',
+                  url: 'https://github.com/enszrlu/NextStep',
+                },
+                publisher: {
+                  '@type': 'Organization',
+                  name: 'NextStep.js Team',
+                  url: 'https://github.com/enszrlu/NextStep',
+                },
+                softwareVersion: '1.2.0',
+                programmingLanguage: 'JavaScript',
+                datePublished: '2025-01-01',
+                license: 'https://opensource.org/licenses/MIT',
+                isAccessibleForFree: true,
+                keywords: [
+                  'NextStep.js',
+                  'Next.js onboarding library',
+                  'product tours for Next.js',
+                  'interactive tutorials',
+                  'step-by-step guides',
+                  'onboarding wizard',
+                  'user onboarding library',
+                  'Next.js tools',
+                  'web onboarding',
+                ],
+                screenshot: 'https://nextstepjs.com/images/screenshot.png',
+                potentialAction: {
+                  '@type': 'InstallAction',
+                  target: {
+                    '@type': 'EntryPoint',
+                    urlTemplate: 'https://nextstepjs.com',
+                  },
                 },
               },
-            }),
+              {
+                '@context': 'https://schema.org',
+                '@type': 'WebSite',
+                name: 'NextStep.js Documentation',
+                description:
+                  'Official documentation for NextStep.js - the lightweight Next.js onboarding library',
+                url: 'https://nextstepjs.com/docs',
+                publisher: {
+                  '@type': 'Organization',
+                  name: 'NextStep.js Team',
+                  url: 'https://github.com/enszrlu/NextStep',
+                },
+              },
+            ]),
           }}
         />
       </head>
