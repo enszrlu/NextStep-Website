@@ -19,6 +19,7 @@ import CodeBlocks from '@/lib/codeBlocks';
 import AnnouncementBanner from './AnnouncementBanner';
 import { useState } from 'react';
 import NewsletterSignUp from './NewsletterSignUp';
+import FaqSection from './FaqSection';
 
 export function LandingPage() {
   const { startNextStep } = useNextStep();
@@ -124,14 +125,24 @@ export function LandingPage() {
         <section className="text-center w-fit mx-auto px-3 md:px-12" id="tour1-step2">
           <h2 className="text-3xl font-semibold mb-6">Built with</h2>
           <div className="flex justify-center space-x-8">
-            <div className="flex flex-col items-center">
+            <Link
+              href="https://nextjs.org"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center hover:opacity-80 transition-opacity"
+            >
               <RiNextjsFill className="h-10 w-10 md:w-16 md:h-16 mb-2" />
               <span>Next.js</span>
-            </div>
-            <div className="flex flex-col items-center">
+            </Link>
+            <Link
+              href="https://www.framer.com/motion/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center hover:opacity-80 transition-opacity"
+            >
               <SiFramer className="h-10 w-10 md:w-16 md:h-16 mb-2" />
-              <span>Framer Motion</span>
-            </div>
+              <span>Motion</span>
+            </Link>
           </div>
         </section>
 
@@ -213,6 +224,8 @@ export function LandingPage() {
             </li>
           </ol>
         </section>
+
+        <FaqSection />
       </main>
     </div>
   );
