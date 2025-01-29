@@ -1,5 +1,15 @@
 import React from 'react';
 import FaqSection from '@/components/FaqSection';
+import { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'FAQ - NextStep.js',
+  description:
+    'Frequently asked questions about NextStep.js, the lightweight onboarding library for Next.js and React applications. Find answers to common questions about implementation, features, and usage.',
+  alternates: {
+    canonical: 'https://nextstepjs.com/faq',
+  },
+};
 
 const FaqPage = () => {
   return (
