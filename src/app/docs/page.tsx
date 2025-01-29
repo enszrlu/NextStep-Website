@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Documentation - NextStepjs',
   description:
-    'Comprehensive documentation for NextStepjs. Learn how to implement user onboarding, create interactive tutorials, and build product tours in your Next.js and React applications.',
+    'Documentation for NextStepjs. Learn how to implement user onboarding, interactive tutorials, and product tours in your Next.js and React applications.',
   alternates: {
     canonical: 'https://nextstepjs.com/docs',
   },
@@ -16,7 +16,10 @@ export default function Docs() {
     <>
       {/* Static content for SEO */}
       <div className="sr-only">
-        <h1>NextStepjs Documentation</h1>
+        <h1>
+          Documentation for NextStepjs, onboarding library for Next.js and React
+          applications.
+        </h1>
         <p>
           Complete guide to using NextStepjs for creating interactive onboarding
           experiences in your Next.js and React applications.

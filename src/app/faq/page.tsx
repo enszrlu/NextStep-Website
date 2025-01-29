@@ -5,7 +5,7 @@ import { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'FAQ - NextStepjs',
   description:
-    'Frequently asked questions about NextStepjs, the lightweight onboarding library for Next.js and React applications. Find answers to common questions about implementation, features, and usage.',
+    'Frequently asked questions about NextStepjs, onboarding library for Next.js and React applications. Find answers to common questions.',
   alternates: {
     canonical: 'https://nextstepjs.com/faq',
   },
