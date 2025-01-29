@@ -34,7 +34,7 @@ import { useRouter } from 'next/navigation';
 import CustomCard from './example-cards/CustomCard';
 import ShadcnCustomCard from './example-cards/ShadCnCard';
 
-const VERSIONS = ['1.0.x', '1.1.x', '1.2.x', '1.3.x (latest)'];
+const VERSIONS = ['1.0.x', '1.1.x', '1.2.x', '1.3.x (latest)', '2.x (beta)'];
 
 const DocsPage = () => {
   const fadeIn = {
@@ -83,9 +83,14 @@ const DocsPage = () => {
   }, [searchParams]);
 
   const isV1_1_and_above =
-    version === VERSIONS[1] || version === VERSIONS[2] || version === VERSIONS[3];
-  const isV1_2_and_above = version === VERSIONS[2] || version === VERSIONS[3];
-  const isV1_3_and_above = version === VERSIONS[3];
+    version === VERSIONS[1] ||
+    version === VERSIONS[2] ||
+    version === VERSIONS[3] ||
+    version === VERSIONS[4];
+  const isV1_2_and_above =
+    version === VERSIONS[2] || version === VERSIONS[3] || version === VERSIONS[4];
+  const isV1_3_and_above = version === VERSIONS[3] || version === VERSIONS[4];
+  const isV2_and_above = version === VERSIONS[4];
 
   return (
     <div className="container mx-auto py-12 max-w-screen-2xl flex flex-col gap-4">
@@ -118,6 +123,9 @@ const DocsPage = () => {
             <CardHeader>
               <CardTitle className="text-4xl font-semibold mb-2" id="getting-started">
                 Getting Started with NextStep
+                <p className="text-xl font-normal">
+                  Lightweight Next.js / React Onboarding Library
+                </p>
               </CardTitle>
               <CardDescription className="text-xl">
                 Learn how to install and set up NextStep in your project.
@@ -204,6 +212,112 @@ const DocsPage = () => {
                   <CodeBlock
                     language={CodeBlocks.tailwindConfig.language}
                     code={CodeBlocks.tailwindConfig.code}
+                  />
+                </motion.div>
+              )}
+
+              {isV2_and_above && (
+                <motion.div {...fadeIn} id="navigation-adapters">
+                  <h2 className="text-2xl font-semibold mb-2">Navigation Adapters</h2>
+                  <p className="mb-4">
+                    NextStep 2.0 introduces a framework-agnostic routing system through
+                    navigation adapters. Each adapter is packaged separately to minimize
+                    bundle size - only the adapter you import will be included in your
+                    bundle.
+                  </p>
+                  <div className="bg-yellow-100 dark:bg-yellow-900 p-4 rounded-md mb-4">
+                    <p className="font-semibold">Important:</p>
+                    <p>
+                      Make sure to import the adapter you need in your app in order to
+                      access full functionality. Without an adapter, navigation features
+                      like nextRoute and prevRoute will not work properly.
+                    </p>
+                  </div>
+                  <h3 className="text-xl font-semibold mt-4 mb-2">Built-in Adapters</h3>
+                  <h4 className="text-lg font-semibold mt-4 mb-2">Next.js</h4>
+                  <CodeBlock
+                    language="tsx"
+                    code={`// app/layout.tsx or pages/_app.tsx
+import { NextStep, NextStepProvider } from 'nextstepjs';
+import { useNextAdapter } from 'nextstepjs/adapters/next';
+
+export default function Layout({ children }) {
+  return (
+    <NextStepProvider>
+      <NextStep navigationAdapter={useNextAdapter} steps={steps}>
+        {children}
+      </NextStep>
+    </NextStepProvider>
+  );
+}`}
+                  />
+                  <h4 className="text-lg font-semibold mt-4 mb-2">React Router</h4>
+                  <CodeBlock
+                    language="tsx"
+                    code={`//app/root.tsx
+import { NextStepProvider, NextStep, type Tour } from 'nextstepjs';
+import { useReactRouterAdapter } from 'nextstepjs/adapters/react-router';
+
+export default function App() {
+  return (
+    <NextStepProvider>
+      <NextStep navigationAdapter={useReactRouterAdapter} steps={steps}>
+        <Outlet />
+      </NextStep>
+    </NextStepProvider>
+  );
+}`}
+                  />
+                  <h4 className="text-lg font-semibold mt-4 mb-2">Remix</h4>
+                  <CodeBlock
+                    language="tsx"
+                    code={`// root.tsx
+import { NextStep, NextStepProvider } from 'nextstepjs';
+import { useRemixAdapter } from 'nextstepjs/adapters/remix';
+
+export default function App() {
+  return (
+    <NextStepProvider>
+      <NextStep navigationAdapter={useRemixAdapter} steps={steps}>
+        <Outlet />
+      </NextStep>
+    </NextStepProvider>
+  );
+}`}
+                  />
+                  <h4 className="text-lg font-semibold mt-4 mb-2">
+                    Custom Navigation Adapter
+                  </h4>
+                  <p className="mb-2">
+                    You can create your own navigation adapter for any routing solution by
+                    implementing the NavigationAdapter interface:
+                  </p>
+                  <CodeBlock
+                    language="tsx"
+                    code={`import { NextStep } from 'nextstepjs';
+import type { NavigationAdapter } from 'nextstepjs';
+
+const useCustomAdapter = (): NavigationAdapter => {
+  return {
+    push: (path: string) => {
+      // Your navigation logic here
+      // Example: history.push(path)
+    },
+    getCurrentPath: () => {
+      // Your path retrieval logic here
+      // Example: window.location.pathname
+      return window.location.pathname;
+    },
+  };
+};
+
+const App = () => {
+  return (
+    <NextStep navigationAdapter={useCustomAdapter} steps={steps}>
+      {children}
+    </NextStep>
+  );
+};`}
                   />
                 </motion.div>
               )}
@@ -371,6 +485,15 @@ const DocsPage = () => {
                         Array of Tour objects defining each step of the onboarding
                       </TableCell>
                     </TableRow>
+                    {isV2_and_above && (
+                      <TableRow>
+                        <TableCell>navigationAdapter</TableCell>
+                        <TableCell>NavigationAdapter</TableCell>
+                        <TableCell>
+                          Optional. Router adapter for navigation (defaults to Next.js)
+                        </TableCell>
+                      </TableRow>
+                    )}
                     <TableRow>
                       <TableCell>showNextStep</TableCell>
                       <TableCell>boolean</TableCell>
