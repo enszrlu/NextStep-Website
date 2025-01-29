@@ -30,7 +30,7 @@ const geistMono = localFont({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nextstepjs.com'),
-  title: 'NextStep.js - Lightweight Next.js / React Onboarding Library',
+  title: 'NextStepjs - Lightweight Next.js / React Onboarding Library',
   description:
     'Easily create user friendly onboarding experiences with our lightweight onboarding library for Next.js / React. Step by step guides, product tours, and interactive walkthroughs for seemless user flows.',
   keywords: [
@@ -108,10 +108,10 @@ export default function RootLayout({
               {
                 '@context': 'https://schema.org',
                 '@type': 'SoftwareApplication',
-                name: 'NextStep.js',
-                title: 'NextStep.js - Lightweight Next.js / React Onboarding Library',
+                name: 'NextStepjs',
+                title: 'NextStepjs - Lightweight Next.js / React Onboarding Library',
                 description:
-                  'NextStep.js is a lightweight and open-source onboarding library for Next.js / React applications. It helps developers create step-by-step guides, interactive tutorials, and product tours to enhance user experience seamlessly.',
+                  'NextStepjs is a lightweight and open-source onboarding library for Next.js / React applications. It helps developers create step-by-step guides, interactive tutorials, and product tours to enhance user experience seamlessly.',
                 url: 'https://nextstepjs.com',
                 applicationCategory: 'Developer Tools',
                 operatingSystem: 'Web',
@@ -123,12 +123,12 @@ export default function RootLayout({
                 },
                 author: {
                   '@type': 'Organization',
-                  name: 'NextStep.js Team',
+                  name: 'NextStepjs Team',
                   url: 'https://github.com/enszrlu/NextStep',
                 },
                 publisher: {
                   '@type': 'Organization',
-                  name: 'NextStep.js Team',
+                  name: 'NextStepjs Team',
                   url: 'https://github.com/enszrlu/NextStep',
                 },
                 softwareVersion: '1.2.0',
@@ -137,7 +137,7 @@ export default function RootLayout({
                 license: 'https://opensource.org/licenses/MIT',
                 isAccessibleForFree: true,
                 keywords: [
-                  'NextStep.js',
+                  'NextStepjs',
                   'Next.js onboarding library',
                   'product tours for Next.js',
                   'interactive tutorials',
@@ -161,13 +161,13 @@ export default function RootLayout({
               {
                 '@context': 'https://schema.org',
                 '@type': 'WebSite',
-                name: 'NextStep.js Documentation',
+                name: 'NextStepjs Documentation',
                 description:
-                  'Official documentation for NextStep.js - the lightweight Next.js / React onboarding library',
+                  'Official documentation for NextStepjs - the lightweight Next.js / React onboarding library',
                 url: 'https://nextstepjs.com/docs',
                 publisher: {
                   '@type': 'Organization',
-                  name: 'NextStep.js Team',
+                  name: 'NextStepjs Team',
                   url: 'https://github.com/enszrlu/NextStep',
                 },
               },

@@ -3,9 +3,9 @@ import { Suspense } from 'react';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Documentation - NextStep.js',
+  title: 'Documentation - NextStepjs',
   description:
-    'Comprehensive documentation for NextStep.js. Learn how to implement user onboarding, create interactive tutorials, and build product tours in your Next.js and React applications.',
+    'Comprehensive documentation for NextStepjs. Learn how to implement user onboarding, create interactive tutorials, and build product tours in your Next.js and React applications.',
   alternates: {
     canonical: 'https://nextstepjs.com/docs',
   },
@@ -16,15 +16,15 @@ export default function Docs() {
     <>
       {/* Static content for SEO */}
       <div className="sr-only">
-        <h1>NextStep.js Documentation</h1>
+        <h1>NextStepjs Documentation</h1>
         <p>
-          Complete guide to using NextStep.js for creating interactive onboarding
+          Complete guide to using NextStepjs for creating interactive onboarding
           experiences in your Next.js and React applications.
         </p>
 
         <h2>Getting Started</h2>
         <p>
-          Learn how to install and set up NextStep.js in your project. Includes basic
+          Learn how to install and set up NextStepjs in your project. Includes basic
           setup, installation instructions, and configuration options for both App Router
           and Pages Router.
         </p>
@@ -52,7 +52,7 @@ export default function Docs() {
 
         <h2>Examples</h2>
         <p>
-          Practical examples and code snippets for implementing NextStep.js features,
+          Practical examples and code snippets for implementing NextStepjs features,
           including custom card components, step configurations, and integration patterns.
         </p>
       </div>
