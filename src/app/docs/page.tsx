@@ -13,8 +13,53 @@ export const metadata: Metadata = {
 
 export default function Docs() {
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <DocsPage />
-    </Suspense>
+    <>
+      {/* Static content for SEO */}
+      <div className="sr-only">
+        <h1>NextStep.js Documentation</h1>
+        <p>
+          Complete guide to using NextStep.js for creating interactive onboarding
+          experiences in your Next.js and React applications.
+        </p>
+
+        <h2>Getting Started</h2>
+        <p>
+          Learn how to install and set up NextStep.js in your project. Includes basic
+          setup, installation instructions, and configuration options for both App Router
+          and Pages Router.
+        </p>
+
+        <h2>Key Features</h2>
+        <ul>
+          <li>Easy integration with Next.js App Router and Pages Router</li>
+          <li>Customizable step-by-step guides and product tours</li>
+          <li>
+            Support for multiple navigation adapters including Next.js, React Router, and
+            Remix
+          </li>
+          <li>Keyboard navigation support</li>
+          <li>Viewport management for scrollable content</li>
+          <li>Comprehensive callback system for tour events</li>
+          <li>Localization support</li>
+        </ul>
+
+        <h2>API Reference</h2>
+        <p>
+          Detailed documentation of NextStep components, props, and configuration options.
+          Includes NextStep Provider, Step configuration, custom card components, and
+          navigation adapters.
+        </p>
+
+        <h2>Examples</h2>
+        <p>
+          Practical examples and code snippets for implementing NextStep.js features,
+          including custom card components, step configurations, and integration patterns.
+        </p>
+      </div>
+
+      <Suspense fallback={<div>Loading...</div>}>
+        <DocsPage />
+      </Suspense>
+    </>
   );
 }
