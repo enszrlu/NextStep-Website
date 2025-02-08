@@ -566,6 +566,15 @@ const App = () => {
                         If true, overlay background is clickable, default is false
                       </TableCell>
                     </TableRow>
+                    {isV2_and_above && (
+                      <TableRow>
+                        <TableCell>disableConsoleLogs</TableCell>
+                        <TableCell>boolean</TableCell>
+                        <TableCell>
+                          Optional. If true, console logs are disabled, default is false
+                        </TableCell>
+                      </TableRow>
+                    )}
                   </TableBody>
                 </Table>
               </motion.div>
