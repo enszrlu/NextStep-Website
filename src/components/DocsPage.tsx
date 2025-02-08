@@ -567,13 +567,24 @@ const App = () => {
                       </TableCell>
                     </TableRow>
                     {isV2_and_above && (
-                      <TableRow>
-                        <TableCell>disableConsoleLogs</TableCell>
-                        <TableCell>boolean</TableCell>
-                        <TableCell>
-                          Optional. If true, console logs are disabled, default is false
-                        </TableCell>
-                      </TableRow>
+                      <>
+                        <TableRow>
+                          <TableCell>disableConsoleLogs</TableCell>
+                          <TableCell>boolean</TableCell>
+                          <TableCell>
+                            Optional. If true, console logs are disabled, default is false
+                          </TableCell>
+                        </TableRow>
+
+                        <TableRow>
+                          <TableCell>scrollToTop</TableCell>
+                          <TableCell>boolean</TableCell>
+                          <TableCell>
+                            Optional. If true, the page will scroll to the top when the
+                            tour starts, default is true
+                          </TableCell>
+                        </TableRow>
+                      </>
                     )}
                   </TableBody>
                 </Table>

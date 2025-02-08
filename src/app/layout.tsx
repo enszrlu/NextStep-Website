@@ -184,6 +184,7 @@ export default function RootLayout({
             onSkip={onNextStepSkip}
             onStepChange={onNextStepStepChange}
             navigationAdapter={useNextAdapter}
+            scrollToTop={false}
           >
             <div className="min-h-screen bg-background text-foreground px-4">
               <Navbar />
