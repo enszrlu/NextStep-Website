@@ -584,6 +584,14 @@ const App = () => {
                             tour starts, default is true
                           </TableCell>
                         </TableRow>
+                        <TableRow>
+                          <TableCell>noInViewScroll</TableCell>
+                          <TableCell>boolean</TableCell>
+                          <TableCell>
+                            Optional. If true, the page will not scroll to the target
+                            element when it is in view, default is false
+                          </TableCell>
+                        </TableRow>
                       </>
                     )}
                   </TableBody>
