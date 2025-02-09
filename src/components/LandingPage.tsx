@@ -17,22 +17,39 @@ import { useNextStep } from 'nextstepjs';
 import CodeBlock from './CodeBlock';
 import CodeBlocks from '@/lib/codeBlocks';
 import AnnouncementBanner from './AnnouncementBanner';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import NewsletterSignUp from './NewsletterSignUp';
 import FaqSection from './FaqSection';
 
+const BANNER_STORAGE_KEY = 'nextstep_announcement_hidden_until';
+const ONE_WEEK_IN_MS = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+
 export function LandingPage() {
   const { startNextStep } = useNextStep();
-  const [isBannerVisible, setIsBannerVisible] = useState(true);
+  const [isBannerVisible, setIsBannerVisible] = useState(false);
+
+  useEffect(() => {
+    // Check if banner should be shown
+    const hiddenUntil = localStorage.getItem(BANNER_STORAGE_KEY);
+    const shouldShow = !hiddenUntil || new Date().getTime() > parseInt(hiddenUntil);
+    setIsBannerVisible(shouldShow);
+  }, []);
 
   const onClickHandler = (tourName: string) => {
     setIsBannerVisible(false);
     startNextStep(tourName);
   };
 
+  const handleBannerClose = () => {
+    // Set expiry date to one week from now
+    const expiryDate = new Date().getTime() + ONE_WEEK_IN_MS;
+    localStorage.setItem(BANNER_STORAGE_KEY, expiryDate.toString());
+    setIsBannerVisible(false);
+  };
+
   return (
     <div className="min-h-screen bg-background text-foreground px-4">
-      <AnnouncementBanner isVisible={isBannerVisible} setIsVisible={setIsBannerVisible} />
+      <AnnouncementBanner isVisible={isBannerVisible} setIsVisible={handleBannerClose} />
       <main className="container mx-auto py-12 space-y-24">
         <section className="text-center space-y-6" id="hero-section">
           <h1 className="text-5xl font-bold">
