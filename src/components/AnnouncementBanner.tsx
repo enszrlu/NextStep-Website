@@ -26,11 +26,20 @@ const AnnouncementBanner: React.FC<{
           <div>
             <p className="text-center sm:text-left">
               <span className="font-bold text-center sm:text-left">New:</span> NextStep
-              v.2 beta is out now! You can now use NextStep with any react framework!
+              v.2 beta is live! You can now use your favorite onboarding library with
+              <span className="underline decoration-wavy decoration-orange-400 text-xl font-bold underline-offset-4">
+                {' '}
+                any react framework!
+              </span>
             </p>
           </div>
         </div>
         <div className="flex items-center space-x-4">
+          <Link href="/docs?tab=getting-started&version=2.x%20(beta)">
+            <Button variant="outline" className="text-primary">
+              Learn More
+            </Button>
+          </Link>
           <Button
             variant="ghost"
             size="icon"

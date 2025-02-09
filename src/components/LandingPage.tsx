@@ -36,9 +36,12 @@ export function LandingPage() {
       <main className="container mx-auto py-12 space-y-24">
         <section className="text-center space-y-6" id="hero-section">
           <h1 className="text-5xl font-bold">
-            NextStep {''} <br /> <br />
+            <span className="underline decoration-wavy decoration-orange-400 font-bold underline-offset-[12px]">
+              NextStep
+            </span>{' '}
+            {''} <br /> <br />
             <p className="text-xl max-w-2xl mx-auto font-normal">
-              A lightweight onboarding library for Next.js applications. <br />
+              A lightweight onboarding library for Next.js and React applications. <br />
               Create engaging, interactive product tours with ease.
             </p>
           </h1>
