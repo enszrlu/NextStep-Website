@@ -6,11 +6,19 @@ import { BookOpen } from 'lucide-react';
 import { SiGithub } from 'react-icons/si';
 import { PiXLogo } from 'react-icons/pi';
 import { Coffee } from 'lucide-react';
+import Image from 'next/image';
 
 const Navbar = () => {
   return (
     <header className="container mx-auto py-6 flex justify-between items-center">
-      <Link href="/" className="text-2xl font-bold">
+      <Link href="/" className="text-2xl font-bold flex items-center gap-2">
+        <Image
+          src="https://nextstepjs.com/icon.png"
+          alt="NextStep - Lightweight Next.js Onboarding Library Logo"
+          width={32}
+          height={32}
+          className="rounded-lg"
+        />
         NextStep
       </Link>
       <nav className="flex items-center space-x-4">
