@@ -32,6 +32,23 @@ bun add nextstepjs framer-motion @radix-ui/react-portal
 `,
 };
 
+const installPackageV2 = {
+  language: 'bash',
+  code: `
+# npm
+npm i nextstepjs motion
+
+# pnpm
+pnpm add nextstepjs motion
+
+# yarn
+yarn add nextstepjs motion
+
+# bun
+bun add nextstepjs motion
+`,
+};
+
 const basicSetup = {
   language: 'tsx',
   code: `
@@ -821,6 +838,7 @@ export { onNextStepStart, onNextStepComplete, onNextStepSkip, onNextStepStepChan
 export default {
   installPackage,
   installPackageV1_1,
+  installPackageV2,
   basicSetup,
   basicSetupShorter,
   basicSetupShorterPagesRouter,

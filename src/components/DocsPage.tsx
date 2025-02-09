@@ -14,6 +14,7 @@ import {
 import {
   Table,
   TableBody,
+  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -136,12 +137,16 @@ const DocsPage = () => {
                 <h2 className="text-2xl font-semibold mb-2">Installation</h2>
                 <CodeBlock
                   language={
-                    isV1_1_and_above
+                    isV2_and_above
+                      ? CodeBlocks.installPackageV2.language
+                      : isV1_1_and_above
                       ? CodeBlocks.installPackageV1_1.language
                       : CodeBlocks.installPackage.language
                   }
                   code={
-                    isV1_1_and_above
+                    isV2_and_above
+                      ? CodeBlocks.installPackageV2.code
+                      : isV1_1_and_above
                       ? CodeBlocks.installPackageV1_1.code
                       : CodeBlocks.installPackage.code
                   }
@@ -708,6 +713,62 @@ const App = () => {
                         Optional. The id of the viewport to target. If not provided, the
                         first viewport will be used.
                       </TableCell>
+                    </TableRow>
+                  </TableBody>
+                </Table>
+              </motion.div>
+
+              <motion.div {...fadeIn} id="use-next-step-hook">
+                <h2 className="text-2xl font-semibold mb-2">useNextStep Hook</h2>
+                <p className="mb-4">
+                  The useNextStep hook provides programmatic control over the tour. You
+                  can use it to start, stop, skip or navigate through steps.
+                </p>
+                <CodeBlock
+                  language={CodeBlocks.useNextStep.language}
+                  code={CodeBlocks.useNextStep.code}
+                />
+                <Table>
+                  <TableCaption>useNextStep Hook Return Values</TableCaption>
+                  <TableHeader>
+                    <TableRow>
+                      <TableHead>Property</TableHead>
+                      <TableHead>Type</TableHead>
+                      <TableHead>Description</TableHead>
+                    </TableRow>
+                  </TableHeader>
+                  <TableBody>
+                    <TableRow>
+                      <TableCell>startNextStep</TableCell>
+                      <TableCell>(tourName: string) =&gt; void</TableCell>
+                      <TableCell>Starts the specified tour</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>closeNextStep</TableCell>
+                      <TableCell>() =&gt; void</TableCell>
+                      <TableCell>Stops the current tour</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>currentTour</TableCell>
+                      <TableCell>string | null</TableCell>
+                      <TableCell>The name of the current tour</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>currentStep</TableCell>
+                      <TableCell>number</TableCell>
+                      <TableCell>The current step index</TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>setCurrentStep</TableCell>
+                      <TableCell>(step: number, delay?: number) =&gt; void</TableCell>
+                      <TableCell>
+                        Sets the current step index with optional delay
+                      </TableCell>
+                    </TableRow>
+                    <TableRow>
+                      <TableCell>isNextStepVisible</TableCell>
+                      <TableCell>boolean</TableCell>
+                      <TableCell>Whether the tour overlay is currently visible</TableCell>
                     </TableRow>
                   </TableBody>
                 </Table>
