@@ -10,6 +10,7 @@ import { Analytics } from '@vercel/analytics/react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
+import ScrollToTop from '@/components/ScrollToTop';
 import {
   onNextStepStepChange,
   onNextStepComplete,
@@ -191,6 +192,7 @@ export default function RootLayout({
               {children}
               <Footer />
               <Analytics />
+              <ScrollToTop />
             </div>
           </NextStep>
         </NextStepProvider>
