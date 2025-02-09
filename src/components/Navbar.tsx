@@ -19,7 +19,7 @@ const Navbar = () => {
           height={32}
           className="rounded-lg"
         />
-        NextStep
+        <p className="hidden md:block">NextStep</p>
       </Link>
       <nav className="flex items-center space-x-4">
         <Link href="/docs" className="flex items-center space-x-2">
