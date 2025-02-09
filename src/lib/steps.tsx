@@ -126,7 +126,7 @@ const steps: Tour[] = [
           </>
         ),
         selector: '#tour1-step6',
-        side: 'top',
+        side: 'right',
         showControls: true,
         showSkip: true,
         pointerPadding: 10,
@@ -156,24 +156,6 @@ const steps: Tour[] = [
         // nextRoute: '/',
       },
       {
-        icon: <GiCampCookingPot />,
-        title: 'Ready to Cook',
-        content: (
-          <>
-            One last step to make your tour ready.
-            <br />
-            <br />
-            Add TailwindCSS configuration to your project.
-          </>
-        ),
-        selector: '#tour1-step8',
-        side: 'top',
-        showControls: true,
-        showSkip: true,
-        pointerPadding: 10,
-        pointerRadius: 10,
-      },
-      {
         icon: <GiCoffeeBeans />,
         title: 'Support the developer',
         content: <>If you like NextStep, please support the developer.</>,
@@ -189,9 +171,9 @@ const steps: Tour[] = [
         title: 'Newsletter',
         content: (
           <p>
-            We are improving NextStep with CSS and React support, so you can use it with
-            any framework soon. <br /> <br />
-            Sign up to hear about our latest updates:
+            We are improving NextStep with React support, so you can use it with any
+            framework. <br /> <br />
+            Sign up to hear about our latest updates.
           </p>
         ),
         selector: '#newsletter-signup',

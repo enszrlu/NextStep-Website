@@ -218,16 +218,6 @@ export function LandingPage() {
                 code={CodeBlocks.useNextStep.code}
               />
             </li>
-            <li id="tour1-step8">
-              You need to add below code to your tailwind.config.js. <br />
-              <br />
-              Optional: Create a custom Card to customize the appearance and behavior of
-              NextStep to fit your app&apos;s needs.
-              <CodeBlock
-                language={CodeBlocks.tailwindConfig.language}
-                code={CodeBlocks.tailwindConfig.code}
-              />
-            </li>
           </ol>
         </section>
 
