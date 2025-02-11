@@ -12,7 +12,7 @@ import {
 import { Coffee } from 'lucide-react';
 import CopyCode from './CopyCode';
 import { RiNextjsFill } from 'react-icons/ri';
-import { SiFramer, SiTailwindcss, SiRadixui } from 'react-icons/si';
+import { SiFramer, SiReact } from 'react-icons/si';
 import { useNextStep } from 'nextstepjs';
 import CodeBlock from './CodeBlock';
 import CodeBlocks from '@/lib/codeBlocks';
@@ -148,6 +148,16 @@ export function LandingPage() {
         <section className="text-center w-fit mx-auto px-3 md:px-12" id="tour1-step2">
           <h2 className="text-3xl font-semibold mb-6">Built with</h2>
           <div className="flex justify-center space-x-8">
+            {/* React */}
+            <Link
+              href="https://react.dev"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex flex-col items-center hover:opacity-80 transition-opacity"
+            >
+              <SiReact className="h-10 w-10 md:w-16 md:h-16 mb-2" />
+              <span>React</span>
+            </Link>
             <Link
               href="https://nextjs.org"
               target="_blank"

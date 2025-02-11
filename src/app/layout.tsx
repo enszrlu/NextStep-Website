@@ -47,6 +47,9 @@ export const metadata: Metadata = {
     'onboarding flow',
     'onboarding guide',
     'React onboarding library',
+    'react onboarding wizard',
+    'next.js onboarding wizard',
+    'shadcn onboarding',
   ],
   openGraph: {
     images: [
