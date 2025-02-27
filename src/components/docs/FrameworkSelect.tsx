@@ -39,7 +39,7 @@ export default function FrameworkSelect() {
   };
   return (
     <Select value={framework} onValueChange={handleFrameworkChange}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[150px] md:w-[180px]">
         <SelectValue placeholder="Select Framework" />
       </SelectTrigger>
       <SelectContent>

@@ -390,6 +390,33 @@ const steps: Tour[] = [
       },
     ],
   },
+  {
+    tour: 'docs-demo',
+    steps: [
+      {
+        icon: <>👋</>,
+        title: 'First Step',
+        content: <>This is the first step of our demo tour</>,
+        selector: '#docs-demo-step1',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <>🎉</>,
+        title: 'Second Step',
+        content: <>This is the second step of our demo tour</>,
+        selector: '#docs-demo-step2',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+    ],
+  },
 ];
 
 export default steps;

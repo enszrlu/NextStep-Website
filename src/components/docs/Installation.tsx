@@ -62,7 +62,7 @@ const Installation = ({ framework = 'next.js' }: { framework: string }) => {
       </p>
       <div className="flex flex-col gap-4">
         <h2 className="text-2xl font-semibold">Select your framework</h2>
-        <div className="flex gap-4">
+        <div className="flex gap-4 flex-wrap">
           {FRAMEWORKS.map((framework) => (
             <FrameWorkLinks key={framework.href} {...framework} />
           ))}
@@ -79,7 +79,7 @@ const Installation = ({ framework = 'next.js' }: { framework: string }) => {
         />
       </div>
       <div className="flex self-end">
-        <Link href={`/docs/${framework}/basic-setup`}>
+        <Link href={`/docs/${framework.replace('.', '')}/basic-setup`}>
           <Button variant="default">
             <FaArrowRight className="w-4 h-4 mr-2" /> Basic Setup
           </Button>

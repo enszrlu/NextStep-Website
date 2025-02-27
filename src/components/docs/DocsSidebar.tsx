@@ -20,6 +20,14 @@ const sidebarItems = [
         title: 'Basic Setup',
         href: '/basic-setup',
       },
+      {
+        title: 'Tour Steps',
+        href: '/tour-steps',
+      },
+      {
+        title: 'useNextStep Hook',
+        href: '/useNextStep',
+      },
     ],
   },
   {

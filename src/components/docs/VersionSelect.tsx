@@ -30,7 +30,7 @@ export default function VersionSelect() {
 
   return (
     <Select value={version} onValueChange={handleVersionChange}>
-      <SelectTrigger className="w-[180px]">
+      <SelectTrigger className="w-[150px] md:w-[180px]">
         <SelectValue placeholder="Select Version" />
       </SelectTrigger>
       <SelectContent>

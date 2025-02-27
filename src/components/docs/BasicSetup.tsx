@@ -5,7 +5,7 @@ import CodeBlock from '@/components/CodeBlock';
 import CodeBlocks from '@/lib/codeBlocks';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
-import { FaArrowRight } from 'react-icons/fa';
+import { FaArrowLeft, FaArrowRight } from 'react-icons/fa';
 import { toTitleCase } from '@/lib/utils';
 
 interface BasicSetupProps {
@@ -28,10 +28,13 @@ const BasicSetup = ({ framework = 'next.js' }: BasicSetupProps) => {
           Wrap your application in <code>NextStepProvider</code> and{' '}
           {framework === 'next.js' ? <code>NextStep</code> : <code>NextStepReact</code>},
           then supply the <code>steps</code> array to NextStep. See the{' '}
-          <Link href="/docs?tab=examples#steps-example" className="text-primary">
-            example
+          <Link
+            href={`/docs/${framework.replace('.', '')}/tour-steps`}
+            className="text-primary"
+          >
+            Tour Steps
           </Link>{' '}
-          for more information.
+          page for more information about creating steps.
         </p>
 
         {framework === 'next.js' && (
@@ -236,22 +239,27 @@ export default defineConfig({
           you can explore more features:
         </p>
         <div className="flex gap-4 flex-wrap">
-          <Link href={`/docs/${framework}/routing`}>
+          <Link href={`/docs/${framework.replace('.', '')}/tour-steps`}>
+            <Button variant="outline">Tour Steps</Button>
+          </Link>
+          <Link href={`/docs/${framework.replace('.', '')}/useNextStep`}>
+            <Button variant="outline">useNextStep Hook</Button>
+          </Link>
+          <Link href={`/docs/${framework.replace('.', '')}/routing`}>
             <Button variant="outline">Routing During Tour</Button>
-          </Link>
-          <Link href={`/docs/${framework}/viewport`}>
-            <Button variant="outline">NextStepViewport</Button>
-          </Link>
-          <Link href={`/docs/${framework}/callbacks`}>
-            <Button variant="outline">Callbacks</Button>
           </Link>
         </div>
       </div>
 
-      <div className="flex self-end mt-4">
-        <Link href={`/docs/${framework}/routing`}>
+      <div className="flex justify-between">
+        <Link href={`/docs/${framework.replace('.', '')}/`}>
+          <Button variant="outline">
+            <FaArrowLeft className="w-4 h-4 mr-2" /> Installation
+          </Button>
+        </Link>
+        <Link href={`/docs/${framework.replace('.', '')}/tour-steps`}>
           <Button variant="default">
-            <FaArrowRight className="w-4 h-4 mr-2" /> Routing During Tour
+            <FaArrowRight className="w-4 h-4 mr-2" /> Tour Steps
           </Button>
         </Link>
       </div>
