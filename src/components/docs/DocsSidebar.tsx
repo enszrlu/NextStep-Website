@@ -63,10 +63,6 @@ const sidebarItems = [
         href: '/styling',
       },
       {
-        title: 'Custom Cards',
-        href: '/custom-cards',
-      },
-      {
         title: 'Dark Mode',
         href: '/dark-mode',
       },

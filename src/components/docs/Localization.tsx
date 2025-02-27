@@ -19,8 +19,8 @@ const Localization = ({ framework = 'next.js' }: LocalizationProps) => {
       </h1>
       <p className="text-xl">
         While NextStepjs doesn't have built-in localization, you can easily implement
-        multilingual tours in your {framework} application by supplying different steps
-        arrays based on the user's language preference.
+        multilingual tours in your {toTitleCase(framework)} application by supplying
+        different steps arrays based on the user's language preference.
       </p>
 
       <div className="flex flex-col gap-6">
