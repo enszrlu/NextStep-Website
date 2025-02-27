@@ -8,12 +8,11 @@ import { Metadata } from 'next';
 import { ResolvingMetadata } from 'next';
 
 export const versionOptions = [
-  { label: '1.0.x', value: '1-0-x' },
-  { label: '1.1.x', value: '1-1-x' },
-  { label: '1.2.x', value: '1-2-x' },
-  { label: '1.3.x (latest)', value: '1-3-x' },
-  { label: '2.x (beta)', value: '2-x' },
-  { label: 'Latest', value: 'latest' },
+  { label: '1.0.x', value: '1.0.x' },
+  { label: '1.1.x', value: '1.1.x' },
+  { label: '1.2.x', value: '1.2.x' },
+  { label: '1.3.x', value: '1.3.x' },
+  { label: '2.x.x (latest)', value: '2.x.x' },
 ];
 
 export const frameworkOptions = [
@@ -22,39 +21,6 @@ export const frameworkOptions = [
   { label: 'Remix', value: 'remix' },
   { label: 'React', value: 'react' },
 ];
-
-// type Props = {
-//   params: { version: string; framework: string };
-//   searchParams: { [key: string]: string | string[] | undefined };
-// };
-
-// export async function generateMetadata(
-//   { params, searchParams }: Props,
-//   parent: ResolvingMetadata,
-// ): Promise<Metadata> {
-//   // read route params
-//   const version = params.version;
-//   const framework = params.framework;
-
-//   // optionally access and extend (rather than replace) parent metadata
-//   const previousKeywords = (await parent).keywords || [];
-
-//   return {
-//     title: 'Documentation - NextStepjs',
-//     description:
-//       'Documentation for NextStepjs. Learn how to implement user onboarding, interactive tutorials, and product tours in your Next.js and React applications.',
-//     keywords: [
-//       `onboarding library for ${frameworkOptions[0].label}`,
-//       `product tour for ${frameworkOptions[0].label}`,
-//       `onboarding wizard for ${frameworkOptions[0].label}`,
-//       `product onboarding for ${frameworkOptions[0].label}`,
-//       `product demo for ${frameworkOptions[0].label}`,
-//       `nextstepjs documentation for ${frameworkOptions[0].label}`,
-//       `nextstepjs documentation for ${version}`,
-//       ...previousKeywords,
-//     ],
-//   };
-// }
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (

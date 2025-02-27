@@ -26,8 +26,6 @@ export default function FrameworkSelect() {
   const [framework, setFramework] = useState('');
 
   useEffect(() => {
-    console.log('inside useEffect', pathname);
-    console.log('findFrameworkInPath', findFrameworkInPath(pathname));
     setFramework(findFrameworkInPath(pathname));
   }, [pathname]);
 

@@ -2,7 +2,7 @@ import CodeBlock from '@/components/CodeBlock';
 import React from 'react';
 import CodeBlocks from '@/lib/codeBlocks';
 import CopyCode from '@/components/CopyCode';
-import { cn } from '@/lib/utils';
+import { cn, toTitleCase } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 import { FaArrowRight } from 'react-icons/fa';
@@ -58,7 +58,7 @@ const Installation = ({ framework = 'nextjs' }: { framework: string }) => {
       </h1>
       <p className="text-xl">
         NextStep is very easy to install and set up. You can install it using your
-        favorite package manager.
+        favorite package manager to your {toTitleCase(framework)} project.
       </p>
       <div className="flex flex-col gap-4">
         <h2 className="text-2xl font-semibold">Select your framework</h2>
