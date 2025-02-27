@@ -29,28 +29,30 @@ const geistMono = localFont({
   weight: '100 900',
 });
 
+export const metaKeywords = [
+  'next.js onboarding library',
+  'react onboarding',
+  'nextstepjs',
+  'onboarding wizard',
+  'product tour',
+  'interactive tutorial',
+  'next.js tutorial',
+  'next.js product demo',
+  'onboarding component',
+  'onboarding flow',
+  'onboarding guide',
+  'React onboarding library',
+  'react onboarding wizard',
+  'next.js onboarding wizard',
+  'shadcn onboarding',
+];
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://nextstepjs.com'),
   title: 'NextStepjs - Lightweight Next.js / React Onboarding Library',
   description:
     'Easily create user friendly onboarding experiences with our lightweight onboarding library for Next.js / React. Step by step guides, product tours, and interactive walkthroughs for seemless user flows.',
-  keywords: [
-    'next.js onboarding library',
-    'react onboarding',
-    'nextstepjs',
-    'onboarding wizard',
-    'product tour',
-    'interactive tutorial',
-    'next.js tutorial',
-    'next.js product demo',
-    'onboarding component',
-    'onboarding flow',
-    'onboarding guide',
-    'React onboarding library',
-    'react onboarding wizard',
-    'next.js onboarding wizard',
-    'shadcn onboarding',
-  ],
+  keywords: metaKeywords,
   openGraph: {
     images: [
       {
@@ -189,9 +191,9 @@ export default function RootLayout({
             onStepChange={onNextStepStepChange}
             scrollToTop={false}
           >
-            <div className="min-h-screen bg-background text-foreground px-4">
+            <div className="min-h-screen bg-background text-foreground px-4 flex flex-col">
               <Navbar />
-              {children}
+              <main className="flex-1">{children}</main>
               <Footer />
               <Analytics />
               <ScrollToTop />

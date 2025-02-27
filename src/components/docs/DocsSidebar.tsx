@@ -3,83 +3,87 @@
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { useParams, usePathname } from 'next/navigation';
+import { findFrameworkInPath } from './FrameworkSelect';
+import { useEffect, useState } from 'react';
 
 interface SidebarNavProps extends React.HTMLAttributes<HTMLDivElement> {}
 
-const sidebarItems = {
-  base: [
-    {
-      title: 'Getting Started',
-      items: [
-        {
-          title: 'Installation',
-          href: '/installation',
-        },
-        {
-          title: 'Basic Setup',
-          href: '/basic-setup',
-        },
-      ],
-    },
-    {
-      title: 'Features',
-      items: [
-        {
-          title: 'Routing During Tour',
-          href: '/routing',
-        },
-        {
-          title: 'NextStepViewport',
-          href: '/viewport',
-        },
-        {
-          title: 'Callbacks',
-          href: '/callbacks',
-        },
-        {
-          title: 'Keyboard Navigation',
-          href: '/keyboard',
-        },
-        {
-          title: 'Localization',
-          href: '/localization',
-        },
-        {
-          title: 'Dark Mode',
-          href: '/dark-mode',
-        },
-      ],
-    },
-    {
-      title: 'Customization',
-      items: [
-        {
-          title: 'Styling',
-          href: '/styling',
-        },
-        {
-          title: 'Custom Cards',
-          href: '/custom-cards',
-        },
-      ],
-    },
-    {
-      title: 'API Reference',
-      items: [
-        {
-          title: 'API Reference',
-          href: '/api',
-        },
-      ],
-    },
-  ],
-};
+const sidebarItems = [
+  {
+    title: 'Getting Started',
+    items: [
+      {
+        title: 'Installation',
+        href: '',
+      },
+      {
+        title: 'Basic Setup',
+        href: '/basic-setup',
+      },
+    ],
+  },
+  {
+    title: 'Features',
+    items: [
+      {
+        title: 'Routing During Tour',
+        href: '/routing',
+      },
+      {
+        title: 'NextStepViewport',
+        href: '/viewport',
+      },
+      {
+        title: 'Callbacks',
+        href: '/callbacks',
+      },
+      {
+        title: 'Keyboard Navigation',
+        href: '/keyboard',
+      },
+      {
+        title: 'Localization',
+        href: '/localization',
+      },
+      {
+        title: 'Dark Mode',
+        href: '/dark-mode',
+      },
+    ],
+  },
+  {
+    title: 'Customization',
+    items: [
+      {
+        title: 'Styling',
+        href: '/styling',
+      },
+      {
+        title: 'Custom Cards',
+        href: '/custom-cards',
+      },
+    ],
+  },
+  {
+    title: 'API Reference',
+    items: [
+      {
+        title: 'API Reference',
+        href: '/api',
+      },
+    ],
+  },
+];
 
 export default function DocsSidebar({ className }: SidebarNavProps) {
   const params = useParams();
   const pathname = usePathname();
-  const items =
-    sidebarItems[params.version as keyof typeof sidebarItems] || sidebarItems.base;
+  const [framework, setFramework] = useState(findFrameworkInPath(pathname));
+  const items = sidebarItems;
+
+  useEffect(() => {
+    setFramework(findFrameworkInPath(pathname));
+  }, [pathname]);
 
   return (
     <div className={cn('w-full', className)}>
@@ -91,15 +95,10 @@ export default function DocsSidebar({ className }: SidebarNavProps) {
           {section.items.map((item) => (
             <Link
               key={item.href}
-              href={`/docs/${params.version || 'latest'}/${
-                params.framework || 'nextjs'
-              }/${item.href}`}
+              href={`/docs/${framework}${item.href}`}
               className={cn(
                 'block rounded-md px-2 py-1 text-sm hover:bg-accent hover:text-accent-foreground',
-                pathname ===
-                  `/docs/${params.version || 'latest'}/${params.framework || 'nextjs'}/${
-                    item.href
-                  }`
+                pathname === `/docs/${framework}${item.href}`
                   ? 'bg-accent text-accent-foreground font-medium'
                   : 'text-muted-foreground',
               )}

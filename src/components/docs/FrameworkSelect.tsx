@@ -7,19 +7,40 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { frameworkOptions } from '@/app/docs/[version]/[framework]/layout';
-import { useParams, usePathname, useRouter } from 'next/navigation';
+import { frameworkOptions } from '@/app/docs/(v2)/layout';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-export default function FrameworkSelect({ framework }: { framework: string }) {
-  const params = useParams();
+export const findFrameworkInPath = (pathname: string) => {
+  for (const option of frameworkOptions) {
+    if (pathname.includes(option.value)) {
+      return option.value;
+    }
+  }
+  return frameworkOptions[0].value;
+};
+
+export default function FrameworkSelect() {
   const router = useRouter();
   const pathname = usePathname();
+  const [framework, setFramework] = useState('');
+
+  useEffect(() => {
+    console.log('inside useEffect', pathname);
+    console.log('findFrameworkInPath', findFrameworkInPath(pathname));
+    setFramework(findFrameworkInPath(pathname));
+  }, [pathname]);
 
   const handleFrameworkChange = (value: string) => {
-    router.push(`/docs/${params.version}/${value}/${pathname.split('/').pop()}`);
+    const subPath =
+      pathname.split(`/docs/${framework}`).length > 1
+        ? pathname.split(`/docs/${framework}`).pop()
+        : '';
+    router.push(`/docs/${value}/${subPath}`);
+    setFramework(value);
   };
   return (
-    <Select defaultValue={framework} onValueChange={handleFrameworkChange}>
+    <Select value={framework} onValueChange={handleFrameworkChange}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Select Framework" />
       </SelectTrigger>

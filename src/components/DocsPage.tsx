@@ -35,7 +35,7 @@ import { useRouter } from 'next/navigation';
 import CustomCard from './example-cards/CustomCard';
 import ShadcnCustomCard from './example-cards/ShadCnCard';
 
-const VERSIONS = ['1.0.x', '1.1.x', '1.2.x', '1.3.x (latest)', '2.x (beta)'];
+const VERSIONS = ['1.0.x', '1.1.x', '1.2.x', '1.3.x', '2.x.x (latest)'];
 
 const DocsPage = () => {
   const fadeIn = {
@@ -60,7 +60,11 @@ const DocsPage = () => {
   };
 
   const updateURL = (tabValue: string, versionValue: string) => {
-    router.push(`/docs?tab=${tabValue}&version=${versionValue}`);
+    if (versionValue === VERSIONS[4]) {
+      router.push(`/docs`);
+    } else {
+      router.push(`/docs/v1?tab=${tabValue}&version=${versionValue}`);
+    }
   };
 
   // Read search params

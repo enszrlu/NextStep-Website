@@ -1,6 +1,6 @@
 'use client';
 
-import { versionOptions } from '@/app/docs/[version]/[framework]/layout';
+import { versionOptions } from '@/app/docs/(v2)/layout';
 import {
   Select,
   SelectContent,
@@ -8,23 +8,28 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { useRouter, usePathname } from 'next/navigation';
+import { useRouter, usePathname, useParams } from 'next/navigation';
+import { useState } from 'react';
 
-interface VersionSelectProps {
-  currentVersion: string;
-}
-
-export default function VersionSelect({ currentVersion }: VersionSelectProps) {
+export default function VersionSelect() {
   const router = useRouter();
-  const pathname = usePathname();
+  const path = usePathname();
+  const [version, setVersion] = useState(
+    path.includes('v1') ? versionOptions[3].value : versionOptions[4].value,
+  );
 
-  const handleVersionChange = (version: string) => {
-    const newPath = pathname.replace(/\/docs\/v\d+/, `/docs/${version}`);
-    router.push(newPath);
+  const handleVersionChange = (value: string) => {
+    if (value === '2.x.x') {
+      setVersion(value);
+      router.push(`/docs`);
+    } else {
+      setVersion(value);
+      router.push(`/docs/v1?version=${value}`);
+    }
   };
 
   return (
-    <Select value={currentVersion} onValueChange={handleVersionChange}>
+    <Select value={version} onValueChange={handleVersionChange}>
       <SelectTrigger className="w-[180px]">
         <SelectValue placeholder="Select Version" />
       </SelectTrigger>

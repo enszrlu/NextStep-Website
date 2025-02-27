@@ -14,7 +14,7 @@ import VersionSelect from './VersionSelect';
 import FrameworkSelect from './FrameworkSelect';
 import DocsSidebar from './DocsSidebar';
 
-function MobileSidebar({ version, framework }: { version: string; framework: string }) {
+function MobileSidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
     <div className="sticky top-0 z-40 flex h-16 items-center justify-between md:hidden">
@@ -33,15 +33,15 @@ function MobileSidebar({ version, framework }: { version: string; framework: str
             <SheetTitle>Documentation</SheetTitle>
           </SheetHeader>
           <div className="px-4 py-3 space-y-4">
-            <VersionSelect currentVersion={version} />
-            <FrameworkSelect framework={framework} />
+            <VersionSelect />
+            <FrameworkSelect />
           </div>
           <DocsSidebar className="px-2" />
         </SheetContent>
       </Sheet>
       <div className="flex items-center gap-2">
-        <VersionSelect currentVersion={version} />
-        <FrameworkSelect framework={framework} />
+        <VersionSelect />
+        <FrameworkSelect />
       </div>
     </div>
   );
