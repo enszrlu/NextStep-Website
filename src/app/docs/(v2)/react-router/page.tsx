@@ -20,5 +20,5 @@ export const metadata: Metadata = {
 };
 
 export default function BasicSetupPage() {
-  return <Installation framework="react-router" />;
+  return <Installation framework="react router" />;
 }

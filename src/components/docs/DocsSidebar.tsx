@@ -78,11 +78,11 @@ const sidebarItems = [
 export default function DocsSidebar({ className }: SidebarNavProps) {
   const params = useParams();
   const pathname = usePathname();
-  const [framework, setFramework] = useState(findFrameworkInPath(pathname));
+  const [framework, setFramework] = useState(findFrameworkInPath(pathname).value);
   const items = sidebarItems;
 
   useEffect(() => {
-    setFramework(findFrameworkInPath(pathname));
+    setFramework(findFrameworkInPath(pathname).value);
   }, [pathname]);
 
   return (

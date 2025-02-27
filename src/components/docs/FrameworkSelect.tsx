@@ -14,10 +14,10 @@ import { useEffect, useState } from 'react';
 export const findFrameworkInPath = (pathname: string) => {
   for (const option of frameworkOptions) {
     if (pathname.includes(option.value)) {
-      return option.value;
+      return option;
     }
   }
-  return frameworkOptions[0].value;
+  return frameworkOptions[0];
 };
 
 export default function FrameworkSelect() {
@@ -26,7 +26,7 @@ export default function FrameworkSelect() {
   const [framework, setFramework] = useState('');
 
   useEffect(() => {
-    setFramework(findFrameworkInPath(pathname));
+    setFramework(findFrameworkInPath(pathname).value);
   }, [pathname]);
 
   const handleFrameworkChange = (value: string) => {

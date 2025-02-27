@@ -34,7 +34,7 @@ const FRAMEWORKS = [
   },
 ];
 
-const Installation = ({ framework = 'nextjs' }: { framework: string }) => {
+const Installation = ({ framework = 'next.js' }: { framework: string }) => {
   const FrameWorkLinks = (framework: (typeof FRAMEWORKS)[number]) => {
     return (
       <div className="flex gap-4 p-4 bg-foreground/80 text-background rounded-md flex-col justify-center items-center">
