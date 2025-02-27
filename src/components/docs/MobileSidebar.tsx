@@ -17,7 +17,7 @@ import DocsSidebar from './DocsSidebar';
 function MobileSidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
-    <div className="sticky top-0 z-40 flex h-16 items-center justify-between md:hidden">
+    <div className="sticky top-0 z-40 flex h-16 items-center justify-between md:hidden bg-background">
       <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
         <SheetTrigger asChild>
           <Button
