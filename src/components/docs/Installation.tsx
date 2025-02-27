@@ -79,7 +79,7 @@ const Installation = ({ framework = 'next.js' }: { framework: string }) => {
         />
       </div>
       <div className="flex self-end">
-        <Link href={`/docs/${framework.replace('.', '')}/basic-setup`}>
+        <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/basic-setup`}>
           <Button variant="default">
             <FaArrowRight className="w-4 h-4 mr-2" /> Basic Setup
           </Button>

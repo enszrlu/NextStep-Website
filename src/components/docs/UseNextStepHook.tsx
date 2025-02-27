@@ -193,7 +193,7 @@ export function OnboardingWrapper({ children, isNewUser }) {
 
       <div className="flex justify-between">
         <Link
-          href={`/docs/${framework.replace('.', '')}/tour-steps`}
+          href={`/docs/${framework.replace('.', '').replace(' ', '-')}/tour-steps`}
           id="useNextStep-demo-step1"
         >
           <Button variant="outline">
@@ -201,7 +201,7 @@ export function OnboardingWrapper({ children, isNewUser }) {
           </Button>
         </Link>
         <Link
-          href={`/docs/${framework.replace('.', '')}/routing`}
+          href={`/docs/${framework.replace('.', '').replace(' ', '-')}/routing`}
           id="useNextStep-demo-step2"
         >
           <Button variant="default">

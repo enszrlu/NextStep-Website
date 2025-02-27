@@ -29,7 +29,7 @@ const BasicSetup = ({ framework = 'next.js' }: BasicSetupProps) => {
           {framework === 'next.js' ? <code>NextStep</code> : <code>NextStepReact</code>},
           then supply the <code>steps</code> array to NextStep. See the{' '}
           <Link
-            href={`/docs/${framework.replace('.', '')}/tour-steps`}
+            href={`/docs/${framework.replace('.', '').replace(' ', '-')}/tour-steps`}
             className="text-primary"
           >
             Tour Steps
@@ -239,25 +239,27 @@ export default defineConfig({
           you can explore more features:
         </p>
         <div className="flex gap-4 flex-wrap">
-          <Link href={`/docs/${framework.replace('.', '')}/tour-steps`}>
+          <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/tour-steps`}>
             <Button variant="outline">Tour Steps</Button>
           </Link>
-          <Link href={`/docs/${framework.replace('.', '')}/useNextStep`}>
+          <Link
+            href={`/docs/${framework.replace('.', '').replace(' ', '-')}/useNextStep`}
+          >
             <Button variant="outline">useNextStep Hook</Button>
           </Link>
-          <Link href={`/docs/${framework.replace('.', '')}/routing`}>
+          <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/routing`}>
             <Button variant="outline">Routing During Tour</Button>
           </Link>
         </div>
       </div>
 
       <div className="flex justify-between">
-        <Link href={`/docs/${framework.replace('.', '')}/`}>
+        <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/`}>
           <Button variant="outline">
             <FaArrowLeft className="w-4 h-4 mr-2" /> Installation
           </Button>
         </Link>
-        <Link href={`/docs/${framework.replace('.', '')}/tour-steps`}>
+        <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/tour-steps`}>
           <Button variant="default">
             <FaArrowRight className="w-4 h-4 mr-2" /> Tour Steps
           </Button>

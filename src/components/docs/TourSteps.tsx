@@ -359,12 +359,12 @@ const YourComponent = () => {
       </div>
 
       <div className="flex justify-between">
-        <Link href={`/docs/${framework.replace('.', '')}/basic-setup`}>
+        <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/basic-setup`}>
           <Button variant="outline">
             <FaArrowLeft className="w-4 h-4 mr-2" /> Basic Setup
           </Button>
         </Link>
-        <Link href={`/docs/${framework.replace('.', '')}/useNextStep`}>
+        <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/useNextStep`}>
           <Button variant="default">
             <FaArrowRight className="w-4 h-4 mr-2" /> useNextStep Hook
           </Button>
