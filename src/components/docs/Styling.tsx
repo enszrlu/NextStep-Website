@@ -152,15 +152,19 @@ export default CustomCard;`}
 
         <CodeBlock
           language="tsx"
-          code={`import { NextStep, NextStepProvider } from 'nextstepjs';
+          code={`import { ${
+            framework == 'next.js' ? 'NextStep' : 'NextStepReact'
+          }, NextStepProvider } from 'nextstepjs';
 import CustomCard from './CustomCard';
 
 function MyApp({ Component, pageProps }) {
   return (
     <NextStepProvider>
-      <NextStep steps={steps} cardComponent={CustomCard}>
+      <${
+        framework == 'next.js' ? 'NextStep' : 'NextStepReact'
+      } steps={steps} cardComponent={CustomCard}>
         <Component {...pageProps} />
-      </NextStep>
+      </${framework == 'next.js' ? 'NextStep' : 'NextStepReact'}>
     </NextStepProvider>
   );
 }`}
@@ -274,13 +278,13 @@ export default ShadcnCustomCard;`}
 
         <CodeBlock
           language="tsx"
-          code={`<NextStep
+          code={`<${framework == 'next.js' ? 'NextStep' : 'NextStepReact'}
   steps={steps}
   shadowRgb="0, 0, 0"     // Default is "0, 0, 0" (black)
   shadowOpacity="0.2"     // Default is "0.2" (20% opacity)
 >
   {children}
-</NextStep>`}
+</${framework == 'next.js' ? 'NextStep' : 'NextStepReact'}>`}
         />
 
         <p className="text-lg mt-4">
@@ -350,12 +354,12 @@ export default ShadcnCustomCard;`}
 
         <CodeBlock
           language="tsx"
-          code={`<NextStep
+          code={`<${framework == 'next.js' ? 'NextStep' : 'NextStepReact'}
   steps={steps}
   clickThroughOverlay={true}
 >
   {children}
-</NextStep>`}
+</${framework == 'next.js' ? 'NextStep' : 'NextStepReact'}>`}
         />
 
         <p className="text-lg mt-4">

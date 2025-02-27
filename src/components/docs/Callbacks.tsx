@@ -194,12 +194,12 @@ const trackProgress = {
 };
 
 // Then use it in your NextStep component
-<NextStep 
+<${framework == 'next.js' ? 'NextStep' : 'NextStepReact'} 
   steps={steps}
   {...trackProgress}
 >
   {children}
-</NextStep>`}
+</${framework == 'next.js' ? 'NextStep' : 'NextStepReact'}>`}
           />
 
           <h3 className="text-xl font-semibold mt-4">Form Validation</h3>
@@ -233,12 +233,12 @@ const formValidation = {
 };
 
 // Then use it in your NextStep component
-<NextStep 
+<${framework == 'next.js' ? 'NextStep' : 'NextStepReact'} 
   steps={steps}
   {...formValidation}
 >
   {children}
-</NextStep>`}
+</${framework == 'next.js' ? 'NextStep' : 'NextStepReact'}>`}
           />
 
           <h3 className="text-xl font-semibold mt-4">Dynamic Content</h3>
@@ -282,12 +282,12 @@ const dynamicContent = {
 };
 
 // Then use it in your NextStep component
-<NextStep 
+<${framework == 'next.js' ? 'NextStep' : 'NextStepReact'} 
   steps={steps}
   {...dynamicContent}
 >
   {children}
-</NextStep>`}
+</${framework == 'next.js' ? 'NextStep' : 'NextStepReact'}>`}
           />
         </div>
 

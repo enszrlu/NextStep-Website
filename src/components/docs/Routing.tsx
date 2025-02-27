@@ -199,12 +199,12 @@ export function useCustomNavigationAdapter(): NavigationAdapter {
           code={`import { useCustomNavigationAdapter } from './customNavigationAdapter';
 
 // In your root component
-<NextStepReact 
+<${framework == 'next.js' ? 'NextStep' : 'NextStepReact'} 
   steps={steps} 
   navigationAdapter={useCustomNavigationAdapter}
 >
   <YourAppContent />
-</NextStepReact>`}
+</${framework == 'next.js' ? 'NextStep' : 'NextStepReact'}>`}
         />
 
         <h2 className="text-2xl font-semibold mt-6">Routing During Tours</h2>

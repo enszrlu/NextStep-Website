@@ -69,9 +69,11 @@ const stepsEs = [
 // Use the appropriate steps array based on locale
 const MyApp = ({ locale }) => (
   <NextStepProvider>
-    <NextStep steps={locale === 'es' ? stepsEs : stepsEn}>
+    <${
+      framework == 'next.js' ? 'NextStep' : 'NextStepReact'
+    } steps={locale === 'es' ? stepsEs : stepsEn}>
       {/* Your app content */}
-    </NextStep>
+    </${framework == 'next.js' ? 'NextStep' : 'NextStepReact'}>
   </NextStepProvider>
 );`}
         />
@@ -115,9 +117,9 @@ function MyApp() {
   
   return (
     <NextStepProvider>
-      <NextStep steps={localizedSteps}>
+      <${framework == 'next.js' ? 'NextStep' : 'NextStepReact'} steps={localizedSteps}>
         {/* Your app content */}
-      </NextStep>
+      </${framework == 'next.js' ? 'NextStep' : 'NextStepReact'}>
     </NextStepProvider>
   );
 }`}
