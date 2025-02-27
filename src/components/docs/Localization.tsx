@@ -141,9 +141,9 @@ function MyApp() {
             <FaArrowLeft className="w-4 h-4 mr-2" /> Keyboard Navigation
           </Button>
         </Link>
-        <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/dark-mode`}>
+        <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/styling`}>
           <Button variant="default">
-            Dark Mode <FaArrowRight className="w-4 h-4 ml-2" />
+            Styling <FaArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </Link>
       </div>

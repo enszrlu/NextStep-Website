@@ -53,10 +53,6 @@ const sidebarItems = [
         title: 'Localization',
         href: '/localization',
       },
-      {
-        title: 'Dark Mode',
-        href: '/dark-mode',
-      },
     ],
   },
   {
@@ -69,6 +65,10 @@ const sidebarItems = [
       {
         title: 'Custom Cards',
         href: '/custom-cards',
+      },
+      {
+        title: 'Dark Mode',
+        href: '/dark-mode',
       },
     ],
   },
