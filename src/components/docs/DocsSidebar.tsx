@@ -70,6 +70,10 @@ const sidebarItems = [
         title: 'Dark Mode',
         href: '/dark-mode',
       },
+      {
+        title: 'Animations',
+        href: '/animations',
+      },
     ],
   },
   {
