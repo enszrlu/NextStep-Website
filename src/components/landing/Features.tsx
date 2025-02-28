@@ -31,17 +31,17 @@ function Features() {
           background={<div className="absolute inset-0 h-full w-full" />}
           Icon={Sparkles}
           description="Smooth, customizable animations powered by Framer Motion for engaging user experiences."
-          href="/docs/react/animations"
+          href="/docs/nextjs/animations"
           cta="See animations"
         />
 
         <BentoCard
-          name="Interactive Forms"
+          name="Interactive"
           className="md:col-span-2 md:row-span-2"
           background={<div className="absolute inset-0 h-full w-full" />}
           Icon={FormInput}
           description="Trigger tour steps based on user interactions with forms and other elements for dynamic, interactive experiences."
-          href="/docs/react/useNextStep"
+          href="/docs/nextjs/useNextStep"
           cta="Explore interactions"
         />
 
@@ -51,7 +51,7 @@ function Features() {
           background={<div className="absolute inset-0 h-full w-full" />}
           Icon={Paintbrush}
           description="Provide your own custom card components to completely control the appearance of your tours. Customize animations, styling, and behavior."
-          href="/docs/react/styling"
+          href="/docs/nextjs/styling"
           cta="Learn about styling"
         />
         <BentoCard
@@ -59,7 +59,7 @@ function Features() {
           className="md:col-span-2"
           background={<div className="absolute inset-0 h-full w-full" />}
           Icon={Feather}
-          description="Minimal bundle size with zero dependencies beyond React and Framer Motion for fast loading times."
+          description="Minimal bundle size with zero dependencies beyond Motion for fast loading times."
           href="/docs"
           cta="Get started"
         />
@@ -69,7 +69,7 @@ function Features() {
           background={<div className="absolute inset-0 h-full w-full" />}
           Icon={Navigation}
           description="Create tours that span multiple pages with built-in navigation adapters for Next.js, React Router, and Remix."
-          href="/docs/react/routing"
+          href="/docs/nextjs/routing"
           cta="Explore routing"
         />
         <BentoCard
@@ -77,8 +77,8 @@ function Features() {
           className="md:col-span-5"
           background={<div className="absolute inset-0 h-full w-full" />}
           Icon={BarChart3}
-          description="Track user progress with onStart, onComplete, onSkip, and onStepChange callbacks for analytics and custom behaviors."
-          href="/docs/react/callbacks"
+          description="Track user progress with callbacks for analytics and custom behaviors. Perform actions when a step is started, completed, skipped, or when the tour is finished."
+          href="/docs/nextjs/callbacks"
           cta="Learn about callbacks"
         />
       </BentoGrid>
