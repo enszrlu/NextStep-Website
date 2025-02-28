@@ -56,8 +56,10 @@ function YourComponent() {
 }`}
         />
 
-        <h2 className="text-2xl font-semibold mt-6">Available Methods</h2>
-        <p className="text-lg">The useNextStep hook provides the following methods:</p>
+        <h2 className="text-2xl font-semibold mt-6">Available Methods and Properties</h2>
+        <p className="text-lg">
+          The useNextStep hook provides the following methods and properties:
+        </p>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
           <div className="p-4 border rounded-md">
@@ -87,42 +89,51 @@ closeNextStep();`}
           </div>
 
           <div className="p-4 border rounded-md">
-            <h3 className="text-xl font-semibold">nextStep</h3>
-            <p className="mt-2">Advances to the next step in the current tour.</p>
+            <h3 className="text-xl font-semibold">currentTour</h3>
+            <p className="mt-2">The name of the current tour (string | null).</p>
             <CodeBlock
               language="tsx"
-              code={`// Go to the next step
-nextStep();`}
+              code={`// Check the current tour
+if (currentTour === 'featureTour') {
+  // Do something specific for this tour
+}`}
             />
           </div>
 
           <div className="p-4 border rounded-md">
-            <h3 className="text-xl font-semibold">prevStep</h3>
-            <p className="mt-2">Goes back to the previous step in the current tour.</p>
+            <h3 className="text-xl font-semibold">currentStep</h3>
+            <p className="mt-2">The current step index (number).</p>
             <CodeBlock
               language="tsx"
-              code={`// Go to the previous step
-prevStep();`}
+              code={`// Get the current step index
+console.log(\`Current step: \${currentStep + 1} of \${totalSteps}\`);`}
             />
           </div>
 
           <div className="p-4 border rounded-md">
-            <h3 className="text-xl font-semibold">goToStep</h3>
-            <p className="mt-2">Jumps to a specific step index in the current tour.</p>
+            <h3 className="text-xl font-semibold">setCurrentStep</h3>
+            <p className="mt-2">Sets the current step index with optional delay.</p>
             <CodeBlock
               language="tsx"
-              code={`// Go to step index 2
-goToStep(2);`}
+              code={`// Jump to step index 2
+setCurrentStep(2);
+
+// Jump to step index 3 with a 500ms delay
+setCurrentStep(3, 500);`}
             />
           </div>
 
           <div className="p-4 border rounded-md">
-            <h3 className="text-xl font-semibold">skipTour</h3>
-            <p className="mt-2">Skips the current tour.</p>
+            <h3 className="text-xl font-semibold">isNextStepVisible</h3>
+            <p className="mt-2">
+              Whether the tour overlay is currently visible (boolean).
+            </p>
             <CodeBlock
               language="tsx"
-              code={`// Skip the current tour
-skipTour();`}
+              code={`// Conditionally render UI based on tour visibility
+{isNextStepVisible && (
+  <div className="tour-active-indicator">Tour in progress</div>
+)}`}
             />
           </div>
         </div>
@@ -184,10 +195,61 @@ export function OnboardingWrapper({ children, isNewUser }) {
 }`}
         />
 
+        <h2 className="text-2xl font-semibold mt-6">Complete Hook Example</h2>
         <p className="text-lg">
-          You have successfully learned about the basic NextStep features and setup. Now,
-          let's learn more about advanced features that distinguish NextStep from other
-          tour libraries.
+          Here's a complete example showing how to use all the properties and methods of
+          the useNextStep hook:
+        </p>
+
+        <CodeBlock
+          language="tsx"
+          code={`'use client';
+import { useNextStep } from 'nextstepjs';
+
+export default function TourController() {
+  const { 
+    startNextStep, 
+    closeNextStep, 
+    currentTour, 
+    currentStep, 
+    setCurrentStep, 
+    isNextStepVisible 
+  } = useNextStep();
+
+  const handleStartTour = () => {
+    startNextStep('welcomeTour');
+  };
+
+  const handleSkipTour = () => {
+    closeNextStep();
+  };
+
+  const handleJumpToStep = () => {
+    setCurrentStep(2);
+  };
+
+  return (
+    <div className="tour-controls">
+      <button onClick={handleStartTour}>Start Tour</button>
+      
+      {isNextStepVisible && (
+        <>
+          <button onClick={handleSkipTour}>Skip Tour</button>
+          <button onClick={handleJumpToStep}>Jump to Step 3</button>
+          <div className="tour-status">
+            <p>Current tour: {currentTour}</p>
+            <p>Current step: {currentStep + 1}</p>
+          </div>
+        </>
+      )}
+    </div>
+  );
+}`}
+        />
+
+        <p className="text-lg">
+          You have successfully learned about the useNextStep hook and how to control
+          tours programmatically in your {toTitleCase(framework)} application.
         </p>
       </div>
 
@@ -205,7 +267,7 @@ export function OnboardingWrapper({ children, isNewUser }) {
           id="useNextStep-demo-step2"
         >
           <Button variant="default">
-            <FaArrowRight className="w-4 h-4 mr-2" /> Routing During Tour
+            Routing During Tour <FaArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </Link>
       </div>
