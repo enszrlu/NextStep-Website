@@ -20,6 +20,7 @@ import AnnouncementBanner from './AnnouncementBanner';
 import { useEffect, useState, ReactNode } from 'react';
 import NewsletterSignUp from './NewsletterSignUp';
 import FaqSection from './FaqSection';
+import Features from './landing/Features';
 
 const BANNER_STORAGE_KEY = 'nextstep_announcement_hidden_until';
 const ONE_WEEK_IN_MS = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
@@ -88,6 +89,10 @@ export function LandingPageClient({ GitHubStarsComponent }: LandingPageClientPro
               </Link>
             </div>
           </div>
+
+          {/* Features Section */}
+          <Features />
+
           {/* DEMO VIDEO */}
           <video
             className="w-full rounded-lg shadow-md shadow-gray-500 max-w-3xl mx-auto"
