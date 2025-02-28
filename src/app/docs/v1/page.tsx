@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Documentation for NextStepjs. Learn how to implement user onboarding, interactive tutorials, and product tours in your Next.js and React applications.',
   alternates: {
-    canonical: 'https://nextstepjs.com/docs',
+    canonical: 'https://nextstepjs.com/docs/v1',
   },
 };
 

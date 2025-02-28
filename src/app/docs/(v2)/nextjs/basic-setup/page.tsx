@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import BasicSetup from '@/components/docs/BasicSetup';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'Next.js Basic Setup - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/nextjs/basic-setup',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/nextjs/basic-setup' },
 };
 
 export default function NextjsBasicSetupPage() {
