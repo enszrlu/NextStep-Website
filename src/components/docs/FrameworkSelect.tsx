@@ -7,7 +7,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@/components/ui/select';
-import { frameworkOptions } from '@/app/docs/(v2)/layout';
+import { frameworkOptions } from '@/app/docs/(v2)/constants';
 import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 

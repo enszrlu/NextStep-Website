@@ -1,6 +1,6 @@
 'use client';
 
-import { versionOptions } from '@/app/docs/(v2)/layout';
+import { versionOptions } from '@/app/docs/(v2)/constants';
 import {
   Select,
   SelectContent,
