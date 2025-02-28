@@ -1,5 +1,6 @@
-import React from 'react';
+'use client';
 
+import React from 'react';
 import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { BookOpen } from 'lucide-react';
@@ -7,11 +8,34 @@ import { SiGithub } from 'react-icons/si';
 import { PiXLogo } from 'react-icons/pi';
 import { Coffee } from 'lucide-react';
 import Image from 'next/image';
+import { usePathname } from 'next/navigation';
 
 const Navbar = () => {
+  const pathname = usePathname();
+
+  // Determine the docs link based on the current path
+  const getFrameworkLink = (path: string) => {
+    if (pathname?.includes('/react-router')) {
+      return `${path}/react-router`;
+    } else if (pathname?.includes('/remix')) {
+      return `${path}/remix`;
+    } else if (pathname?.includes('/react')) {
+      return `${path}/react`;
+    } else if (pathname?.includes('/nextjs')) {
+      return `${path}/nextjs`;
+    } else {
+      return path;
+    }
+  };
+
+  const docsLink = getFrameworkLink('/docs');
+
   return (
     <header className="container mx-auto py-6 flex justify-between items-center">
-      <Link href="/" className="text-2xl font-bold flex items-center gap-2">
+      <Link
+        href={getFrameworkLink('') || '/'}
+        className="text-2xl font-bold flex items-center gap-2"
+      >
         <Image
           src="https://nextstepjs.com/icon.png"
           alt="NextStep - Lightweight Next.js Onboarding Library Logo"
@@ -22,7 +46,7 @@ const Navbar = () => {
         <p className="hidden md:block">NextStep</p>
       </Link>
       <nav className="flex items-center space-x-4">
-        <Link href="/docs" className="flex items-center space-x-2">
+        <Link href={docsLink} className="flex items-center space-x-2">
           <BookOpen className="w-5 h-5" />
           <span className="hidden md:block">Docs</span>
         </Link>
