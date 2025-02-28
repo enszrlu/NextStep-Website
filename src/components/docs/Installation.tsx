@@ -35,17 +35,23 @@ const FRAMEWORKS = [
 ];
 
 const Installation = ({ framework = 'next.js' }: { framework: string }) => {
-  const FrameWorkLinks = (framework: (typeof FRAMEWORKS)[number]) => {
+  const FrameWorkLinks = (_framework: (typeof FRAMEWORKS)[number]) => {
     return (
-      <div className="flex gap-4 p-4 bg-foreground/80 text-background rounded-md flex-col justify-center items-center">
+      <div
+        className={cn(
+          'flex gap-4 p-4 bg-foreground/70 text-background rounded-md flex-col justify-center items-center',
+          framework.replace(' ', '-').replace('.', '') === _framework.href &&
+            'ring-4 bg-foreground ring-primary',
+        )}
+      >
         <Link
-          href={`/docs/${framework.href}`}
+          href={`/docs/${_framework.href}`}
           className="flex gap-4 h-24 w-24 rounded-md flex-col justify-center items-center"
         >
-          {React.createElement(framework.icon, {
+          {React.createElement(_framework.icon, {
             className: 'w-10 h-10',
           })}
-          {framework.label}
+          {_framework.label}
         </Link>
       </div>
     );
