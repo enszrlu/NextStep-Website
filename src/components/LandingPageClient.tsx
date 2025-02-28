@@ -47,7 +47,21 @@ export function LandingPageClient({
 
   const onClickHandler = (tourName: string) => {
     setIsBannerVisible(false);
-    startNextStep(tourName);
+
+    // Use framework-specific tour names
+    if (tourName === 'firsttour') {
+      if (framework === 'React') {
+        startNextStep('react-tour');
+      } else if (framework === 'React Router') {
+        startNextStep('react-router-tour');
+      } else if (framework === 'Remix') {
+        startNextStep('remix-tour');
+      } else {
+        startNextStep('firsttour');
+      }
+    } else {
+      startNextStep(tourName);
+    }
   };
 
   const handleBannerClose = () => {
