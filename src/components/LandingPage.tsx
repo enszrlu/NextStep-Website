@@ -73,6 +73,7 @@ export function LandingPage() {
                   variant="outline"
                   size="lg"
                   className="bg-yellow-400 text-gray-800 hover:bg-yellow-300 transition-colors"
+                  id="buy-me-a-coffee-button"
                 >
                   <Coffee className="w-5 h-5 mr-2" />
                   Buy Me a Coffee

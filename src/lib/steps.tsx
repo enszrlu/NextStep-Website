@@ -390,6 +390,273 @@ const steps: Tour[] = [
       },
     ],
   },
+  {
+    tour: 'docs-demo',
+    steps: [
+      {
+        icon: <>👋</>,
+        title: 'First Step',
+        content: <>This is the first step of our demo tour</>,
+        selector: '#docs-demo-step1',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <>🎉</>,
+        title: 'Second Step',
+        content: <>This is the second step of our demo tour</>,
+        selector: '#docs-demo-step2',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+    ],
+  },
+  {
+    tour: 'next-js-routing-demo',
+    steps: [
+      {
+        icon: <>👋</>,
+        title: 'Routing Demo',
+        content: (
+          <>
+            This is the first step of our Next.js routing demo. Click next to navigate to
+            the homepage.
+          </>
+        ),
+        selector: '#routing-demo-step',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        nextRoute: '/',
+      },
+      {
+        icon: <>❤️</>,
+        title: 'Support the Developer',
+        content: (
+          <>
+            We've navigated to the homepage. Please consider supporting the developer if
+            you find NextStep useful.
+            <br />
+            <br />
+            Click next to navigate back to the routing documentation.
+          </>
+        ),
+        selector: '#buy-me-a-coffee-button',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        prevRoute: '/docs/nextjs/routing',
+        nextRoute: '/docs/nextjs/routing',
+      },
+      {
+        icon: <>🎉</>,
+        title: 'Back to Docs',
+        content: (
+          <>
+            We've navigated back to the routing documentation. You've completed the
+            routing demo!
+          </>
+        ),
+        selector: '#routing-demo-step',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        prevRoute: '/',
+      },
+    ],
+  },
+  {
+    tour: 'react-routing-demo',
+    steps: [
+      {
+        icon: <>👋</>,
+        title: 'Routing Demo',
+        content: (
+          <>
+            This is the first step of our React routing demo. Click next to navigate to
+            the homepage.
+          </>
+        ),
+        selector: '#routing-demo-step',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        nextRoute: '/',
+      },
+      {
+        icon: <>❤️</>,
+        title: 'Support the Developer',
+        content: (
+          <>
+            We've navigated to the homepage. Please consider supporting the developer if
+            you find NextStep useful.
+            <br />
+            <br />
+            Click next to navigate back to the routing documentation.
+          </>
+        ),
+        selector: '#buy-me-a-coffee-button',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        prevRoute: '/docs/react/routing',
+        nextRoute: '/docs/react/routing',
+      },
+      {
+        icon: <>🎉</>,
+        title: 'Back to Docs',
+        content: (
+          <>
+            We've navigated back to the routing documentation. You've completed the
+            routing demo!
+          </>
+        ),
+        selector: '#routing-demo-step',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        prevRoute: '/',
+      },
+    ],
+  },
+  {
+    tour: 'react-router-routing-demo',
+    steps: [
+      {
+        icon: <>👋</>,
+        title: 'Routing Demo',
+        content: (
+          <>
+            This is the first step of our React Router routing demo. Click next to
+            navigate to the homepage.
+          </>
+        ),
+        selector: '#routing-demo-step',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        nextRoute: '/',
+      },
+      {
+        icon: <>❤️</>,
+        title: 'Support the Developer',
+        content: (
+          <>
+            We've navigated to the homepage. Please consider supporting the developer if
+            you find NextStep useful.
+            <br />
+            <br />
+            Click next to navigate back to the routing documentation.
+          </>
+        ),
+        selector: '#buy-me-a-coffee-button',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        prevRoute: '/docs/react-router/routing',
+        nextRoute: '/docs/react-router/routing',
+      },
+      {
+        icon: <>🎉</>,
+        title: 'Back to Docs',
+        content: (
+          <>
+            We've navigated back to the routing documentation. You've completed the
+            routing demo!
+          </>
+        ),
+        selector: '#routing-demo-step',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        prevRoute: '/',
+      },
+    ],
+  },
+  {
+    tour: 'remix-routing-demo',
+    steps: [
+      {
+        icon: <>👋</>,
+        title: 'Routing Demo',
+        content: (
+          <>
+            This is the first step of our Remix routing demo. Click next to navigate to
+            the homepage.
+          </>
+        ),
+        selector: '#routing-demo-step',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        nextRoute: '/',
+      },
+      {
+        icon: <>❤️</>,
+        title: 'Support the Developer',
+        content: (
+          <>
+            We've navigated to the homepage. Please consider supporting the developer if
+            you find NextStep useful.
+            <br />
+            <br />
+            Click next to navigate back to the routing documentation.
+          </>
+        ),
+        selector: '#buy-me-a-coffee-button',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        prevRoute: '/docs/remix/routing',
+        nextRoute: '/docs/remix/routing',
+      },
+      {
+        icon: <>🎉</>,
+        title: 'Back to Docs',
+        content: (
+          <>
+            We've navigated back to the routing documentation. You've completed the
+            routing demo!
+          </>
+        ),
+        selector: '#routing-demo-step',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        prevRoute: '/',
+      },
+    ],
+  },
 ];
 
 export default steps;

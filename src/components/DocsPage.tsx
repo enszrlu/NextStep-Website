@@ -35,7 +35,7 @@ import { useRouter } from 'next/navigation';
 import CustomCard from './example-cards/CustomCard';
 import ShadcnCustomCard from './example-cards/ShadCnCard';
 
-const VERSIONS = ['1.0.x', '1.1.x', '1.2.x', '1.3.x (latest)', '2.x (beta)'];
+const VERSIONS = ['1.0.x', '1.1.x', '1.2.x', '1.3.x', '2.x.x (latest)'];
 
 const DocsPage = () => {
   const fadeIn = {
@@ -60,7 +60,11 @@ const DocsPage = () => {
   };
 
   const updateURL = (tabValue: string, versionValue: string) => {
-    router.push(`/docs?tab=${tabValue}&version=${versionValue}`);
+    if (versionValue === VERSIONS[4]) {
+      router.push(`/docs`);
+    } else {
+      router.push(`/docs/v1?tab=${tabValue}&version=${versionValue}`);
+    }
   };
 
   // Read search params
@@ -235,7 +239,7 @@ const DocsPage = () => {
                     <p>
                       Make sure to import the adapter you need in your app in order to
                       access full functionality. Without an adapter, navigation features
-                      like nextRoute and prevRoute will not work properly.
+                      like nextRoute and prevRoute may not work properly.
                     </p>
                   </div>
                   <h3 className="text-xl font-semibold mt-4 mb-2">Built-in Adapters</h3>
@@ -289,6 +293,24 @@ export default function App() {
     </NextStepProvider>
   );
 }`}
+                  />
+                  <h4 className="text-lg font-semibold mt-4 mb-2">
+                    Vite Config (React Router and Remix)
+                  </h4>
+                  <p className="mb-4 font-semibold bg-red-100 p-4 rounded-md">
+                    ⚠️ Important: If you're using Vite with React Router or Remix, add the
+                    following configuration to your `vite.config.ts`:
+                  </p>
+                  <CodeBlock
+                    language="tsx"
+                    code={`// vite.config.ts
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  ssr: {
+    noExternal: ['nextstepjs', 'motion']
+  }
+});`}
                   />
                   <h4 className="text-lg font-semibold mt-4 mb-2">
                     Custom Navigation Adapter
