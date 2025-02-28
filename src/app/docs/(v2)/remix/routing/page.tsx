@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Routing from '@/components/docs/Routing';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'Remix Routing During Tours - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/remix/routing',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/remix/routing' },
 };
 
 export default function RemixRoutingPage() {

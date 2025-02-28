@@ -6,6 +6,10 @@ const nextConfig = {
         hostname: 'nextstepjs.com',
         protocol: 'https',
       },
+      {
+        hostname: 'avatars.githubusercontent.com',
+        protocol: 'https',
+      },
     ],
   },
 };

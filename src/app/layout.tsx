@@ -18,6 +18,7 @@ import {
   onNextStepStart,
 } from '@/lib/callbacks';
 import { metaKeywords } from './metaKeywords';
+import { appleWebApp, openGraph, twitter } from './metadata';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -36,36 +37,9 @@ export const metadata: Metadata = {
   description:
     'Easily create user friendly onboarding experiences with our lightweight onboarding library for Next.js / React. Step by step guides, product tours, and interactive walkthroughs for seemless user flows.',
   keywords: metaKeywords,
-  openGraph: {
-    images: [
-      {
-        url: 'https://nextstepjs.com/ogThumbnail.png',
-        width: 1200,
-        height: 630,
-        alt: 'NextStep - Lightweight Next.js / React Onboarding Library',
-      },
-    ],
-    type: 'website',
-    siteName: 'NextStep',
-    title: 'NextStep - Lightweight Next.js / React Onboarding Library',
-    description:
-      'Easily create user friendly onboarding experiences with our lightweight onboarding library for Next.js / React. Step by step guides, product tours, and interactive walkthroughs for seemless user flows.',
-    url: 'https://nextstepjs.com',
-    locale: 'en_US',
-  },
-  twitter: {
-    images: 'https://nextstepjs.com/xThumbnail.png',
-    site: '@AlexZDevs',
-    creator: '@AlexZDevs',
-    title: 'NextStep - Next.js / React Onboarding Library',
-    description:
-      'Easily create user friendly onboarding experiences with our lightweight onboarding library for Next.js / React. Step by step guides, product tours, and interactive walkthroughs for seemless user flows.',
-    card: 'summary_large_image',
-  },
-  appleWebApp: {
-    title: 'NextStep - Lightweight Next.js / React Onboarding Library',
-    startupImage: 'https://nextstepjs.com/ogThumbnail.png',
-  },
+  openGraph: openGraph,
+  twitter: twitter,
+  appleWebApp: appleWebApp,
   applicationName: 'NextStep',
   icons: {
     icon: 'https://nextstepjs.com/icon.png',
@@ -174,9 +148,9 @@ export default function RootLayout({
             onStepChange={onNextStepStepChange}
             scrollToTop={false}
           >
-            <div className="min-h-screen bg-background text-foreground px-4 flex flex-col">
+            <div className="min-h-screen bg-background text-foreground flex flex-col">
               <Navbar />
-              <main className="flex-1">{children}</main>
+              <main className="flex-1 px-4">{children}</main>
               <Footer />
               <Analytics />
               <ScrollToTop />

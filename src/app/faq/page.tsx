@@ -1,6 +1,7 @@
 import React from 'react';
 import FaqSection from '@/components/FaqSection';
 import { Metadata } from 'next';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'FAQ - NextStepjs',
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/faq',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/faq' },
 };
 
 const FaqPage = () => {

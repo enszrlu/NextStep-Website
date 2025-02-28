@@ -211,6 +211,524 @@ const steps: Tour[] = [
     ],
   },
   {
+    tour: 'react-tour',
+    steps: [
+      {
+        icon: <>👋</>,
+        title: 'Welcome to NextStep for React',
+        content: (
+          <p>
+            Onboarding never been easier! This is how card looks like without selector.
+            <br />
+            <br />
+            You can use buttons or arrow keys to navigate through the tour.
+          </p>
+        ),
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <>🚀</>,
+        title: 'Technologies used',
+        content: <p>NextStep is built with React, TailwindCSS, and Framer Motion.</p>,
+        selector: '#tour1-step2',
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <MdInstallDesktop />,
+        title: 'How to use NextStep',
+        content: <p>Install NextStep using your favorite package manager.</p>,
+        selector: '#tour1-step3',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 350,
+        pointerRadius: 10,
+      },
+      {
+        icon: <BiBlanket />,
+        title: 'Cosy Wrapper',
+        content: (
+          <p>
+            Simply wrap your React app with the NextStepProvider and NextStepReact
+            components. Add steps to NextStepReact.
+            <br />
+            <br />
+            This makes it easy to add onboarding to any React application.
+          </p>
+        ),
+        selector: '#tour1-step4',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <PiStepsDuotone />,
+        title: 'One step at a time',
+        content: (
+          <p>
+            Create your steps array. See{' '}
+            <a className="text-primary" href="/docs/react" target="_blank">
+              docs
+            </a>{' '}
+            for more details.
+          </p>
+        ),
+        selector: '#tour1-step5',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <GiArcheryTarget />,
+        title: 'Target any element',
+        content: (
+          <>
+            You can target any element with ease, simply use same id with step's selector.
+          </>
+        ),
+        selector: '#tour1-step6',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <GiFishingHook />,
+        title: 'We hook you up',
+        content: (
+          <>
+            You can control NextStep with ease. Simply use{' '}
+            <span className="font-bold">useNextStep</span> hook.
+            <br />
+            <br />
+            <a className="text-primary" href="/docs/react" target="_blank">
+              Check docs
+            </a>{' '}
+            for more details.
+          </>
+        ),
+        selector: '#tour1-step7',
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <GiCoffeeBeans />,
+        title: 'Support the developer',
+        content: <>If you like NextStep, please support the developer.</>,
+        selector: '#tour1-step9',
+        side: 'bottom-right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <FaNewspaper />,
+        title: 'Newsletter',
+        content: (
+          <p>
+            We are continuously improving NextStep for all React-based frameworks. <br />{' '}
+            <br />
+            Sign up to hear about our latest updates.
+          </p>
+        ),
+        selector: '#newsletter-signup',
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <>🎉🎉🎉</>,
+        title: 'Thats it!',
+        content: (
+          <>
+            Don't forget to leave a star on{' '}
+            <a
+              href="https://github.com/enszrlu/NextStep"
+              target="_blank"
+              className="text-primary"
+            >
+              GitHub
+            </a>
+            !
+            <br />
+            <br />
+            ⭐️⭐️⭐️⭐️⭐️
+          </>
+        ),
+        side: 'top',
+        pointerPadding: 10,
+        pointerRadius: 10,
+        showControls: true,
+        showSkip: false,
+      },
+    ],
+  },
+  {
+    tour: 'react-router-tour',
+    steps: [
+      {
+        icon: <>👋</>,
+        title: 'Welcome to NextStep for React Router',
+        content: (
+          <p>
+            Onboarding never been easier! This is how card looks like without selector.
+            <br />
+            <br />
+            You can use buttons or arrow keys to navigate through the tour.
+          </p>
+        ),
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <>🚀</>,
+        title: 'Technologies used',
+        content: <p>NextStep integrates seamlessly with React Router for navigation.</p>,
+        selector: '#tour1-step2',
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <MdInstallDesktop />,
+        title: 'How to use NextStep',
+        content: <p>Install NextStep using your favorite package manager.</p>,
+        selector: '#tour1-step3',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 350,
+        pointerRadius: 10,
+      },
+      {
+        icon: <BiBlanket />,
+        title: 'React Router Adapter',
+        content: (
+          <p>
+            Use the React Router adapter to enable seamless navigation during tours.
+            <br />
+            <br />
+            Simply import <code>useReactRouterAdapter</code> from{' '}
+            <code>nextstepjs/adapters/react-router</code> and pass it to the{' '}
+            <code>navigationAdapter</code> prop.
+          </p>
+        ),
+        selector: '#tour1-step4',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <PiStepsDuotone />,
+        title: 'One step at a time',
+        content: (
+          <p>
+            Create your steps array. See{' '}
+            <a className="text-primary" href="/docs/react-router" target="_blank">
+              docs
+            </a>{' '}
+            for more details.
+          </p>
+        ),
+        selector: '#tour1-step5',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <GiArcheryTarget />,
+        title: 'Target any element',
+        content: (
+          <>
+            You can target any element with ease, simply use same id with step's selector.
+          </>
+        ),
+        selector: '#tour1-step6',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <GiFishingHook />,
+        title: 'We hook you up',
+        content: (
+          <>
+            You can control NextStep with ease. Simply use{' '}
+            <span className="font-bold">useNextStep</span> hook.
+            <br />
+            <br />
+            <a className="text-primary" href="/docs/react-router" target="_blank">
+              Check docs
+            </a>{' '}
+            for more details.
+          </>
+        ),
+        selector: '#tour1-step7',
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <GiCoffeeBeans />,
+        title: 'Support the developer',
+        content: <>If you like NextStep, please support the developer.</>,
+        selector: '#tour1-step9',
+        side: 'bottom-right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <FaNewspaper />,
+        title: 'Newsletter',
+        content: (
+          <p>
+            We are continuously improving NextStep for all React-based frameworks. <br />{' '}
+            <br />
+            Sign up to hear about our latest updates.
+          </p>
+        ),
+        selector: '#newsletter-signup',
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <>🎉🎉🎉</>,
+        title: 'Thats it!',
+        content: (
+          <>
+            Don't forget to leave a star on{' '}
+            <a
+              href="https://github.com/enszrlu/NextStep"
+              target="_blank"
+              className="text-primary"
+            >
+              GitHub
+            </a>
+            !
+            <br />
+            <br />
+            ⭐️⭐️⭐️⭐️⭐️
+          </>
+        ),
+        side: 'top',
+        pointerPadding: 10,
+        pointerRadius: 10,
+        showControls: true,
+        showSkip: false,
+      },
+    ],
+  },
+  {
+    tour: 'remix-tour',
+    steps: [
+      {
+        icon: <>👋</>,
+        title: 'Welcome to NextStep for Remix',
+        content: (
+          <p>
+            Onboarding never been easier! This is how card looks like without selector.
+            <br />
+            <br />
+            You can use buttons or arrow keys to navigate through the tour.
+          </p>
+        ),
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <>🚀</>,
+        title: 'Technologies used',
+        content: <p>NextStep integrates seamlessly with Remix for navigation.</p>,
+        selector: '#tour1-step2',
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <MdInstallDesktop />,
+        title: 'How to use NextStep',
+        content: <p>Install NextStep using your favorite package manager.</p>,
+        selector: '#tour1-step3',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 350,
+        pointerRadius: 10,
+      },
+      {
+        icon: <BiBlanket />,
+        title: 'Remix Adapter',
+        content: (
+          <p>
+            Use the Remix adapter to enable seamless navigation during tours.
+            <br />
+            <br />
+            Simply import <code>useRemixAdapter</code> from{' '}
+            <code>nextstepjs/adapters/remix</code> and pass it to the{' '}
+            <code>navigationAdapter</code> prop.
+          </p>
+        ),
+        selector: '#tour1-step4',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <PiStepsDuotone />,
+        title: 'One step at a time',
+        content: (
+          <p>
+            Create your steps array. See{' '}
+            <a className="text-primary" href="/docs/remix" target="_blank">
+              docs
+            </a>{' '}
+            for more details.
+          </p>
+        ),
+        selector: '#tour1-step5',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <GiArcheryTarget />,
+        title: 'Target any element',
+        content: (
+          <>
+            You can target any element with ease, simply use same id with step's selector.
+          </>
+        ),
+        selector: '#tour1-step6',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <GiFishingHook />,
+        title: 'We hook you up',
+        content: (
+          <>
+            You can control NextStep with ease. Simply use{' '}
+            <span className="font-bold">useNextStep</span> hook.
+            <br />
+            <br />
+            <a className="text-primary" href="/docs/remix" target="_blank">
+              Check docs
+            </a>{' '}
+            for more details.
+          </>
+        ),
+        selector: '#tour1-step7',
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <GiCoffeeBeans />,
+        title: 'Support the developer',
+        content: <>If you like NextStep, please support the developer.</>,
+        selector: '#tour1-step9',
+        side: 'bottom-right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <FaNewspaper />,
+        title: 'Newsletter',
+        content: (
+          <p>
+            We are continuously improving NextStep for all React-based frameworks. <br />{' '}
+            <br />
+            Sign up to hear about our latest updates.
+          </p>
+        ),
+        selector: '#newsletter-signup',
+        side: 'top',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <>🎉🎉🎉</>,
+        title: 'Thats it!',
+        content: (
+          <>
+            Don't forget to leave a star on{' '}
+            <a
+              href="https://github.com/enszrlu/NextStep"
+              target="_blank"
+              className="text-primary"
+            >
+              GitHub
+            </a>
+            !
+            <br />
+            <br />
+            ⭐️⭐️⭐️⭐️⭐️
+          </>
+        ),
+        side: 'top',
+        pointerPadding: 10,
+        pointerRadius: 10,
+        showControls: true,
+        showSkip: false,
+      },
+    ],
+  },
+  {
     tour: 'demo',
     steps: [
       {

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Animations from '@/components/docs/Animations';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'Next.js Animations - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/nextjs/animations',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/nextjs/animations' },
 };
 
 export default function NextjsAnimationsPage() {

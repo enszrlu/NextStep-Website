@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Styling from '@/components/docs/Styling';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'Remix Styling and Customization - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/remix/styling',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/remix/styling' },
 };
 
 export default function RemixStylingPage() {

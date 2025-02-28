@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import UseNextStepHook from '@/components/docs/UseNextStepHook';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'React useNextStep Hook - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/react/useNextStep',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/react/useNextStep' },
 };
 
 export default function ReactUseNextStepPage() {

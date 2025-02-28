@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import DarkMode from '@/components/docs/DarkMode';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'React Router Dark Mode Support - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/react-router/dark-mode',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/react-router/dark-mode' },
 };
 
 export default function ReactRouterDarkModePage() {

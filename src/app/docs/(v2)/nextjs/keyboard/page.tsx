@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Keyboard from '@/components/docs/Keyboard';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'Next.js Keyboard Navigation - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/nextjs/keyboard',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/nextjs/keyboard' },
 };
 
 export default function NextjsKeyboardPage() {

@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Callbacks from '@/components/docs/Callbacks';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'React Callbacks - NextStepjs',
@@ -19,6 +20,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/react/callbacks',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/react/callbacks' },
 };
 
 export default function ReactCallbacksPage() {

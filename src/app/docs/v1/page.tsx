@@ -1,14 +1,16 @@
 import DocsPage from '@/components/DocsPage';
 import { Suspense } from 'react';
 import { Metadata } from 'next';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'Documentation - NextStepjs',
   description:
     'Documentation for NextStepjs. Learn how to implement user onboarding, interactive tutorials, and product tours in your Next.js and React applications.',
   alternates: {
-    canonical: 'https://nextstepjs.com/docs',
+    canonical: 'https://nextstepjs.com/docs/v1',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/v1' },
 };
 
 export default function Docs() {

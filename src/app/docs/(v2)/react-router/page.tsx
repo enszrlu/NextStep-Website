@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Installation from '@/components/docs/Installation';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'React Router Documentation - NextStepjs',
@@ -17,6 +18,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/react-router',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/react-router' },
 };
 
 export default function BasicSetupPage() {

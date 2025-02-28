@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Api from '@/components/docs/Api';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'React Router API Reference - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/react-router/api',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/react-router/api' },
 };
 
 export default function ReactRouterApiPage() {

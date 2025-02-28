@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Styling from '@/components/docs/Styling';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'React Router Styling and Customization - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/react-router/styling',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/react-router/styling' },
 };
 
 export default function ReactRouterStylingPage() {

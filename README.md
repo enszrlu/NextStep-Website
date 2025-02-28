@@ -1,6 +1,6 @@
 ## NextStep
 
-![NextStep](./public/nextstepjs.png)
+![NextStep](./public/ogThumbnail.png)
 
 **NextStep** is a lightweight onboarding library for Next.js / React applications. It utilizes [motion](https://www.motion.dev) for smooth animations and supports multiple React frameworks including Next.js, React Router, and Remix.
 
