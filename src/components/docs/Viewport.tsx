@@ -218,29 +218,6 @@ const Viewport = ({ framework = 'next.js' }: ViewportProps) => {
             NextStepViewport with scrollable containers.
           </p>
         </div>
-
-        <h2 className="text-2xl font-semibold mt-6">Best Practices</h2>
-        <ul className="list-disc pl-6 space-y-2 text-lg">
-          <li>
-            Always give your viewport container a fixed or relative position with defined
-            dimensions
-          </li>
-          <li>
-            Ensure that the viewport container has <code>overflow: auto</code> or{' '}
-            <code>overflow: scroll</code> to enable scrolling
-          </li>
-          <li>
-            Use the same <code>id</code> for both the container element and the{' '}
-            <code>viewportId</code> prop of <code>NextStepViewport</code>
-          </li>
-          <li>
-            Test your tours thoroughly with different viewport sizes and scroll positions
-          </li>
-          <li>
-            Consider using different <code>side</code> values for steps within custom
-            viewports to ensure optimal positioning
-          </li>
-        </ul>
       </div>
 
       <div className="flex justify-between">
