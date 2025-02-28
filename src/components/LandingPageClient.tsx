@@ -94,6 +94,10 @@ export function LandingPageClient({ GitHubStarsComponent }: LandingPageClientPro
           <Features />
 
           {/* DEMO VIDEO */}
+
+          <h2 className="text-3xl font-semibold mb-12 text-center">
+            See NextStep in action
+          </h2>
           <video
             className="w-full rounded-lg shadow-md shadow-gray-500 max-w-3xl mx-auto"
             controls
