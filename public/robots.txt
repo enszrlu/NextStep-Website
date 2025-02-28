@@ -7,4 +7,3 @@ Host: https://nextstepjs.com
 
 # Sitemaps
 Sitemap: https://nextstepjs.com/sitemap.xml
-Sitemap: https://nextstepjs.com/server-sitemap.xml

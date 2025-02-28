@@ -52,6 +52,5 @@ module.exports = {
         allow: '/',
       },
     ],
-    additionalSitemaps: ['https://nextstepjs.com/server-sitemap.xml'],
   },
 };

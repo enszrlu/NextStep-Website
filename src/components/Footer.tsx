@@ -119,7 +119,7 @@ const Footer = () => {
           </div>
 
           {/* Comparisons column */}
-          <div className="hidden">
+          {/* <div className="hidden">
             <h3 className="text-lg font-medium mb-4">Comparisons</h3>
             <ul className="space-y-2">
               <li>
@@ -147,7 +147,7 @@ const Footer = () => {
                 </Link>
               </li>
             </ul>
-          </div>
+          </div> */}
         </div>
       </div>
     </footer>
