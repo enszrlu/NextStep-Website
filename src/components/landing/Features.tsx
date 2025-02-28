@@ -11,7 +11,7 @@ import {
   BarChart3,
 } from 'lucide-react';
 
-function Features() {
+function Features({ framework }: { framework: string }) {
   return (
     <section className="py-16">
       <h2 className="text-3xl font-semibold mb-12 text-center">Why Choose NextStep?</h2>
@@ -21,7 +21,7 @@ function Features() {
           className="md:col-span-2 row-span-2 md:row-span-1 "
           background={<div className="absolute inset-0 h-full w-full" />}
           Icon={Code2}
-          description="Built with React from the ground up for full compatibility with your React and Next.js applications."
+          description={`Built with React from the ground up for full compatibility with your ${framework} applications.`}
           href="/docs"
           cta="View documentation"
         />

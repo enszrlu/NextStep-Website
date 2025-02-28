@@ -61,7 +61,7 @@ const BentoCard = ({
       <h3 className="sm:text-base text-sm font-semibold text-neutral-700 dark:text-neutral-300">
         {name}
       </h3>
-      <p className="max-w-lg text-xs lg:text-sm text-neutral-400">{description}</p>
+      <p className="text-xs lg:text-sm text-neutral-400">{description}</p>
     </div>
 
     <div

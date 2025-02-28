@@ -21,15 +21,20 @@ import { useEffect, useState, ReactNode } from 'react';
 import NewsletterSignUp from './NewsletterSignUp';
 import FaqSection from './FaqSection';
 import Features from './landing/Features';
+import { cn } from '@/lib/utils';
 
 const BANNER_STORAGE_KEY = 'nextstep_announcement_hidden_until';
 const ONE_WEEK_IN_MS = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
 
 interface LandingPageClientProps {
   GitHubStarsComponent: ReactNode;
+  framework: 'Next.js' | 'React' | 'Remix' | 'React Router' | 'Next.js and React';
 }
 
-export function LandingPageClient({ GitHubStarsComponent }: LandingPageClientProps) {
+export function LandingPageClient({
+  GitHubStarsComponent,
+  framework = 'Next.js and React',
+}: LandingPageClientProps) {
   const { startNextStep } = useNextStep();
   const [isBannerVisible, setIsBannerVisible] = useState(false);
 
@@ -63,7 +68,7 @@ export function LandingPageClient({ GitHubStarsComponent }: LandingPageClientPro
             </span>{' '}
             {''} <br /> <br />
             <p className="text-xl max-w-2xl mx-auto font-normal">
-              A lightweight onboarding library for Next.js and React applications. <br />
+              A lightweight onboarding library for {framework} applications. <br />
               Create engaging, interactive product tours with ease.
             </p>
           </h1>
@@ -91,7 +96,7 @@ export function LandingPageClient({ GitHubStarsComponent }: LandingPageClientPro
           </div>
 
           {/* Features Section */}
-          <Features />
+          <Features framework={framework} />
 
           {/* DEMO VIDEO */}
 
@@ -179,7 +184,10 @@ export function LandingPageClient({ GitHubStarsComponent }: LandingPageClientPro
               href="https://nextjs.org"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex flex-col items-center hover:opacity-80 transition-opacity"
+              className={cn(
+                'flex flex-col items-center hover:opacity-80 transition-opacity',
+                framework.includes('Next.js') && 'opacity-100',
+              )}
             >
               <RiNextjsFill className="h-10 w-10 md:w-16 md:h-16 mb-2" />
               <span>Next.js</span>

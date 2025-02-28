@@ -38,8 +38,7 @@ function NewsletterSignUp() {
       <Card>
         <CardHeader>
           <CardDescription>
-            We are improving NextStep with CSS and React support, so you can use it with
-            any framework. <br /> <br />
+            We are improving NextStep. <br /> <br />
             Sign up to hear about our latest updates:
           </CardDescription>
         </CardHeader>
