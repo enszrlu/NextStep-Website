@@ -31,7 +31,7 @@ const Navbar = () => {
   const docsLink = getFrameworkLink('/docs');
 
   return (
-    <header className="container mx-auto py-6 flex justify-between items-center">
+    <header className="container mx-auto py-6 flex justify-between items-center px-4">
       <Link
         href={getFrameworkLink('') || '/'}
         className="text-2xl font-bold flex items-center gap-2"

@@ -148,7 +148,7 @@ export default function RootLayout({
             onStepChange={onNextStepStepChange}
             scrollToTop={false}
           >
-            <div className="min-h-screen bg-background text-foreground px-4 flex flex-col">
+            <div className="min-h-screen bg-background text-foreground flex flex-col">
               <Navbar />
               <main className="flex-1">{children}</main>
               <Footer />
