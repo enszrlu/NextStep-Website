@@ -185,8 +185,8 @@ export function LandingPageClient({
               target="_blank"
               rel="noopener noreferrer"
               className={cn(
-                'flex flex-col items-center hover:opacity-80 transition-opacity',
-                framework.includes('Next.js') && 'opacity-100',
+                'flex-col items-center hover:opacity-80 transition-opacity hidden',
+                framework.includes('Next.js') && 'flex',
               )}
             >
               <RiNextjsFill className="h-10 w-10 md:w-16 md:h-16 mb-2" />
@@ -215,44 +215,221 @@ export function LandingPageClient({
                 <CopyCode />
               </div>
             </div>
-            <li>
-              <div id="tour1-step4">
-                Wrap your app with the NextStepProvider:
-                <h3 className="text-xl font-semibold mt-4">
-                  App Router: Global `layout.tsx`
-                </h3>
-                <CodeBlock
-                  language={CodeBlocks.basicSetupShorter.language}
-                  code={CodeBlocks.basicSetupShorter.code}
-                />
-              </div>
-              <div id="tour1-step4-pagesrouter">
-                <h3 className="text-xl font-semibold mt-4">Pages Router: `_app.tsx`</h3>
-                <CodeBlock
-                  language={CodeBlocks.basicSetupShorterPagesRouter.language}
-                  code={CodeBlocks.basicSetupShorterPagesRouter.code}
-                />
-              </div>
-              <h3 className="text-xl font-semibold mt-4">
-                Troubleshooting for Pages Router
-              </h3>
-              <p className="mb-2">
-                If you encounter an error related to module exports when using the Pages
-                Router, it is likely due to a mismatch between ES modules (which use
-                `export` statements) and CommonJS modules (which use `module.exports`).
-                The `nextstepjs` package uses ES module syntax, but your Next.js project
-                might be set up to use CommonJS.
-              </p>
-              <p className="mb-2">
-                To resolve this issue, ensure that your Next.js project is configured to
-                support ES modules. You can do this by updating your `next.config.js` file
-                to include the following configuration:
-              </p>
-              <CodeBlock
-                language={CodeBlocks.pagesRouterTroubleshooting.language}
-                code={CodeBlocks.pagesRouterTroubleshooting.code}
-              />
-            </li>
+
+            {framework.includes('Next.js') && (
+              <>
+                <li>
+                  <div id="tour1-step4">
+                    Wrap your app with the NextStepProvider:
+                    <h3 className="text-xl font-semibold mt-4">
+                      App Router: Global `layout.tsx`
+                    </h3>
+                    <CodeBlock
+                      language={CodeBlocks.basicSetupShorter.language}
+                      code={CodeBlocks.basicSetupShorter.code}
+                    />
+                  </div>
+                  <div id="tour1-step4-pagesrouter">
+                    <h3 className="text-xl font-semibold mt-4">
+                      Pages Router: `_app.tsx`
+                    </h3>
+                    <CodeBlock
+                      language={CodeBlocks.basicSetupShorterPagesRouter.language}
+                      code={CodeBlocks.basicSetupShorterPagesRouter.code}
+                    />
+                  </div>
+                  <h3 className="text-xl font-semibold mt-4">
+                    Troubleshooting for Pages Router
+                  </h3>
+                  <p className="mb-2">
+                    If you encounter an error related to module exports when using the
+                    Pages Router, it is likely due to a mismatch between ES modules (which
+                    use `export` statements) and CommonJS modules (which use
+                    `module.exports`). The `nextstepjs` package uses ES module syntax, but
+                    your Next.js project might be set up to use CommonJS.
+                  </p>
+                  <p className="mb-2">
+                    To resolve this issue, ensure that your Next.js project is configured
+                    to support ES modules. You can do this by updating your
+                    `next.config.js` file to include the following configuration:
+                  </p>
+                  <CodeBlock
+                    language={CodeBlocks.pagesRouterTroubleshooting.language}
+                    code={CodeBlocks.pagesRouterTroubleshooting.code}
+                  />
+                </li>
+              </>
+            )}
+
+            {framework === 'React' && (
+              <li>
+                <div id="tour1-step4">
+                  Wrap your app with the NextStepProvider:
+                  <CodeBlock
+                    language="tsx"
+                    code={`
+import { NextStepProvider, NextStepReact } from 'nextstepjs';
+
+const steps = [
+  {
+    tour: "mainTour",
+    steps: [
+      {
+        icon: "👋",
+        title: "Welcome",
+        content: "Let's get started with NextStep!",
+        selector: "#step1",
+        side: "right",
+        showControls: true,
+        showSkip: true
+      },
+      // More steps...
+    ]
+  }
+];
+
+function App() {
+  return (
+    <NextStepProvider>
+      <NextStepReact steps={steps}>
+        <YourAppContent />
+      </NextStepReact>
+    </NextStepProvider>
+  );
+}`}
+                  />
+                </div>
+              </li>
+            )}
+
+            {framework === 'React Router' && (
+              <>
+                <li>
+                  <div id="tour1-step4">
+                    Wrap your app with the NextStepProvider and use the React Router
+                    adapter:
+                    <CodeBlock
+                      language="tsx"
+                      code={`
+//app/root.tsx
+import { NextStepProvider, NextStepReact } from 'nextstepjs';
+import { useReactRouterAdapter } from 'nextstepjs/adapters/react-router';
+import { Outlet } from 'react-router-dom';
+
+const steps = [
+  {
+    tour: "mainTour",
+    steps: [
+      {
+        icon: "👋",
+        title: "Welcome",
+        content: "Let's get started with NextStep!",
+        selector: "#step1",
+        side: "right",
+        showControls: true,
+        showSkip: true
+      },
+      // More steps...
+    ]
+  }
+];
+
+export default function App() {
+  return (
+    <NextStepProvider>
+      <NextStepReact navigationAdapter={useReactRouterAdapter} steps={steps}>
+        <Outlet />
+      </NextStepReact>
+    </NextStepProvider>
+  );
+}`}
+                    />
+                  </div>
+                </li>
+                <li>
+                  <h3 className="text-xl font-semibold mt-4">Vite Configuration</h3>
+                  <p className="mb-4 font-semibold bg-red-100 dark:bg-red-900 p-4 rounded-md">
+                    ⚠️ Important: If you're using Vite with React Router, add the
+                    following configuration to your `vite.config.ts`:
+                  </p>
+                  <CodeBlock
+                    language="tsx"
+                    code={`// vite.config.ts
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  ssr: {
+    noExternal: ['nextstepjs', 'motion']
+  }
+});`}
+                  />
+                </li>
+              </>
+            )}
+
+            {framework === 'Remix' && (
+              <>
+                <li>
+                  <div id="tour1-step4">
+                    Wrap your app with the NextStepProvider and use the Remix adapter:
+                    <CodeBlock
+                      language="tsx"
+                      code={`// root.tsx
+import { NextStepReact, NextStepProvider } from 'nextstepjs';
+import { useRemixAdapter } from 'nextstepjs/adapters/remix';
+import { Outlet } from '@remix-run/react';
+
+const steps = [
+  {
+    tour: "mainTour",
+    steps: [
+      {
+        icon: "👋",
+        title: "Welcome",
+        content: "Let's get started with NextStep!",
+        selector: "#step1",
+        side: "right",
+        showControls: true,
+        showSkip: true
+      },
+      // More steps...
+    ]
+  }
+];
+
+export default function App() {
+  return (
+    <NextStepProvider>
+      <NextStepReact navigationAdapter={useRemixAdapter} steps={steps}>
+        <Outlet />
+      </NextStepReact>
+    </NextStepProvider>
+  );
+}`}
+                    />
+                  </div>
+                </li>
+                <li>
+                  <h3 className="text-xl font-semibold mt-4">Vite Configuration</h3>
+                  <p className="mb-4 font-semibold bg-red-100 dark:bg-red-900 p-4 rounded-md">
+                    ⚠️ Important: If you're using Vite with Remix, add the following
+                    configuration to your `vite.config.ts`:
+                  </p>
+                  <CodeBlock
+                    language="tsx"
+                    code={`// vite.config.ts
+import { defineConfig } from 'vite';
+
+export default defineConfig({
+  ssr: {
+    noExternal: ['nextstepjs', 'motion']
+  }
+});`}
+                  />
+                </li>
+              </>
+            )}
+
             <li id="tour1-step5">
               Define your steps:
               <CodeBlock
@@ -273,7 +450,7 @@ export function LandingPageClient({
           </ol>
         </section>
 
-        <FaqSection limit={3} />
+        <FaqSection limit={3} framework={framework} />
       </main>
     </div>
   );
