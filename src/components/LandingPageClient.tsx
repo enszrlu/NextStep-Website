@@ -17,14 +17,18 @@ import { useNextStep } from 'nextstepjs';
 import CodeBlock from './CodeBlock';
 import CodeBlocks from '@/lib/codeBlocks';
 import AnnouncementBanner from './AnnouncementBanner';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, ReactNode } from 'react';
 import NewsletterSignUp from './NewsletterSignUp';
 import FaqSection from './FaqSection';
 
 const BANNER_STORAGE_KEY = 'nextstep_announcement_hidden_until';
 const ONE_WEEK_IN_MS = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
 
-export function LandingPage() {
+interface LandingPageClientProps {
+  GitHubStarsComponent: ReactNode;
+}
+
+export function LandingPageClient({ GitHubStarsComponent }: LandingPageClientProps) {
   const { startNextStep } = useNextStep();
   const [isBannerVisible, setIsBannerVisible] = useState(false);
 
@@ -62,6 +66,9 @@ export function LandingPage() {
               Create engaging, interactive product tours with ease.
             </p>
           </h1>
+
+          {/* GitHub Stars Section */}
+          <div className="py-6 max-w-md mx-auto">{GitHubStarsComponent}</div>
 
           <div className="space-y-4">
             <Button size="lg" onClick={() => onClickHandler('firsttour')}>
