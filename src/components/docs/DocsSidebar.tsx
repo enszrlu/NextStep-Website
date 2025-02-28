@@ -6,7 +6,9 @@ import { useParams, usePathname } from 'next/navigation';
 import { findFrameworkInPath } from './FrameworkSelect';
 import { useEffect, useState } from 'react';
 
-interface SidebarNavProps extends React.HTMLAttributes<HTMLDivElement> {}
+interface SidebarNavProps extends React.HTMLAttributes<HTMLDivElement> {
+  onClick?: () => void;
+}
 
 const sidebarItems = [
   {
@@ -83,7 +85,7 @@ const sidebarItems = [
   },
 ];
 
-export default function DocsSidebar({ className }: SidebarNavProps) {
+export default function DocsSidebar({ className, onClick }: SidebarNavProps) {
   const params = useParams();
   const pathname = usePathname();
   const [framework, setFramework] = useState(findFrameworkInPath(pathname).value);
@@ -104,6 +106,7 @@ export default function DocsSidebar({ className }: SidebarNavProps) {
             <Link
               key={item.href}
               href={`/docs/${framework}${item.href}`}
+              onClick={onClick}
               className={cn(
                 'block rounded-md px-2 py-1 text-sm hover:bg-accent hover:text-accent-foreground',
                 pathname === `/docs/${framework}${item.href}`

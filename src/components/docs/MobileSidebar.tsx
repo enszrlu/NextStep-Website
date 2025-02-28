@@ -17,7 +17,7 @@ import DocsSidebar from './DocsSidebar';
 function MobileSidebar() {
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   return (
-    <div className="sticky top-0 z-40 flex h-16 items-center justify-between md:hidden bg-background">
+    <div className="sticky top-0 z-40 flex h-16 items-center justify-between md:hidden bg-background px-4">
       <Sheet open={isSidebarOpen} onOpenChange={setIsSidebarOpen}>
         <SheetTrigger asChild>
           <Button
@@ -28,15 +28,12 @@ function MobileSidebar() {
             <span className="sr-only">Toggle Menu</span>
           </Button>
         </SheetTrigger>
-        <SheetContent side="left" className="w-full max-w-xs pt-0">
-          <SheetHeader className="border-b px-4 py-4">
-            <SheetTitle>Documentation</SheetTitle>
-          </SheetHeader>
-          <div className="px-4 py-3 space-y-4">
+        <SheetContent side="left" className="w-full max-w-xs overflow-y-auto">
+          <div className="px-2 py-3 flex gap-2">
             <VersionSelect />
             <FrameworkSelect />
           </div>
-          <DocsSidebar className="px-2" />
+          <DocsSidebar className="px-2" onClick={() => setIsSidebarOpen(false)} />
         </SheetContent>
       </Sheet>
       <div className="flex items-center gap-2">
