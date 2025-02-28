@@ -14,11 +14,11 @@ export async function GitHubStars({ className = '' }: GitHubStarsProps) {
     <div className={`flex flex-col items-center ${className}`}>
       <div className="flex items-center mb-2">
         {topStargazers.map((user, index) => (
-          <Link
-            key={user.login}
-            href={user.html_url}
-            target="_blank"
-            rel="noopener noreferrer"
+          <div
+            // key={user.login}
+            // href={user.html_url}
+            // target="_blank"
+            // rel="noopener noreferrer"
             className="transition-transform hover:scale-110"
             style={{ marginLeft: index > 0 ? '-15px' : '0' }}
           >
@@ -30,7 +30,7 @@ export async function GitHubStars({ className = '' }: GitHubStarsProps) {
               className="rounded-full border-2 border-background"
               priority
             />
-          </Link>
+          </div>
         ))}
       </div>
 
