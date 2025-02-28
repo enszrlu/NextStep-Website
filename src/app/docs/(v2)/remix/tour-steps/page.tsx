@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import TourSteps from '@/components/docs/TourSteps';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'Remix Tour Steps - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/remix/tour-steps',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/remix/tour-steps' },
 };
 
 export default function RemixTourStepsPage() {

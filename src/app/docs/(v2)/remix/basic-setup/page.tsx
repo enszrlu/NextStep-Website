@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import BasicSetup from '@/components/docs/BasicSetup';
 import { metaKeywords } from '@/app/metaKeywords';
-
+import { openGraph } from '@/app/metadata';
 export const metadata: Metadata = {
   title: 'Remix Basic Setup - NextStepjs',
   description:
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/remix/basic-setup',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/remix/basic-setup' },
 };
 
 export default function RemixBasicSetupPage() {

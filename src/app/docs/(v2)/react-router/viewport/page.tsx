@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import Viewport from '@/components/docs/Viewport';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'React Router NextStepViewport - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/react-router/viewport',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/react-router/viewport' },
 };
 
 export default function ReactRouterViewportPage() {

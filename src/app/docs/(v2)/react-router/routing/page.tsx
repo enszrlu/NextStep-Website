@@ -1,7 +1,7 @@
 import { Metadata } from 'next';
 import Routing from '@/components/docs/Routing';
 import { metaKeywords } from '@/app/metaKeywords';
-
+import { openGraph } from '@/app/metadata';
 export const metadata: Metadata = {
   title: 'React Router Routing During Tours - NextStepjs',
   description:
@@ -18,6 +18,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/react-router/routing',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/react-router/routing' },
 };
 
 export default function ReactRouterRoutingPage() {

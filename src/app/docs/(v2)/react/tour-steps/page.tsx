@@ -1,6 +1,7 @@
 import { Metadata } from 'next';
 import TourSteps from '@/components/docs/TourSteps';
 import { metaKeywords } from '@/app/metaKeywords';
+import { openGraph } from '@/app/metadata';
 
 export const metadata: Metadata = {
   title: 'React Tour Steps - NextStepjs',
@@ -18,6 +19,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://nextstepjs.com/docs/react/tour-steps',
   },
+  openGraph: { ...openGraph, url: 'https://nextstepjs.com/docs/react/tour-steps' },
 };
 
 export default function ReactTourStepsPage() {
