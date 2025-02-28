@@ -18,7 +18,7 @@ function Features() {
       <BentoGrid className="md:auto-rows-[12rem] md:grid-cols-8 max-w-5xl mx-auto gap-5">
         <BentoCard
           name="Native React"
-          className="md:col-span-2"
+          className="md:col-span-2 row-span-2 md:row-span-1 "
           background={<div className="absolute inset-0 h-full w-full" />}
           Icon={Code2}
           description="Built with React from the ground up for full compatibility with your React and Next.js applications."
@@ -47,7 +47,7 @@ function Features() {
 
         <BentoCard
           name="Fully Customizable"
-          className="md:col-span-4"
+          className="md:col-span-4 col-span-2 "
           background={<div className="absolute inset-0 h-full w-full" />}
           Icon={Paintbrush}
           description="Provide your own custom card components to completely control the appearance of your tours. Customize animations, styling, and behavior."
@@ -65,7 +65,7 @@ function Features() {
         />
         <BentoCard
           name="Cross-Page Routing"
-          className="md:col-span-3"
+          className="md:col-span-3 row-span-2 sm:row-span-1"
           background={<div className="absolute inset-0 h-full w-full" />}
           Icon={Navigation}
           description="Create tours that span multiple pages with built-in navigation adapters for Next.js, React Router, and Remix."
