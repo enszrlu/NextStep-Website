@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import UseNextStepHook from '@/components/docs/UseNextStepHook';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'Remix useNextStep Hook - NextStepjs',

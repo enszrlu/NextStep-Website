@@ -29,7 +29,7 @@
     "motion": "^11.15.0",
     "next": "14.2.11",
     "next-sitemap": "^4.2.3",
-    "nextstepjs": "^2.0.0-beta.10",
+    "nextstepjs": "^2.0.0",
     "prismjs": "^1.29.0",
     "react": "^18",
     "react-dom": "^18",

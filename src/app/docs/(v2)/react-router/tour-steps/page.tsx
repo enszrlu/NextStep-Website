@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import TourSteps from '@/components/docs/TourSteps';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'React Router Tour Steps - NextStepjs',

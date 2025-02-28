@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Callbacks from '@/components/docs/Callbacks';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'React Router Callbacks - NextStepjs',

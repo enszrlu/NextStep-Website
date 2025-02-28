@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Styling from '@/components/docs/Styling';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'React Router Styling and Customization - NextStepjs',

@@ -1,0 +1,17 @@
+export const metaKeywords = [
+  'next.js onboarding library',
+  'react onboarding',
+  'nextstepjs',
+  'onboarding wizard',
+  'product tour',
+  'interactive tutorial',
+  'next.js tutorial',
+  'next.js product demo',
+  'onboarding component',
+  'onboarding flow',
+  'onboarding guide',
+  'React onboarding library',
+  'react onboarding wizard',
+  'next.js onboarding wizard',
+  'shadcn onboarding',
+];

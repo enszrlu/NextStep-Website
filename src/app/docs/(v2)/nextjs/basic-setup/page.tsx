@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import BasicSetup from '@/components/docs/BasicSetup';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'Next.js Basic Setup - NextStepjs',

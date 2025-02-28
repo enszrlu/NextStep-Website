@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Installation from '@/components/docs/Installation';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'React Router Documentation - NextStepjs',

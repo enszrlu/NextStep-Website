@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Viewport from '@/components/docs/Viewport';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'React Router NextStepViewport - NextStepjs',

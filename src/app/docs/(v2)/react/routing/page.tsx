@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Routing from '@/components/docs/Routing';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'React Routing During Tours - NextStepjs',

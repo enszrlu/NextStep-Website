@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Localization from '@/components/docs/Localization';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'Next.js Localization - NextStepjs',

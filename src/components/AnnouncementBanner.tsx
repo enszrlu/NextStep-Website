@@ -33,7 +33,7 @@ const AnnouncementBanner: React.FC<{
           <div>
             <p className="text-center sm:text-left">
               <span className="font-bold text-center sm:text-left">New:</span> NextStep
-              v.2 beta is live! You can now use your favorite onboarding library with
+              v.2 is live! You can now use your favorite onboarding library with
               <span className="underline decoration-wavy decoration-orange-400 text-xl font-bold underline-offset-4">
                 {' '}
                 any react framework!

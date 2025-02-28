@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Animations from '@/components/docs/Animations';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'React Animations - NextStepjs',

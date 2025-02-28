@@ -17,6 +17,7 @@ import {
   onNextStepSkip,
   onNextStepStart,
 } from '@/lib/callbacks';
+import { metaKeywords } from './metaKeywords';
 
 const geistSans = localFont({
   src: './fonts/GeistVF.woff',
@@ -28,24 +29,6 @@ const geistMono = localFont({
   variable: '--font-geist-mono',
   weight: '100 900',
 });
-
-export const metaKeywords = [
-  'next.js onboarding library',
-  'react onboarding',
-  'nextstepjs',
-  'onboarding wizard',
-  'product tour',
-  'interactive tutorial',
-  'next.js tutorial',
-  'next.js product demo',
-  'onboarding component',
-  'onboarding flow',
-  'onboarding guide',
-  'React onboarding library',
-  'react onboarding wizard',
-  'next.js onboarding wizard',
-  'shadcn onboarding',
-];
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nextstepjs.com'),

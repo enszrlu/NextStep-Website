@@ -12,9 +12,6 @@ const Footer = () => {
               Documentation
             </Link>
             <div className="flex gap-3">
-              <Link href="/docs" className="text-primary hover:underline">
-                General
-              </Link>
               <Link href="/docs/nextjs" className="text-primary hover:underline">
                 Next.js
               </Link>

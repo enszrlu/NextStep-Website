@@ -1,5 +1,5 @@
 import Installation from '@/components/docs/Installation';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 import { Metadata } from 'next';
 
 export const metadata: Metadata = {

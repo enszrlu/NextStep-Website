@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Keyboard from '@/components/docs/Keyboard';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'React Router Keyboard Navigation - NextStepjs',

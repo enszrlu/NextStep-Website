@@ -1,6 +1,6 @@
 import { Metadata } from 'next';
 import Api from '@/components/docs/Api';
-import { metaKeywords } from '@/app/layout';
+import { metaKeywords } from '@/app/metaKeywords';
 
 export const metadata: Metadata = {
   title: 'Next.js API Reference - NextStepjs',
