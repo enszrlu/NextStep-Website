@@ -3,6 +3,7 @@ import localFont from 'next/font/local';
 import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { NextStepProvider, NextStep } from 'nextstepjs';
+import { ModalProvider } from '@/contexts/ModalContext';
 
 import { useNextAdapter } from 'nextstepjs/adapters/next';
 import steps from '@/lib/steps';
@@ -140,22 +141,24 @@ export default function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <NextStepProvider>
-          <NextStep
-            steps={steps}
-            onStart={onNextStepStart}
-            onComplete={onNextStepComplete}
-            onSkip={onNextStepSkip}
-            onStepChange={onNextStepStepChange}
-            scrollToTop={false}
-          >
-            <div className="min-h-screen bg-background text-foreground flex flex-col">
-              <Navbar />
-              <main className="flex-1 px-4">{children}</main>
-              <Footer />
-              <Analytics />
-              <ScrollToTop />
-            </div>
-          </NextStep>
+          <ModalProvider>
+            <NextStep
+              steps={steps}
+              onStart={onNextStepStart}
+              onComplete={onNextStepComplete}
+              onSkip={onNextStepSkip}
+              onStepChange={onNextStepStepChange}
+              scrollToTop={false}
+            >
+              <div className="min-h-screen bg-background text-foreground flex flex-col">
+                <Navbar />
+                <main className="flex-1 px-4">{children}</main>
+                <Footer />
+                <Analytics />
+                <ScrollToTop />
+              </div>
+            </NextStep>
+          </ModalProvider>
         </NextStepProvider>
         <Toaster />
       </body>

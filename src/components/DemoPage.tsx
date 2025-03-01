@@ -7,6 +7,7 @@ import FormDemo from './demo/DemoForm';
 import ProductListDemo from './demo/ProductList';
 import DashboardDemo from './demo/Dashboard';
 import { Button } from './ui/button';
+import { DemoModal } from './demo/DemoModal';
 
 import { NextStepViewport, useNextStep } from 'nextstepjs';
 
@@ -27,13 +28,13 @@ export default function DemoPage() {
           <p className="text-muted-foreground mt-2">
             Here you can see NextStep in action in a variety of scenarios.
           </p>
-          <Button
-            className="mt-4"
-            variant="default"
-            onClick={() => onClickHandler('demo')}
-          >
-            Start the Tour
-          </Button>
+          <div className="flex flex-wrap gap-4 justify-center mt-4">
+            <Button variant="default" onClick={() => onClickHandler('demo')}>
+              Start the Tour
+            </Button>
+
+            <DemoModal />
+          </div>
         </header>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">

@@ -1175,6 +1175,59 @@ const steps: Tour[] = [
       },
     ],
   },
+  {
+    tour: 'modal-tour',
+    steps: [
+      {
+        icon: <>✨</>,
+        title: 'Modal Integration',
+        content: (
+          <p>
+            NextStep works seamlessly with modals and other UI components. This tour
+            demonstrates how to target elements within a modal dialog.
+          </p>
+        ),
+        selector: '#modal-title',
+        side: 'bottom',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <>📝</>,
+        title: 'Modal Content',
+        content: (
+          <p>
+            You can highlight specific content areas within modals to draw attention to
+            important information during your onboarding process.
+          </p>
+        ),
+        selector: '#modal-content',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <>🔘</>,
+        title: 'Interactive Elements',
+        content: (
+          <p>
+            Interactive elements like buttons can also be targeted within modals, allowing
+            for comprehensive guided tours of your application's UI.
+          </p>
+        ),
+        selector: '#modal-button',
+        side: 'top',
+        showControls: true,
+        showSkip: false,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+    ],
+  },
 ];
 
 export default steps;
