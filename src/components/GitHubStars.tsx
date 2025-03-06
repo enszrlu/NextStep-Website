@@ -28,7 +28,7 @@ export async function GitHubStars({ className = '' }: GitHubStarsProps) {
               width={48}
               height={48}
               className="rounded-full border-2 border-background"
-              priority
+              unoptimized
             />
           </div>
         ))}

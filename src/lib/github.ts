@@ -16,19 +16,32 @@ interface GitHubData {
   topStargazers: GitHubStargazer[];
 }
 
+// Cache the GitHub data in memory with a timestamp
+let cachedData: { data: GitHubData; timestamp: number } | null = null;
+const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
+
 /**
  * Fetches GitHub repository data including star count and top stargazers
  * @returns Promise with star count and top stargazers with highest follower counts
  */
 export async function getGitHubData(): Promise<GitHubData> {
-  // Cache data for 1 hour (3600 seconds)
-  const revalidate = 3600;
+  // Check if we have valid cached data
+  if (cachedData && Date.now() - cachedData.timestamp < CACHE_DURATION) {
+    console.log('Github: Returning cached data');
+    return cachedData.data;
+  }
+
+  // Cache data for 24 hours (86400 seconds)
+  const revalidate = 86400;
 
   try {
+    console.log('Github: Fetching data');
     // Fetch star count
     const repoResponse = await fetch('https://api.github.com/repos/enszrlu/nextstep', {
       next: { revalidate },
     });
+
+    console.log('Github: Repo response', repoResponse);
 
     if (!repoResponse.ok) {
       throw new Error(`GitHub API error: ${repoResponse.status}`);
@@ -75,12 +88,26 @@ export async function getGitHubData(): Promise<GitHubData> {
       .sort((a, b) => b.followers - a.followers)
       .slice(0, 10);
 
-    return {
+    // Cache the result
+    const result = {
       starCount,
       topStargazers,
     };
+
+    cachedData = {
+      data: result,
+      timestamp: Date.now(),
+    };
+
+    return result;
   } catch (error) {
     console.error('Error fetching GitHub data:', error);
+
+    // Return cached data if available, even if expired
+    if (cachedData) {
+      return cachedData.data;
+    }
+
     // Return fallback data
     return {
       starCount: 0,
