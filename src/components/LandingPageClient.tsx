@@ -76,7 +76,7 @@ export function LandingPageClient({
       <AnnouncementBanner isVisible={isBannerVisible} setIsVisible={handleBannerClose} />
       <main className="container mx-auto py-12 space-y-24">
         <section className="text-center space-y-6" id="hero-section">
-          <h1 className="text-5xl font-bold">
+          <h1 className="text-5xl font-bold" id="hero-section-title">
             <span className="underline decoration-wavy decoration-orange-400 font-bold underline-offset-[12px]">
               NextStep
             </span>{' '}

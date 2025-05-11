@@ -553,16 +553,9 @@
   dependencies:
     "@radix-ui/react-compose-refs" "1.1.0"
 
-"@radix-ui/react-slot@1.1.2":
+"@radix-ui/react-slot@1.1.2", "@radix-ui/react-slot@^1.1.2":
   version "1.1.2"
   resolved "https://registry.npmjs.org/@radix-ui/react-slot/-/react-slot-1.1.2.tgz"
-  integrity sha512-YAKxaiGsSQJ38VzKH86/BPRC4rh+b1Jpa+JneA5LRE7skmLPNAyeG8kPJj/oo4STLvlrs8vkf/iYyc3A5stYCQ==
-  dependencies:
-    "@radix-ui/react-compose-refs" "1.1.1"
-
-"@radix-ui/react-slot@^1.1.2":
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/@radix-ui/react-slot/-/react-slot-1.1.2.tgz#daffff7b2bfe99ade63b5168407680b93c00e1c6"
   integrity sha512-YAKxaiGsSQJ38VzKH86/BPRC4rh+b1Jpa+JneA5LRE7skmLPNAyeG8kPJj/oo4STLvlrs8vkf/iYyc3A5stYCQ==
   dependencies:
     "@radix-ui/react-compose-refs" "1.1.1"
@@ -2669,10 +2662,10 @@ next@14.2.11:
     "@next/swc-win32-ia32-msvc" "14.2.11"
     "@next/swc-win32-x64-msvc" "14.2.11"
 
-nextstepjs@^2.0.0:
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/nextstepjs/-/nextstepjs-2.0.0.tgz#dee68dc857b8e90c9175c02344ea6148c85143f7"
-  integrity sha512-P2MeVQohXmPLMobcmUovu13lS3QiEtyo8Dkqmb8C9HUbqvQEmLi2HMZM4GLx0JrUtWYQXgbTjvxl14P8ibIzdg==
+nextstepjs@^2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/nextstepjs/-/nextstepjs-2.1.0.tgz#fa2aeddb0df58ece7b27a194f55e15ad0a2e050e"
+  integrity sha512-7CbE38iI9uRK2LeYOb2NmEHjCrM8S0Woy3SxqWw3DSYVbo+4goHK5iZ8IFuE2posvDJUY7VaYzXtUO4TCVSLvA==
 
 normalize-path@^3.0.0, normalize-path@~3.0.0:
   version "3.0.0"

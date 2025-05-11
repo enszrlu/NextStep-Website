@@ -55,7 +55,7 @@ const steps: Tour[] = [
         side: 'right',
         showControls: true,
         showSkip: true,
-        pointerPadding: 350,
+        pointerPadding: 100,
         pointerRadius: 10,
       },
       {
@@ -809,7 +809,7 @@ const steps: Tour[] = [
             Pressing "Next" will take you back to the demo page.
           </p>
         ),
-        selector: '#hero-section',
+        selector: '#hero-section-title',
         side: 'bottom',
         showControls: true,
         showSkip: true,
