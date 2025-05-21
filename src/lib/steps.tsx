@@ -1175,6 +1175,23 @@ const steps: Tour[] = [
       },
     ],
   },
+  {
+    tour: 'sidebar-demo',
+    steps: [
+      {
+        icon: <>👋</>,
+        title: 'Welcome to NextStep for Sidebar',
+        content: <>This is the first step of our sidebar demo</>,
+        selector: '#CLI',
+        side: 'right',
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+        viewportID: 'sidebar-viewport',
+      },
+    ],
+  },
 ];
 
 export default steps;
