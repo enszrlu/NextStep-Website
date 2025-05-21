@@ -25,6 +25,12 @@ const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
  * @returns Promise with star count and top stargazers with highest follower counts
  */
 export async function getGitHubData(): Promise<GitHubData> {
+  if (process.env.NODE_ENV === 'development') {
+    return {
+      starCount: 999,
+      topStargazers: [],
+    };
+  }
   // Check if we have valid cached data
   if (cachedData && Date.now() - cachedData.timestamp < CACHE_DURATION) {
     console.log('Github: Returning cached data');
