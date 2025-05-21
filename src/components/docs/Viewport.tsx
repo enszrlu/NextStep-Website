@@ -56,7 +56,7 @@ const Viewport = ({ framework = 'next.js' }: ViewportProps) => {
 
 // In your component
 <div className="scrollable-container">
-  <NextStepViewport viewportId="scrollable-viewport">
+  <NextStepViewport id="scrollable-viewport">
     <div id="target-element">
       This element will be targeted by the tour step
     </div>
@@ -122,7 +122,7 @@ const Viewport = ({ framework = 'next.js' }: ViewportProps) => {
             <CodeBlock
               language="tsx"
               code={`<div className="table-container">
-  <NextStepViewport viewportId="table-viewport">
+  <NextStepViewport id="table-viewport">
     <table>
       {/* Table content */}
       <tr>
@@ -143,7 +143,7 @@ const Viewport = ({ framework = 'next.js' }: ViewportProps) => {
             <CodeBlock
               language="tsx"
               code={`<div className="form-section">
-  <NextStepViewport viewportId="form-viewport">
+  <NextStepViewport id="form-viewport">
     <form>
       <input id="username-field" />
       <input id="password-field" />
@@ -162,7 +162,7 @@ const Viewport = ({ framework = 'next.js' }: ViewportProps) => {
             <CodeBlock
               language="tsx"
               code={`<div className="dashboard-panel">
-  <NextStepViewport viewportId="panel-viewport">
+  <NextStepViewport id="panel-viewport">
     <div id="chart-element">Chart</div>
     <div id="stats-element">Statistics</div>
   </NextStepViewport>
@@ -179,7 +179,7 @@ const Viewport = ({ framework = 'next.js' }: ViewportProps) => {
             <CodeBlock
               language="tsx"
               code={`<div className="code-editor">
-  <NextStepViewport viewportId="editor-viewport">
+  <NextStepViewport id="editor-viewport">
     <pre>
       <code>
         <span id="line-42">// This line will be highlighted</span>

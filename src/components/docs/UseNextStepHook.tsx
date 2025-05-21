@@ -72,9 +72,7 @@ function YourComponent() {
               language="tsx"
               code={`// Start a specific tour
 startNextStep('tourName');
-
-// Start the first tour in the steps array
-startNextStep();`}
+`}
             />
           </div>
 
