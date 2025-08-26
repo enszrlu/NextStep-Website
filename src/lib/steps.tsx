@@ -1212,6 +1212,7 @@ const steps: Tour[] = [
         showSkip: true,
         pointerPadding: 10,
         pointerRadius: 10,
+        blockKeyboardControl: true,
       },
       {
         icon: <>🚀</>,
@@ -1229,6 +1230,7 @@ const steps: Tour[] = [
         showSkip: true,
         pointerPadding: 10,
         pointerRadius: 10,
+        blockKeyboardControl: true,
       },
       {
         icon: <MdInstallDesktop />,
@@ -1246,6 +1248,7 @@ const steps: Tour[] = [
         showSkip: true,
         pointerPadding: 100,
         pointerRadius: 10,
+        blockKeyboardControl: true,
       },
       {
         icon: <BiBlanket />,
@@ -1263,6 +1266,7 @@ const steps: Tour[] = [
         showSkip: true,
         pointerPadding: 10,
         pointerRadius: 10,
+        blockKeyboardControl: true,
       },
     ],
   },
