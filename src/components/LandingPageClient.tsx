@@ -24,7 +24,10 @@ import Features from './landing/Features';
 import { cn } from '@/lib/utils';
 
 const BANNER_STORAGE_KEY = 'nextstep_announcement_hidden_until';
+const COFFEE_REMINDER_KEY = 'nextstep_coffee_reminder_visits';
+const COFFEE_REMINDER_LAST_SHOWN_KEY = 'nextstep_coffee_reminder_last_shown';
 const ONE_WEEK_IN_MS = 7 * 24 * 60 * 60 * 1000; // 7 days in milliseconds
+const ONE_DAY_IN_MS = 1 * 24 * 60 * 60 * 1000; // 1 day in milliseconds
 
 interface LandingPageClientProps {
   GitHubStarsComponent: ReactNode;
@@ -35,15 +38,56 @@ export function LandingPageClient({
   GitHubStarsComponent,
   framework = 'Next.js and React',
 }: LandingPageClientProps) {
-  const { startNextStep } = useNextStep();
+  const { startNextStep, isNextStepVisible } = useNextStep();
   const [isBannerVisible, setIsBannerVisible] = useState(false);
+  const [shouldShowCoffeeAnimation, setShouldShowCoffeeAnimation] = useState(false);
 
   useEffect(() => {
     // Check if banner should be shown
     const hiddenUntil = localStorage.getItem(BANNER_STORAGE_KEY);
     const shouldShow = !hiddenUntil || new Date().getTime() > parseInt(hiddenUntil);
     setIsBannerVisible(shouldShow);
+
+    // Check if coffee reminder should be shown
+    checkCoffeeReminderVisibility();
   }, []);
+
+  // Additional useEffect to hide coffee animation when nextstep becomes visible
+  useEffect(() => {
+    if (isNextStepVisible && shouldShowCoffeeAnimation) {
+      setShouldShowCoffeeAnimation(false);
+    }
+  }, [isNextStepVisible, shouldShowCoffeeAnimation]);
+
+  const checkCoffeeReminderVisibility = () => {
+    const now = new Date().getTime();
+    const visitCount = parseInt(localStorage.getItem(COFFEE_REMINDER_KEY) || '0');
+    const lastShown = parseInt(
+      localStorage.getItem(COFFEE_REMINDER_LAST_SHOWN_KEY) || '0',
+    );
+
+    // Increment visit count
+    const newVisitCount = visitCount + 1;
+    localStorage.setItem(COFFEE_REMINDER_KEY, newVisitCount.toString());
+
+    // Don't show for first-time visitors or if nextstep is visible
+    if (newVisitCount === 1 || isNextStepVisible) {
+      return;
+    }
+
+    // Show every other day (if 2 days have passed since last shown)
+    const shouldShowReminder = now - lastShown > ONE_DAY_IN_MS;
+
+    if (shouldShowReminder) {
+      setShouldShowCoffeeAnimation(true);
+      localStorage.setItem(COFFEE_REMINDER_LAST_SHOWN_KEY, now.toString());
+
+      // Hide animation after 10 seconds
+      setTimeout(() => {
+        setShouldShowCoffeeAnimation(false);
+      }, 30000);
+    }
+  };
 
   const onClickHandler = (tourName: string) => {
     setIsBannerVisible(false);
@@ -90,22 +134,40 @@ export function LandingPageClient({
           {/* GitHub Stars Section */}
           <div className="py-6 max-w-md mx-auto">{GitHubStarsComponent}</div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 flex flex-col items-center">
             <Button size="lg" onClick={() => onClickHandler('firsttour')}>
               Start NextStep Demo
             </Button>
-            <div>
+            <div
+              className={cn(
+                'relative inline-block',
+                shouldShowCoffeeAnimation && 'animate-pulse',
+              )}
+            >
               <Link href="https://buymeacoffee.com/enszrlu">
                 <Button
                   variant="outline"
                   size="lg"
-                  className="bg-yellow-400 text-gray-800 hover:bg-yellow-300 transition-colors"
+                  className={cn(
+                    'bg-yellow-400 text-gray-800 hover:bg-yellow-300 transition-all duration-300',
+                    shouldShowCoffeeAnimation &&
+                      'shadow-2xl shadow-yellow-400/50 scale-105 ring-4 ring-yellow-300/50',
+                  )}
                   id="buy-me-a-coffee-button"
+                  onClick={() => setShouldShowCoffeeAnimation(false)}
                 >
                   <Coffee className="w-5 h-5 mr-2" />
                   Buy Me a Coffee
                 </Button>
               </Link>
+              {shouldShowCoffeeAnimation && (
+                <div className="absolute top-full mt-2 left-0 right-0 flex justify-center">
+                  <div className="bg-gray-800 text-white text-sm px-3 py-2 rounded-lg shadow-lg animate-bounce whitespace-nowrap relative">
+                    <div className="absolute bottom-full left-1/2 transform -translate-x-1/2 w-0 h-0 border-l-4 border-r-4 border-b-4 border-transparent border-b-gray-800"></div>
+                    <div className="text-center">☕️ Support the developer!</div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
 
