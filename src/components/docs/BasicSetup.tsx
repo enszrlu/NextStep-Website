@@ -80,7 +80,6 @@ const BasicSetup = ({ framework = 'next.js' }: BasicSetupProps) => {
               language="tsx"
               code={`
 import { NextStepProvider, NextStepReact } from 'nextstepjs';
-import { useReactRouterAdapter } from 'nextstepjs/adapters/react-router';
 
 const steps = [
   {
@@ -110,6 +109,72 @@ function App() {
   );
 }
 `}
+            />
+
+            <h2 className="text-2xl font-semibold mt-4">Vite Configuration</h2>
+            <p className="mb-4 font-semibold bg-red-100 dark:bg-red-900 p-4 rounded-md">
+              ⚠️ Important: If you're using Vite with React, you need to configure Vite to
+              handle nextstepjs properly and mock Next.js navigation.
+            </p>
+
+            <h3 className="text-lg font-semibold mb-2">
+              1. Create Next.js Navigation Mock
+            </h3>
+            <p className="mb-3">
+              Create a mock file at <code>src/mocks/next-navigation.ts</code>:
+            </p>
+            <CodeBlock
+              language="tsx"
+              code={`// src/mocks/next-navigation.ts
+// Mock for Next.js navigation to prevent build errors with nextstepjs
+
+export const useRouter = () => {
+  return {
+    push: () => {},
+    replace: () => {},
+    prefetch: () => {},
+    back: () => {},
+    forward: () => {},
+    refresh: () => {},
+  };
+};
+
+export const usePathname = () => {
+  return '';
+};
+
+export const useSearchParams = () => {
+  return new URLSearchParams();
+};
+
+export const useParams = () => {
+  return {};
+};`}
+            />
+
+            <h3 className="text-lg font-semibold mb-2 mt-4">2. Update vite.config.ts</h3>
+            <CodeBlock
+              language="tsx"
+              code={`// vite.config.ts
+import path from 'node:path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: [
+      // Mock Next.js navigation imports that nextstepjs might try to access
+      {
+        find: 'next/navigation',
+        replacement: path.join(process.cwd(), 'src/mocks/next-navigation.ts'),
+      },
+    ]
+  },
+  ssr: {
+    noExternal: ['nextstepjs', 'motion']
+  }
+});`}
             />
           </>
         )}
@@ -156,15 +221,65 @@ export default function App() {
             />
             <h2 className="text-2xl font-semibold mt-4">Vite Configuration</h2>
             <p className="mb-4 font-semibold bg-red-100 dark:bg-red-900 p-4 rounded-md">
-              ⚠️ Important: If you're using Vite with React Router, add the following
-              configuration to your `vite.config.ts`:
+              ⚠️ Important: If you're using Vite with React Router, you need to configure
+              Vite to handle nextstepjs properly and mock Next.js navigation.
+            </p>
+
+            <h3 className="text-lg font-semibold mb-2">
+              1. Create Next.js Navigation Mock
+            </h3>
+            <p className="mb-3">
+              Create a mock file at <code>src/mocks/next-navigation.ts</code>:
             </p>
             <CodeBlock
               language="tsx"
+              code={`// src/mocks/next-navigation.ts
+// Mock for Next.js navigation to prevent build errors with nextstepjs
+// This file is used to mock Next.js imports when using nextstepjs in a Vite app
+
+export const useRouter = () => {
+  return {
+    push: () => {},
+    replace: () => {},
+    prefetch: () => {},
+    back: () => {},
+    forward: () => {},
+    refresh: () => {},
+  };
+};
+
+export const usePathname = () => {
+  return '';
+};
+
+export const useSearchParams = () => {
+  return new URLSearchParams();
+};
+
+export const useParams = () => {
+  return {};
+};`}
+            />
+
+            <h3 className="text-lg font-semibold mb-2 mt-4">2. Update vite.config.ts</h3>
+            <CodeBlock
+              language="tsx"
               code={`// vite.config.ts
+import path from 'node:path';
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: [
+      // Mock Next.js navigation imports that nextstepjs might try to access
+      {
+        find: 'next/navigation',
+        replacement: path.join(process.cwd(), 'src/mocks/next-navigation.ts'),
+      },
+    ]
+  },
   ssr: {
     noExternal: ['nextstepjs', 'motion']
   }
@@ -214,15 +329,64 @@ export default function App() {
             />
             <h2 className="text-2xl font-semibold mt-4">Vite Configuration</h2>
             <p className="mb-4 font-semibold bg-red-100 dark:bg-red-900 p-4 rounded-md">
-              ⚠️ Important: If you're using Vite with Remix, add the following
-              configuration to your `vite.config.ts`:
+              ⚠️ Important: If you're using Vite with Remix, you need to configure Vite to
+              handle nextstepjs properly and mock Next.js navigation.
+            </p>
+
+            <h3 className="text-lg font-semibold mb-2">
+              1. Create Next.js Navigation Mock
+            </h3>
+            <p className="mb-3">
+              Create a mock file at <code>src/mocks/next-navigation.ts</code>:
             </p>
             <CodeBlock
               language="tsx"
+              code={`// src/mocks/next-navigation.ts
+// Mock for Next.js navigation to prevent build errors with nextstepjs
+
+export const useRouter = () => {
+  return {
+    push: () => {},
+    replace: () => {},
+    prefetch: () => {},
+    back: () => {},
+    forward: () => {},
+    refresh: () => {},
+  };
+};
+
+export const usePathname = () => {
+  return '';
+};
+
+export const useSearchParams = () => {
+  return new URLSearchParams();
+};
+
+export const useParams = () => {
+  return {};
+};`}
+            />
+
+            <h3 className="text-lg font-semibold mb-2 mt-4">2. Update vite.config.ts</h3>
+            <CodeBlock
+              language="tsx"
               code={`// vite.config.ts
+import path from 'node:path';
 import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 
 export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: [
+      // Mock Next.js navigation imports that nextstepjs might try to access
+      {
+        find: 'next/navigation',
+        replacement: path.join(process.cwd(), 'src/mocks/next-navigation.ts'),
+      },
+    ]
+  },
   ssr: {
     noExternal: ['nextstepjs', 'motion']
   }
