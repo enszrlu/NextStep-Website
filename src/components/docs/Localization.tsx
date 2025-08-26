@@ -143,9 +143,9 @@ function MyApp() {
             <FaArrowLeft className="w-4 h-4 mr-2" /> Keyboard Navigation
           </Button>
         </Link>
-        <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/styling`}>
+        <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/validation`}>
           <Button variant="default">
-            Styling <FaArrowRight className="w-4 h-4 ml-2" />
+            Validation <FaArrowRight className="w-4 h-4 ml-2" />
           </Button>
         </Link>
       </div>

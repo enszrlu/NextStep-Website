@@ -55,6 +55,10 @@ const sidebarItems = [
         title: 'Localization',
         href: '/localization',
       },
+      {
+        title: 'Validation',
+        href: '/validation',
+      },
     ],
   },
   {

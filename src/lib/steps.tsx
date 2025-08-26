@@ -1192,6 +1192,80 @@ const steps: Tour[] = [
       },
     ],
   },
+  {
+    tour: 'validation-demo',
+    steps: [
+      {
+        icon: <>👋</>,
+        title: 'Welcome to NextStep Validation Demo',
+        content: (
+          <p>
+            This is the first step of our validation demo. Click next to navigate to the
+            second step.
+            <br />
+            <br />
+            First step's validation will run an async function for 1 second then return
+            true.
+          </p>
+        ),
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <>🚀</>,
+        title: 'Validate Minimum Window Width',
+        content: (
+          <p>
+            Second step's validation will check if the window width is larger than 768.
+            <br />
+            <br />
+            If it is not, tour will not continue to the next step. Change window width to
+            see the effect.
+          </p>
+        ),
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+      {
+        icon: <MdInstallDesktop />,
+        title: 'Validate Maximum Window Width',
+        content: (
+          <p>
+            Second step's validation will check if the window width is less than 768.
+            <br />
+            <br />
+            If it is not, tour will not continue to the next step. Change window width to
+            see the effect.
+          </p>
+        ),
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 100,
+        pointerRadius: 10,
+      },
+      {
+        icon: <BiBlanket />,
+        title: 'Your validations, your rules',
+        content: (
+          <p>
+            You can create your own validation logic. So options are limitless.
+            <br />
+            <br />
+            You can check authentication, user permissions, form fill out, actions, so
+            many more!
+          </p>
+        ),
+        showControls: true,
+        showSkip: true,
+        pointerPadding: 10,
+        pointerRadius: 10,
+      },
+    ],
+  },
 ];
 
 export default steps;

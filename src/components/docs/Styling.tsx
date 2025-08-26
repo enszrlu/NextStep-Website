@@ -369,9 +369,9 @@ export default ShadcnCustomCard;`}
       </div>
 
       <div className="flex justify-between">
-        <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/localization`}>
+        <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/validation`}>
           <Button variant="outline">
-            <FaArrowLeft className="w-4 h-4 mr-2" /> Localization
+            <FaArrowLeft className="w-4 h-4 mr-2" /> Validation
           </Button>
         </Link>
         <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/dark-mode`}>
