@@ -153,6 +153,14 @@ const Api = ({ framework = 'next.js' }: ApiProps) => {
                   it is in view, default is false
                 </TableCell>
               </TableRow>
+              <TableRow>
+                <TableCell>overlayZIndex</TableCell>
+                <TableCell>number</TableCell>
+                <TableCell>
+                  Optional. Base z-index for overlay elements. Useful for compatibility
+                  with UI libraries like MUI that use high z-index values (default: 997)
+                </TableCell>
+              </TableRow>
             </TableBody>
           </Table>
         </section>
@@ -265,6 +273,14 @@ const Api = ({ framework = 'next.js' }: ApiProps) => {
                 <TableCell>
                   Optional. The id of the viewport to target. Used with NextStepViewport
                   component.
+                </TableCell>
+              </TableRow>
+              <TableRow>
+                <TableCell>disableInteraction</TableCell>
+                <TableCell>boolean</TableCell>
+                <TableCell>
+                  Optional. If true, prevents any interaction (clicks, hover, etc.) with
+                  the highlighted element. Useful for "view-only" tour steps.
                 </TableCell>
               </TableRow>
             </TableBody>

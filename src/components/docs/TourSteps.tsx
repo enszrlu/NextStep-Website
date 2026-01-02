@@ -175,6 +175,16 @@ const TourSteps = ({ framework = 'next.js' }: TourStepsProps) => {
                 provided, the document body will be used.
               </TableCell>
             </TableRow>
+            <TableRow>
+              <TableCell className="font-medium">disableInteraction</TableCell>
+              <TableCell>
+                <code>boolean</code>
+              </TableCell>
+              <TableCell>
+                Optional. If true, prevents any interaction (clicks, hover, etc.) with the
+                highlighted element. Useful for "view-only" tour steps.
+              </TableCell>
+            </TableRow>
           </TableBody>
         </Table>
 

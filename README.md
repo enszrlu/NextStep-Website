@@ -285,6 +285,7 @@ const steps: Tour[] = [
 | `nextRoute`            | `string`                                 | Optional. The route to navigate to when moving to the next step.                                                                                    |
 | `prevRoute`            | `string`                                 | Optional. The route to navigate to when moving to the previous step.                                                                                |
 | `viewportID`           | `string`                                 | Optional. The id of the viewport element to use for positioning. If not provided, the document body will be used.                                   |
+| `disableInteraction`   | `boolean`                                | Optional. If true, prevents any interaction (clicks, hover, etc.) with the highlighted element. Useful for "view-only" tour steps.                  |
 
 > **Note** `NextStep` handles card cutoff from screen sides. If side is right or left and card is out of the viewport, side would be switched to `top`. If side is top or bottom and card is out of the viewport, then side would be flipped between top and bottom.
 
@@ -374,24 +375,25 @@ Here's an example of how to use `NextStepViewport`:
 
 ### NextStep & NextStepReact Props
 
-| Property              | Type                                               | Description                                                                                                   |
-| --------------------- | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------- |
-| `children`            | `React.ReactNode`                                  | Your website or application content                                                                           |
-| `steps`               | `Array[]`                                          | Array of Tour objects defining each step of the onboarding                                                    |
-| `navigationAdapter`   | `NavigationAdapter`                                | Optional. Router adapter for navigation (defaults to Next.js on NextStep and window adapter on NextStepReact) |
-| `showNextStep`        | `boolean`                                          | Controls visibility of the onboarding overlay                                                                 |
-| `shadowRgb`           | `string`                                           | RGB values for the shadow color surrounding the target area                                                   |
-| `shadowOpacity`       | `string`                                           | Opacity value for the shadow surrounding the target area                                                      |
-| `cardComponent`       | `React.ComponentType`                              | Custom card component to replace the default one                                                              |
-| `cardTransition`      | `Transition`                                       | Motion transition object for step transitions                                                                 |
-| `onStart`             | `(tourName: string \| null) => void`               | Callback function triggered when the tour starts                                                              |
-| `onStepChange`        | `(step: number, tourName: string \| null) => void` | Callback function triggered when the step changes                                                             |
-| `onComplete`          | `(tourName: string \| null) => void`               | Callback function triggered when the tour completes                                                           |
-| `onSkip`              | `(step: number, tourName: string \| null) => void` | Callback function triggered when the user skips the tour                                                      |
-| `clickThroughOverlay` | `boolean`                                          | Optional. If true, overlay background is clickable, default is false                                          |
-| `disableConsoleLogs`  | `boolean`                                          | Optional. If true, console logs are disabled, default is false                                                |
-| `scrollToTop`         | `boolean`                                          | Optional. If true, the page will scroll to the top when the tour ends, default is true                        |
-| `noInViewScroll`      | `boolean`                                          | Optional. If true, the page will not scroll to the target element when it is in view, default is false        |
+| Property              | Type                                               | Description                                                                                                     |
+| --------------------- | -------------------------------------------------- | --------------------------------------------------------------------------------------------------------------- |
+| `children`            | `React.ReactNode`                                  | Your website or application content                                                                             |
+| `steps`               | `Array[]`                                          | Array of Tour objects defining each step of the onboarding                                                      |
+| `navigationAdapter`   | `NavigationAdapter`                                | Optional. Router adapter for navigation (defaults to Next.js on NextStep and window adapter on NextStepReact)   |
+| `showNextStep`        | `boolean`                                          | Controls visibility of the onboarding overlay                                                                   |
+| `shadowRgb`           | `string`                                           | RGB values for the shadow color surrounding the target area                                                     |
+| `shadowOpacity`       | `string`                                           | Opacity value for the shadow surrounding the target area                                                        |
+| `cardComponent`       | `React.ComponentType`                              | Custom card component to replace the default one                                                                |
+| `cardTransition`      | `Transition`                                       | Motion transition object for step transitions                                                                   |
+| `onStart`             | `(tourName: string \| null) => void`               | Callback function triggered when the tour starts                                                                |
+| `onStepChange`        | `(step: number, tourName: string \| null) => void` | Callback function triggered when the step changes                                                               |
+| `onComplete`          | `(tourName: string \| null) => void`               | Callback function triggered when the tour completes                                                             |
+| `onSkip`              | `(step: number, tourName: string \| null) => void` | Callback function triggered when the user skips the tour                                                        |
+| `clickThroughOverlay` | `boolean`                                          | Optional. If true, overlay background is clickable, default is false                                            |
+| `disableConsoleLogs`  | `boolean`                                          | Optional. If true, console logs are disabled, default is false                                                  |
+| `scrollToTop`         | `boolean`                                          | Optional. If true, the page will scroll to the top when the tour ends, default is true                          |
+| `noInViewScroll`      | `boolean`                                          | Optional. If true, the page will not scroll to the target element when it is in view, default is false          |
+| `overlayZIndex`       | `number`                                           | Optional. Base z-index for overlay elements. Useful for compatibility with UI libraries like MUI (default: 997) |
 
 ```tsx
 <NextStep
