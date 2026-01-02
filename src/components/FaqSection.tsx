@@ -56,6 +56,10 @@ export function FaqSection({ limit, framework = 'Next.js and React' }: FaqSectio
         question: 'Where can I find the documentation for NextStepjs?',
         answer: `Comprehensive documentation, including installation guides, API references, and examples, is available on the NextStepjs website.`,
       },
+      {
+        question: `I'm getting "Could not resolve next/navigation" error in my Vite project. How do I fix it?`,
+        answer: `This error occurs because nextstepjs internally references Next.js navigation. For Vite projects (React, React Router, or Remix), you need to create a mock file for next/navigation and configure Vite to use it as an alias. Check the Basic Setup documentation for your framework for detailed instructions on creating the mock file and updating your vite.config.ts.`,
+      },
     ];
   };
 

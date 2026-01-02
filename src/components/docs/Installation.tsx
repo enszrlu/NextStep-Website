@@ -84,6 +84,27 @@ const Installation = ({ framework = 'next.js' }: { framework: string }) => {
           code={CodeBlocks.installPackageV2.code}
         />
       </div>
+      {framework !== 'next.js' && (
+        <div className="p-4 bg-amber-100 dark:bg-amber-900/50 border border-amber-300 dark:border-amber-700 rounded-md">
+          <p className="font-semibold text-amber-800 dark:text-amber-200">
+            ⚠️ Using Vite?
+          </p>
+          <p className="text-amber-700 dark:text-amber-300 mt-1">
+            If you&apos;re using Vite, you&apos;ll need additional configuration to mock{' '}
+            <code className="bg-amber-200 dark:bg-amber-800 px-1 rounded">
+              next/navigation
+            </code>
+            . See the{' '}
+            <Link
+              href={`/docs/${framework.replace('.', '').replace(' ', '-')}/basic-setup`}
+              className="underline font-medium"
+            >
+              Basic Setup
+            </Link>{' '}
+            page for detailed instructions.
+          </p>
+        </div>
+      )}
       <div className="flex self-end">
         <Link href={`/docs/${framework.replace('.', '').replace(' ', '-')}/basic-setup`}>
           <Button variant="default">

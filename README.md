@@ -92,12 +92,58 @@ export default function App() {
 }
 ```
 
-##### Important Configuration for Vite (React Router or Remix)
+##### Important Configuration for Vite (React, React Router, or Remix)
 
-If you're using Vite with React Router or Remix, add the following configuration to your `vite.config.ts`:
+If you're using Vite with React, React Router, or Remix, you need to configure Vite to mock the `next/navigation` module that nextstepjs uses internally.
+
+**Step 1:** Create a mock file at `src/mocks/next-navigation.ts`:
 
 ```ts
+// src/mocks/next-navigation.ts
+// Mock for Next.js navigation to prevent build errors with nextstepjs
+
+export const useRouter = () => {
+  return {
+    push: () => {},
+    replace: () => {},
+    prefetch: () => {},
+    back: () => {},
+    forward: () => {},
+    refresh: () => {},
+  };
+};
+
+export const usePathname = () => {
+  return '';
+};
+
+export const useSearchParams = () => {
+  return new URLSearchParams();
+};
+
+export const useParams = () => {
+  return {};
+};
+```
+
+**Step 2:** Update your `vite.config.ts`:
+
+```ts
+import path from 'node:path';
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
 export default defineConfig({
+  plugins: [react()],
+  resolve: {
+    alias: [
+      // Mock Next.js navigation imports that nextstepjs might try to access
+      {
+        find: 'next/navigation',
+        replacement: path.join(process.cwd(), 'src/mocks/next-navigation.ts'),
+      },
+    ],
+  },
   ssr: {
     noExternal: ['nextstepjs', 'motion'],
   },
