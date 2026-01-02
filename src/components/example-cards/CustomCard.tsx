@@ -1,3 +1,5 @@
+'use client';
+
 import { CardComponentProps } from 'nextstepjs';
 
 const CustomCard: React.FC<CardComponentProps> = ({
