@@ -443,6 +443,29 @@ NextStep is a lightweight library and does not come with localization support. H
 
 Contributions are welcome! Please feel free to submit a Pull Request.
 
+## Deploy to Cloudflare Pages (Static)
+
+This website is configured for static export with Next.js:
+
+- `next.config.mjs` uses `output: 'export'`
+- `npm run build` (or `yarn build`) generates static files in `out/`
+- Sitemaps and `robots.txt` are generated directly into `out/`
+
+### Cloudflare Pages project settings
+
+- Framework preset: `None`
+- Build command: `yarn build`
+- Build output directory: `out`
+- Node.js version: `20`
+
+### Recommended deployment flow
+
+1. Push to `main`.
+2. Connect this repository to Cloudflare Pages.
+3. Set the build command and output directory exactly as above.
+4. Add your custom domain in Cloudflare Pages and enable HTTPS.
+5. Optionally enable Cloudflare Web Analytics from the Cloudflare dashboard.
+
 ## License
 
 This project is licensed under the MIT License.

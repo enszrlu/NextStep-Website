@@ -1,6 +1,7 @@
 /** @type {import("next-sitemap").IConfig} */
 module.exports = {
   siteUrl: 'https://nextstepjs.com',
+  outDir: 'out',
   generateRobotsTxt: true,
   generateIndexSitemap: true,
   changefreq: 'weekly',

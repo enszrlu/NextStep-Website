@@ -18,7 +18,6 @@ import CodeBlock from './CodeBlock';
 import CodeBlocks from '@/lib/codeBlocks';
 import AnnouncementBanner from './AnnouncementBanner';
 import { useEffect, useState, ReactNode } from 'react';
-import NewsletterSignUp from './NewsletterSignUp';
 import FaqSection from './FaqSection';
 import Features from './landing/Features';
 import { cn } from '@/lib/utils';
@@ -279,8 +278,6 @@ export function LandingPageClient({
             </Link>
           </div>
         </section>
-
-        <NewsletterSignUp />
 
         <section className="max-w-3xl mx-auto">
           <h2 className="text-3xl font-semibold mb-6 text-center">Quick Start Guide</h2>

@@ -1,5 +1,3 @@
-'use server';
-
 interface GitHubUser {
   login: string;
   avatar_url: string;

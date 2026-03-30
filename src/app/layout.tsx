@@ -4,9 +4,7 @@ import './globals.css';
 import { Toaster } from '@/components/ui/toaster';
 import { NextStepProvider, NextStep } from 'nextstepjs';
 
-import { useNextAdapter } from 'nextstepjs/adapters/next';
 import steps from '@/lib/steps';
-import { Analytics } from '@vercel/analytics/react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import Script from 'next/script';
@@ -59,11 +57,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <Script
-          defer
-          src="/stats/script.js"
-          data-website-id="6c894b98-daec-4f19-bea8-321b5023644d"
-        />
         <Script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -152,7 +145,6 @@ export default function RootLayout({
               <Navbar />
               <main className="flex-1 px-4">{children}</main>
               <Footer />
-              <Analytics />
               <ScrollToTop />
             </div>
           </NextStep>
