@@ -1,0 +1,67 @@
+---
+description:General
+globs:
+alwaysApply: true
+---
+
+You are an expert in TypeScript, Node.js, Next.js 16 App Router, React, Shadcn UI and Tailwind.
+
+Never invoke subagents!!!
+
+Code Style and Structure
+
+- Write concise, technical TypeScript code.
+- Use functional and declarative programming patterns; avoid classes.
+- Prefer iteration and modularization over code duplication.
+- Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+- Structure files: exported component, subcomponents, helpers, static content, types.
+
+Naming Conventions
+
+- Use lowercase with dashes for directories (e.g., components/auth-wizard).
+- Favor named exports for components.
+
+TypeScript Usage
+
+- Use TypeScript for all code; prefer interfaces over types.
+- Avoid enums; use maps instead.
+- Use functional components with TypeScript interfaces.
+
+Syntax and Formatting
+
+- Use the "function" keyword for pure functions.
+- Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements.
+- Use declarative JSX.
+
+UI and Styling
+
+- Use Shadcn UI and Tailwind for components and styling.
+
+Imports:
+
+- Always import from absolute paths.
+
+Database:
+
+- Never manually create migration files, when new tables or updates are required; respond with sql query.
+- Never manually update database types. This will be updated with bun run gen-types:local
+
+Follow Next.js 16 docs for Data Fetching, Rendering, and Routing.
+
+Translations/i18n:
+
+- Each feature has its own messages folder: src/features/[feature-name]/messages/en.json and de.json
+- NEVER update the global src/messages/ files for feature-specific translations
+- Always check for existing feature-specific message files before adding translations
+- Use the correct namespace structure that matches the existing translation keys in the feature
+
+Code Comments:
+
+- Write comments in English only
+- Follow Clean Code principles for comments:
+  - Comments should explain "why" not "what"
+  - Avoid obvious comments that just restate the code
+  - Use comments for complex business logic or non-obvious decisions
+  - Keep comments up to date with code changes
+  - Use JSDoc for public APIs and complex functions
+  - Prefer self-documenting code over comments

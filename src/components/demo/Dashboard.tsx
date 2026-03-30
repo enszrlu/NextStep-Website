@@ -29,13 +29,6 @@ import {
 } from '@/components/ui/card';
 import { ChartContainer, ChartTooltip, ChartTooltipContent } from '@/components/ui/chart';
 import { Separator } from '@/components/ui/separator';
-import {
-  ReactElement,
-  JSXElementConstructor,
-  ReactNode,
-  ReactPortal,
-  AwaitedReactNode,
-} from 'react';
 
 export const description = 'A collection of health charts.';
 
@@ -812,23 +805,11 @@ export function DashboardDemo() {
                 <ChartTooltip
                   cursor={false}
                   content={<ChartTooltipContent hideLabel />}
-                  formatter={(
-                    value:
-                      | string
-                      | number
-                      | bigint
-                      | boolean
-                      | ReactElement<any, string | JSXElementConstructor<any>>
-                      | Iterable<ReactNode>
-                      | ReactPortal
-                      | Promise<AwaitedReactNode>
-                      | null
-                      | undefined,
-                  ) => (
+                  formatter={(value: unknown) => (
                     <div className="flex min-w-[120px] items-center text-xs text-muted-foreground">
                       Time in bed
                       <div className="ml-auto flex items-baseline gap-0.5 font-mono font-medium tabular-nums text-foreground">
-                        {value}
+                        {String(value ?? '')}
                         <span className="font-normal text-muted-foreground">hr</span>
                       </div>
                     </div>
