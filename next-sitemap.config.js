@@ -6,6 +6,8 @@ module.exports = {
   generateIndexSitemap: true,
   changefreq: 'weekly',
   priority: 0.7,
+  // Keep the beta demo/E2E route out of the sitemap.
+  exclude: ['/beta', '/beta/*'],
   // Set higher priority for homepage and important pages
   transform: async (config, path) => {
     // Homepage gets highest priority
@@ -51,6 +53,7 @@ module.exports = {
       {
         userAgent: '*',
         allow: '/',
+        disallow: ['/beta'],
       },
     ],
   },
