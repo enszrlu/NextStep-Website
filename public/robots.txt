@@ -1,6 +1,7 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /beta
 
 # Host
 Host: https://nextstepjs.com
