@@ -49,17 +49,7 @@ const Styling = ({ framework = 'next.js' }: StylingProps) => {
           code={`'use client';
 
 import React from 'react';
-import { Step } from 'nextstepjs';
-
-interface CustomCardProps {
-  step: Step;
-  currentStep: number;
-  totalSteps: number;
-  nextStep: () => void;
-  prevStep: () => void;
-  skipTour: () => void;
-  arrow: React.ReactNode;
-}
+import { CardComponentProps } from 'nextstepjs';
 
 const CustomCard = ({
   step,
@@ -69,7 +59,7 @@ const CustomCard = ({
   prevStep,
   skipTour,
   arrow,
-}: CustomCardProps) => {
+}: CardComponentProps) => {
   return (
     <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 max-w-md">
       <div className="flex items-center gap-3 mb-4">
@@ -180,19 +170,9 @@ function MyApp({ Component, pageProps }) {
           code={`'use client';
 
 import React from 'react';
-import { Step } from 'nextstepjs';
+import { CardComponentProps } from 'nextstepjs';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-
-interface ShadcnCustomCardProps {
-  step: Step;
-  currentStep: number;
-  totalSteps: number;
-  nextStep: () => void;
-  prevStep: () => void;
-  skipTour: () => void;
-  arrow: React.ReactNode;
-}
 
 const ShadcnCustomCard = ({
   step,
@@ -202,7 +182,7 @@ const ShadcnCustomCard = ({
   prevStep,
   skipTour,
   arrow,
-}: ShadcnCustomCardProps) => {
+}: CardComponentProps) => {
   return (
     <Card className="w-[350px]">
       <CardHeader>
