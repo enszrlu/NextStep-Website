@@ -18,6 +18,25 @@ interface GitHubData {
 let cachedData: { data: GitHubData; timestamp: number } | null = null;
 const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
+// Share a single in-flight request so concurrent page renders (e.g. during
+// `next build`) don't each hit the GitHub API.
+let inFlight: Promise<GitHubData> | null = null;
+
+// Cache data for 24 hours (86400 seconds)
+const revalidate = 86400;
+
+// Unauthenticated requests are limited to 60/hour per IP, which is exhausted
+// quickly on shared CI/build infrastructure. Provide GITHUB_TOKEN (a
+// fine-grained token with public repo read access is enough) to raise the
+// limit to 5000/hour.
+const githubHeaders = (): HeadersInit | undefined =>
+  process.env.GITHUB_TOKEN
+    ? { Authorization: `Bearer ${process.env.GITHUB_TOKEN}` }
+    : undefined;
+
+const githubFetch = (url: string) =>
+  fetch(url, { headers: githubHeaders(), next: { revalidate } });
+
 /**
  * Fetches GitHub repository data including star count and top stargazers
  * @returns Promise with star count and top stargazers with highest follower counts
@@ -31,46 +50,55 @@ export async function getGitHubData(): Promise<GitHubData> {
   }
   // Check if we have valid cached data
   if (cachedData && Date.now() - cachedData.timestamp < CACHE_DURATION) {
-    console.log('Github: Returning cached data');
     return cachedData.data;
   }
 
-  // Cache data for 24 hours (86400 seconds)
-  const revalidate = 86400;
+  if (!inFlight) {
+    inFlight = fetchGitHubData().finally(() => {
+      inFlight = null;
+    });
+  }
+  return inFlight;
+}
 
+async function fetchGitHubData(): Promise<GitHubData> {
   try {
     console.log('Github: Fetching data');
     // Fetch star count
-    const repoResponse = await fetch('https://api.github.com/repos/enszrlu/nextstep', {
-      next: { revalidate },
-    });
-
-    console.log('Github: Repo response', repoResponse);
+    const repoResponse = await githubFetch(
+      'https://api.github.com/repos/enszrlu/nextstep',
+    );
 
     if (!repoResponse.ok) {
-      throw new Error(`GitHub API error: ${repoResponse.status}`);
+      throw new Error(
+        `GitHub API error: ${repoResponse.status} ${repoResponse.statusText}`,
+      );
     }
 
     const repoData = await repoResponse.json();
     const starCount = repoData.stargazers_count;
 
     // Fetch stargazers
-    const stargazersResponse = await fetch(
-      'https://api.github.com/repos/enszrlu/nextstep/stargazers',
-      { next: { revalidate } },
+    const stargazersResponse = await githubFetch(
+      'https://api.github.com/repos/enszrlu/nextstep/stargazers?per_page=30',
     );
 
     if (!stargazersResponse.ok) {
-      throw new Error(`GitHub API error: ${stargazersResponse.status}`);
+      throw new Error(
+        `GitHub API error: ${stargazersResponse.status} ${stargazersResponse.statusText}`,
+      );
     }
 
-    const stargazers = await stargazersResponse.json();
+    const stargazers: GitHubUser[] = await stargazersResponse.json();
 
-    // Get follower counts for each stargazer (limited to first 5 to avoid rate limits)
-    const topStargazersPromises = stargazers.map(async (user: GitHubUser) => {
-      const userResponse = await fetch(`https://api.github.com/users/${user.login}`, {
-        next: { revalidate },
-      });
+    // Follower lookups cost one request per user. Without a token the whole
+    // budget is 60/hour, so only enrich when authenticated and cap the lookups.
+    const usersToEnrich = process.env.GITHUB_TOKEN ? stargazers.slice(0, 30) : [];
+
+    const topStargazersPromises = usersToEnrich.map(async (user: GitHubUser) => {
+      const userResponse = await githubFetch(
+        `https://api.github.com/users/${user.login}`,
+      );
 
       if (!userResponse.ok) {
         return { ...user, followers: 0 };
@@ -87,7 +115,7 @@ export async function getGitHubData(): Promise<GitHubData> {
 
     const stargazersWithFollowers = await Promise.all(topStargazersPromises);
 
-    // Sort by follower count and take top 5
+    // Sort by follower count and take the top ones
     const topStargazers = stargazersWithFollowers
       .sort((a, b) => b.followers - a.followers)
       .slice(0, 10);
@@ -105,7 +133,10 @@ export async function getGitHubData(): Promise<GitHubData> {
 
     return result;
   } catch (error) {
-    console.error('Error fetching GitHub data:', error);
+    console.error(
+      'Error fetching GitHub data:',
+      error instanceof Error ? error.message : error,
+    );
 
     // Return cached data if available, even if expired
     if (cachedData) {
