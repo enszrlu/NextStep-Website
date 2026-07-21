@@ -1,24 +1,114 @@
+'use client';
+
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Star } from 'lucide-react';
-import { getGitHubData } from '@/lib/github';
+
+interface GitHubUser {
+  login: string;
+  avatar_url: string;
+  html_url: string;
+}
+
+interface GitHubStats {
+  starCount: number;
+  stargazers: GitHubUser[];
+}
 
 interface GitHubStarsProps {
   className?: string;
 }
 
-export async function GitHubStars({ className = '' }: GitHubStarsProps) {
-  const { starCount, topStargazers } = await getGitHubData();
+const REPO = 'enszrlu/nextstep';
+// Shown until live data arrives (and if the API is unreachable).
+const FALLBACK_STAR_COUNT = 1020;
+const CACHE_KEY = 'nextstep-github-stats-v1';
+const CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours
+
+// The GitHub API is fetched from the visitor's browser: their own IP gets a
+// fresh 60 req/hour unauthenticated budget, unlike shared build/CI egress IPs
+// which GitHub blocks. Two requests per visitor per day, cached in
+// localStorage.
+async function fetchGitHubStats(): Promise<GitHubStats> {
+  const [repoResponse, stargazersResponse] = await Promise.all([
+    fetch(`https://api.github.com/repos/${REPO}`),
+    fetch(`https://api.github.com/repos/${REPO}/stargazers?per_page=10`),
+  ]);
+
+  if (!repoResponse.ok) {
+    throw new Error(`GitHub API error: ${repoResponse.status}`);
+  }
+
+  const repoData = await repoResponse.json();
+  const stargazers: GitHubUser[] = stargazersResponse.ok
+    ? await stargazersResponse.json()
+    : [];
+
+  return {
+    starCount: repoData.stargazers_count,
+    stargazers: stargazers.map(({ login, avatar_url, html_url }) => ({
+      login,
+      avatar_url,
+      html_url,
+    })),
+  };
+}
+
+function readCache(): GitHubStats | null {
+  try {
+    const raw = localStorage.getItem(CACHE_KEY);
+    if (!raw) return null;
+    const { data, timestamp } = JSON.parse(raw);
+    if (Date.now() - timestamp > CACHE_DURATION) return null;
+    return data;
+  } catch {
+    return null;
+  }
+}
+
+function writeCache(data: GitHubStats) {
+  try {
+    localStorage.setItem(CACHE_KEY, JSON.stringify({ data, timestamp: Date.now() }));
+  } catch {
+    // Storage full or unavailable — live without the cache.
+  }
+}
+
+export function GitHubStars({ className = '' }: GitHubStarsProps) {
+  const [stats, setStats] = useState<GitHubStats | null>(null);
+
+  useEffect(() => {
+    const cached = readCache();
+    if (cached) {
+      setStats(cached);
+      return;
+    }
+
+    let cancelled = false;
+    fetchGitHubStats()
+      .then((data) => {
+        if (cancelled) return;
+        setStats(data);
+        writeCache(data);
+      })
+      .catch(() => {
+        // Leave the fallback count in place.
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const starCount = stats?.starCount ?? FALLBACK_STAR_COUNT;
+  const stargazers = stats?.stargazers ?? [];
 
   return (
     <div className={`flex flex-col items-center ${className}`}>
       <div className="flex items-center mb-2">
-        {topStargazers.map((user, index) => (
+        {stargazers.map((user, index) => (
           <div
-            // key={user.login}
-            // href={user.html_url}
-            // target="_blank"
-            // rel="noopener noreferrer"
+            key={user.login}
             className="transition-transform hover:scale-110"
             style={{ marginLeft: index > 0 ? '-15px' : '0' }}
           >
